@@ -8,6 +8,8 @@
     class Model_professor{
         static function teste(){
             session_start();
+            $usuario = $_SESSION["login"];
+
             
         }
     }
