@@ -69,8 +69,8 @@
             $aluno = new Alunos();
             $aluno->setAlunos_id($al["alunos_id"]);
             $aluno->setUsuarios_id($al["usuarios_id"]);
-            $aluno->setTurmas_id($al["turmas_id"]);
-            $aluno->setConteudos_id($al["conteudos_id"]);
+            $aluno->setTurmas($al["turmas"]);
+            $aluno->setConteudo_id($al["conteudos_id"]);
             $aluno->setAlunos_del($al["alunos_del"]);
             
             return $alunos;

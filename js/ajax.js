@@ -18,7 +18,7 @@ function faz_login(){
 		}
 		else{
 			msg('success', '<b> Sucesso </b> ao efetuar o Login.');
-			setTimeout('window.location="MODEL/teste.php"', 5000);
+			setTimeout('window.location="../paginas/teste.php"', 5000);
 		}
 	  },
 	  error: function(XMLHttpRequest, textStatus, errorThrown) { 
