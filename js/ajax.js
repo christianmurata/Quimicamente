@@ -18,7 +18,11 @@ function faz_login(){
 		}
 		else{
 			msg('success', '<b> Sucesso </b> ao efetuar o Login.');
-			setTimeout('window.location="../paginas/teste.php"', 5000);
+			if(response.indexOf("professor"))
+				setTimeout('window.location="../paginas/professor.php"', 5000);
+			else
+				setTimeout('window.location="../paginas/teste.php"', 5000);
+
 		}
 	  },
 	  error: function(XMLHttpRequest, textStatus, errorThrown) { 
