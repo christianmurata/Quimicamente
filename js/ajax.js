@@ -4,25 +4,21 @@ function faz_login(){
 	var senha = $("#txtSenha").val();
 	$.ajax({
 	  type: 'post',
-	  url: 'CONTROL.php',
+	  url: '../controllers/control_login.php',
 	  data: {
 		action:"login", email:email, senha:senha
 	  },
 	  success: function (response) {
-		if (response.indexOf("logged") >= 0){
-			msg('success', '<b> Sucesso </b> ao efetuar o Login.');
-			setTimeout('window.location="MODEL/teste.php"', 5000);
-			//window.location="teste.php";
-			//alert('SPFC');
-		}
-		else if (response.indexOf("errAlreadyLogged") >= 0){ 
+		alert(response);
+		if (response.indexOf("errAlreadyLogged") >= 0){ 
 			msg('danger', '<b> Erro </b> ao efetuar o Login, ainda existe uma sessÃ£o aberta.');
 		}
 		else if (response.indexOf("errInvalidCredentials") >= 0){ 
 			msg('danger', '<b> Erro </b> UsuÃ¡rio ou senha incorretos.');
 		}
 		else{
-			msg('warning', '<b> AtenÃ§Ã£o </b> Tente novamente mais tarde');
+			msg('success', '<b> Sucesso </b> ao efetuar o Login.');
+			setTimeout('window.location="MODEL/teste.php"', 5000);
 		}
 	  },
 	  error: function(XMLHttpRequest, textStatus, errorThrown) { 

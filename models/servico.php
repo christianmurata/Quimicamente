@@ -151,49 +151,6 @@
 
         	return $desempenho;
         }
-        
-// ------------------------------ Login ------------------------------------
-        static function login($loginParam){
-            
-            if(isset($_SESSION["login"]) == true){
-                $response = "errAlreadyLogged";
-                echo json_encode($response);
-            }
-            else{
-                try{
-                    $sql = "SELECT * FROM usuario WHERE email = ? AND senha = ?";
-                    $param = array($loginParam[0],md5($loginParam[1]));
-
-                    $query = Database::selecionarParam($sql,$param);
-
-                    if($query){
-                        $query[0]["senha"] = "protectedCredential";
-                        session_start();
-                        $_SESSION["login"] = Servico::objUsuario($query[0]);
-                        $response = "logged";
-                        echo json_encode($response);
-                    }
-
-                    else{
-                        $response = "errInvalidCredentials";
-                        session_destroy();
-                        echo json_encode($response);
-                    }
-                }
-                catch(Exception $e){
-                    session_destroy();
-                    $response = "errExceptionThrow";
-						echo json_encode($response);
-                }
-            }
-        }
-        
-        static function logout(){
-            if(isset($_SESSION["login"]) == true){
-                unset($_SESSION["login"]);
-            }
-        }
-
 // ------------------------------ Usuarios ---------------------------------
 // ------------------------------ Tela sala aluno --------------------------
         
