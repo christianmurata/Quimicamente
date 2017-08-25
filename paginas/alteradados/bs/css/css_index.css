@@ -1,0 +1,107 @@
+#logo{
+	background-color: transparent;
+	float:left;
+	height:49px;
+	width: 30%;
+}
+#text{
+	background-color: transparent;
+	float:left;
+	text-align: right;
+	padding-right:5px;
+	padding-top:21px;
+	height:49px;
+	width: 65%;
+}
+#title{
+	height: 80px;
+	padding-top:20px;
+	width:100%;
+	background-color:#f6f6f6;
+}
+#corpo{
+	height: auto;
+	width:100%;
+	background-color:#f6f6f6;
+	padding-bottom: 50px;
+	padding-top: 25px;
+}
+#left{
+	height: 385px;
+	width:32%;
+	background-color:transparent;
+	float: left;
+	padding-top: 10px;
+	padding-left: 10px;
+	padding-right:5px;
+}
+#right{
+	height: 390px;
+	width:32%;
+	background-color:transparent;
+	float: left;
+	padding-top:10px;
+	padding-right:10px;
+	padding-left:5px;
+}
+#center{
+	height: 390px;
+	width:32%;
+	background-color:transparent;
+	float: left;
+	padding-top:10px;
+	padding-left:5px;
+	padding-right:5px;
+}
+#pfooter {
+	background-attachment: fixed;
+	background-image:url("images/banner.jpg");
+	height:300px;
+	padding-top:80px;
+	background-position: center top;
+	background-size: cover;
+	padding-top: 20px;
+}
+
+.panel-green {
+  border-color: #5cb85c;
+}
+.panel-green > .panel-heading {
+  border-color: #5cb85c;
+  color: white;
+  background-color: #5cb85c;
+}
+.panel-green > a {
+  color: #5cb85c;
+}
+.panel-green > a:hover {
+  color: #3d8b3d;
+}
+.panel-red {
+  border-color: #d9534f;
+}
+.panel-red > .panel-heading {
+  border-color: #d9534f;
+  color: white;
+  background-color: #d9534f;
+}
+.panel-red > a {
+  color: #d9534f;
+}
+.panel-red > a:hover {
+  color: #b52b27;
+}
+.panel-yellow {
+  border-color: #f0ad4e;
+}
+.panel-yellow > .panel-heading {
+  border-color: #f0ad4e;
+  color: white;
+  background-color: #f0ad4e;
+}
+.panel-yellow > a {
+  color: #f0ad4e;
+}
+.panel-yellow > a:hover {
+  color: #df8a13;
+}

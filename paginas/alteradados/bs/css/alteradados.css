@@ -1,0 +1,51 @@
+#divmae{
+	width:80%;
+	height:1200px;
+	background-color:transparent;
+}
+#divmenulateral{
+	width:20%;
+	height:600px;
+	background-color:transparent;
+	float:left;
+}
+#divfoto{
+	width:200px;
+	height:200px;
+	background-color:transparent;
+	float:right;
+	margin-right:230px;
+}
+#divdados{
+	width:60%;
+	height:85%;
+	background-color:transparent;
+	margin-right:20%;
+	float:right;
+	margin-top:0%;
+}
+#divinput{
+	width:90%;
+	height:70%;
+	float:right;
+	background-color:transparent;
+	margin-right:5%;
+}
+#divcaixatexto{
+	float:right;
+	height:95%;
+	width:70%;
+	margin-right:15%;
+	background-color:transparent;
+	margin-top:2%;
+}
+#divalterasenha{
+	display: none;
+	float:bottom;
+	height:auto;
+	width:70%;
+	background-color:transparent;
+}
+
+	
+	

@@ -1,0 +1,3 @@
+$(function(){
+    //equivalente ao load
+});

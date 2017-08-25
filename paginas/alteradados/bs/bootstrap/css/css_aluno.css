@@ -1,0 +1,162 @@
+@media(min-width: 700px){
+    #inicio{
+        padding-top: 50px;
+        height: auto;
+        width: 100%;
+        padding-right: 30px;
+    }
+}
+@media(max-width: 700px){
+     #inicio{
+        padding-top: 50px;
+        height: auto;
+        width: 100%;
+    }
+}
+/* Box */
+
+	.box {
+		border: solid 1px #aaa;
+		margin-bottom: 2em;
+		padding: 1.5em;
+	}
+
+		.box > :last-child,
+		.box > :last-child > :last-child,
+		.box > :last-child > :last-child > :last-child {
+			margin-bottom: 0;
+		}
+
+		.box.alt {
+			border: 0;
+			border-radius: 0;
+			padding: 0;
+		}
+
+		.box.person {
+			border: solid 2px #4FFFBC;
+			padding: 3em 1.5em;
+		}
+
+			.box.person h3 {
+				margin: 0;
+			}
+
+			.box.person .image {
+				margin-bottom: 1em;
+			}
+
+				.box.person .image img {
+					max-width: 100%;
+				}
+
+
+/* Flex */
+
+	.flex {
+		display: -ms-flexbox;
+		-ms-flex-wrap: wrap;
+		-ms-flex-pack: justify;
+		display: -moz-flex;
+		display: -webkit-flex;
+		display: -ms-flex;
+		display: flex;
+		-moz-flex-wrap: wrap;
+		-webkit-flex-wrap: wrap;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+		-moz-justify-content: space-between;
+		-webkit-justify-content: space-between;
+		-ms-justify-content: space-between;
+		justify-content: space-between;
+	}
+
+		.flex.flex-2 article {
+			width: 47%;
+		}
+
+		.flex.flex-3 article {
+			position: relative;
+			width: 28%;
+		}
+
+			.flex.flex-3 article:before {
+				content: '';
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				right: -2em;
+				top: 0;
+				border-right: 1px solid #dbdbdb;
+				pointer-events: none;
+			}
+
+			.flex.flex-3 article:last-child:before {
+				border: none;
+			}
+
+		.flex.flex-4 .box {
+			width: 21%;
+		}
+
+		@media screen and (max-width: 980px) {
+
+			.flex.flex-2 article {
+				width: 100%;
+				margin-bottom: 3em;
+			}
+
+				.flex.flex-2 article:last-child {
+					margin-bottom: 0;
+				}
+
+			.flex.flex-3 {
+				-moz-flex-direction: column;
+				-webkit-flex-direction: column;
+				-ms-flex-direction: column;
+				flex-direction: column;
+			}
+
+				.flex.flex-3 article {
+					width: 100%;
+					border-bottom: 1px solid #dbdbdb;
+					padding-bottom: 2.5em;
+					margin-bottom: 3em;
+				}
+
+					.flex.flex-3 article:last-child {
+						border: none;
+						padding-bottom: 0;
+						margin: 0 0 1em 0;
+					}
+
+					.flex.flex-3 article:before {
+						display: none;
+					}
+
+			.flex.flex-4 .box {
+				width: 47%;
+			}
+
+		}
+
+		@media screen and (max-width: 480px) {
+
+			.flex.flex-4 .box {
+				width: 100%;
+			}
+
+		}
+
+.side{
+    width: 80%;
+}
+
+.chat-panel .panel-body2 {
+  height: 100px;
+  overflow-y: scroll;
+}
+
+centro{
+    margin-top: 10px;
+}

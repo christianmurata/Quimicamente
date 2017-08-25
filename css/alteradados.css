@@ -1,0 +1,49 @@
+#divmae{
+	width:80%;
+	height:800px;
+	background-color:red;
+}
+#divmenulateral{
+	width:20%;
+	height:600px;
+	background-color:blue;
+	float:left;
+}
+#divfoto{
+	width:150px;
+	height:150px;
+	background-color:yellow;
+	float:right;
+	margin-right:40%;
+}
+#divdados{
+	width:60%;
+	height:70%;
+	background-color:grey;
+	margin-right:20%;
+	float:right;
+	margin-top:10%;
+}
+#divinput{
+	width:90%;
+	height:70%;
+	float:right;
+	background-color:#40ACCD;
+	margin-right:5%;
+}
+#divcaixatexto{
+	float:right;
+	height:95%;
+	width:50%;
+	background-color:#A828B7;
+	margin-top:2%;
+}
+#divlabel{
+	float:right;
+	height:95%;
+	width:50%;
+	background-color:#19D2C3;
+	margin-top:2%;
+}
+	
+	
