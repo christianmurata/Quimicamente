@@ -7,4 +7,7 @@
         $loginParam = array($_POST["email"], $_POST["senha"]);
         Model_login::login($loginParam);
     }
+    else{
+        Model_login::logout();
+    }
 ?>

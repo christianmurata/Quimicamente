@@ -20,8 +20,9 @@
 
                     if($query){
                         $query[0]["senha"] = "protectedCredential";
-                        $_SESSION["login"] = Servico::objUsuarios($query[0]);
-                        //die ("logged");
+                        $usuario = Servico::objUsuarios($query[0]);
+                        $_SESSION["login"] = $usuario;
+                        die ($usuario->getUsuarios_nivel());
                     }
 
                     else{
@@ -31,7 +32,7 @@
                 }
                 catch(Exception $e){
                     session_destroy();
-                    die("errExceptionThrow");
+                    die($e);
                 }
             }
         }

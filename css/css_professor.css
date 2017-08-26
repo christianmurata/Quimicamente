@@ -1,9 +1,10 @@
 @media(min-width: 700px){
     #inicio{
-        padding-top: 50px;
+        padding-top: 60px;
         height: auto;
         width: 100%;
-        padding-right: 30px;
+        padding-right: 2%;
+		padding-left: 2%;
     }
 }
 @media(max-width: 700px){

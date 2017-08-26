@@ -3,5 +3,5 @@
     session_start();
     $usuario = $_SESSION["login"];
 
-    echo $usuario->getusuarios_nome();
+    echo $usuario->getUsuarios_id()."<br>";
 ?>

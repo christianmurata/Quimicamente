@@ -19,11 +19,11 @@
             return $this->usuarios_id;
         }
         
-        public function getusuarios_nome(){
+        public function getUsuarios_nome(){
             return $this->usuarios_nome;
         }
         
-        public function setusuarios_nome($value){
+        public function setUsuarios_nome($value){
            $this->usuarios_nome = $value;
         }
         
@@ -140,17 +140,10 @@
     class Alunos{
         private $alunos_id;
         private $usuarios_id;
-        private $turmas;
-        private $conteudo_id;
+        private $turmas_id;
+        private $conteudos_id;
         private $alunos_del;
         
-        public function setUsuarios_id($value){
-            $this->usuarios_id = $value;
-        }
-        
-        public function getUsuarios_id(){
-            return $this->usuarios_id;
-        }
         
         public function setAlunos_id($value){
             $this->alunos_id = $value;
@@ -159,21 +152,29 @@
         public function getAlunos_id(){
             return $this->alunos_id;
         }
-        
-        public function getTurmas(){
-            return $this->turmas;
+
+        public function setUsuarios_id($value){
+            $this->usuarios_id = $value;
         }
         
-        public function setTurmas($value){
-            $this->turmas = $value;
+        public function getUsuarios_id(){
+            return $this->usuarios_id;
+        }
+        
+        public function getTurmas_id(){
+            return $this->turmas_id;
+        }
+        
+        public function setTurmas_id($value){
+            $this->turmas_id = $value;
         }    
         
-        public function getConteudo_id(){
-            return $this->conteudo_id;
+        public function getConteudos_id(){
+            return $this->conteudos_id;
         }
         
-        public function setConteudo_id($value){
-            $this->conteudo_id = $value;
+        public function setConteudos_id($value){
+            $this->conteudos_id = $value;
         }       
         
         public function getAlunos_del(){
@@ -201,11 +202,11 @@
             return $this->turmas_id;
         }            
         
-        public function setProfessor($value){
+        public function setProfessores($value){
             $this->professores_id = $value;
         }
         
-        public function getProfessor(){
+        public function getProfessores(){
             return $this->professores_id;
         }
         
@@ -217,11 +218,11 @@
             $this->turmas_nome = $value;
         }    
         
-        public function getTurma_del(){
+        public function getTurmas_del(){
             return $this->turma_del;
         }  
         
-        public function setTurma_del($value){
+        public function setTurmas_del($value){
             $this->turma_del = $value;
         }      
     }
@@ -600,12 +601,68 @@
             $this->desempenhos_notafinal = $value;
         }    
         
+        public function getDesempenhos_tempo(){
+            return $this->desempenhos_tempo;
+        }
+
+        public function setDesempenhos_tempo($value){
+            $this->desempenhos_tempo = $value;
+        }
+
         public function getDesempenhos_del(){
             return $this->desempenhos_del;
         }
 
         public function setDesempenhos_del($value){
             $this->desempenhos_del = $value;
+        }  
+    }
+
+    class Conteudos_liberados{
+        private $conteudos_liberados_id;
+        private $conteudos_id;
+        private $turmas_id;
+        private $professores_notafinal;
+        private $conteudos_liberados_del;      
+        
+        public function getConteudos_liberados_id(){
+            return $this->conteudos_liberados_id;
+        }
+        
+        public function setConteudos_liberados_id($value){
+            $this->conteudos_liberados_id = $value;
+        }    
+        
+        public function setConteudos_id($value){
+            $this->conteudos_id = $value;
+        }
+        
+        public function getConteudos_id(){
+            return $this->conteudos_id;
+        }    
+        
+        public function setTurmas_id($value){
+            $this->turmas_id = $value;
+        }
+        
+        public function getTurmas_id(){
+            return $this->turmas_id;
+        }
+        
+        public function getProfessores_id(){
+            return $this->professores_id;
+        }
+        
+        public function setProfessores_id($value){
+            $this->professores_id = $value;
+        }    
+        
+        public function getConteudos_liberados_del(){
+            return $this->conteudos_liberados_del;
+        }
+
+        public function setConteudos_liberados_del($value){
+            $this->conteudos_liberados_del = $value;
         }  
     }
 ?>

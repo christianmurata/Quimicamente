@@ -1,5 +1,5 @@
 //Login
-function faz_login(){
+function login(){
 	var email = $("#txtEmail").val();
 	var senha = $("#txtSenha").val();
 	$.ajax({
@@ -18,7 +18,7 @@ function faz_login(){
 		}
 		else{
 			msg('success', '<b> Sucesso </b> ao efetuar o Login.');
-			if(response.indexOf("professor"))
+			if(response.indexOf("2") >=0 )
 				setTimeout('window.location="../paginas/professor.php"', 5000);
 			else
 				setTimeout('window.location="../paginas/teste.php"', 5000);
@@ -31,6 +31,24 @@ function faz_login(){
 	  }
 	 });
 	return false;
+}
+
+function logout(){
+	$.ajax({
+		type: 'post',
+		url: '../controllers/control_login.php',
+		data: {
+			action:"logout"
+		},
+		success: function (response) {
+			window.location="../paginas/login.php";
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown) { 
+			var erro = ("Um erro ocorreu. Tente novamente mais tarde." + errorThrown); 
+		    msg('warning', erro);
+		}
+		});
+		return false;
 }
 
 

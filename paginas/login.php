@@ -30,10 +30,10 @@
 				</div>
 				<div id="navbar" class="navbar-collapse collapse navbar-right">
 					<ul class="nav navbar-nav navbar-text">
-						<li><a href="index.html" class="menu">Home</a></li>
-						<li><a href="sobre.html" class="menu">Sobre</a></li>
-						<li class="hidden-xs"><a href="cadastro.html" class="menu">Cadastro</a></li>
-						<li><a href="login.php" class="menu ativo">Login </a></li>
+						<li><a href="index.php" class="menu">Home</a></li>
+						<li><a href="sobre.php" class="menu">Sobre</a></li>
+						<li><a href="cadastro.php" class="menu">Cadastro</a></li>
+						<li><a href="#" class="menu ativo">Login </a></li>
 					</ul>
 				</div><!--/.nav-collapse -->
 			</div>
@@ -49,7 +49,7 @@
 				<h1 class="pad"> &nbsp; </h1><br>
 				<!--<p> Faça o login para ter acesso a todo contéudo do site </p>-->
 			<div id="login">
-				<form name ="frmLogin" action="" method="POST" onsubmit="return faz_login();">
+				<form name ="frmLogin" action="" method="POST" onsubmit="return login();">
 					<input type="text" name="email" id="txtEmail" placeholder="Email" class="form-control animated fadeInLeft" onfocus="javascript:this.value='';" required/><br>
 					<input type="password" name="senha" id="txtSenha" placeholder="Senha" class="form-control animated fadeInRight" onfocus="javascript:this.value='';" required/>
 					<div class="animated fadeInLeft"><a href="" class="b">Esqueci minha senha</a><br><br></div>

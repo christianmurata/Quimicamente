@@ -22,7 +22,7 @@
             if($usr["usuarios_id"] != 0){
 
                 if($usuario->getUsuarios_nivel() == 2){     //PROFESSOR
-                    $sql = "SELECT * FROM professores WHERE professores_id = ?";
+                    $sql = "SELECT * FROM professores WHERE usuarios_id = ?";
                     $param = array($usr["usuarios_id"]);
                     $n = Database::selecionarParam($sql, $param);
 
@@ -30,9 +30,10 @@
                 }
 
                 if($usuario->getUsuarios_nivel() == 3){     //ALUNO
-                    $sql = "SELECT * FROM alunos WHERE alunos_id = ?";
+                    $sql = "SELECT * FROM alunos WHERE usuarios_id = ?";
                     $param = array($usr["usuarios_id"]);
                     $n = Database::selecionarParam($sql, $param);
+
                     $usuario->setAlunos(Servico::objAlunos($n[0])); 
                 }
             }
@@ -69,11 +70,11 @@
             $aluno = new Alunos();
             $aluno->setAlunos_id($al["alunos_id"]);
             $aluno->setUsuarios_id($al["usuarios_id"]);
-            $aluno->setTurmas($al["turmas"]);
-            $aluno->setConteudo_id($al["conteudos_id"]);
+            $aluno->setTurmas_id($al["turmas_id"]);
+            $aluno->setConteudos_id($al["conteudos_id"]);
             $aluno->setAlunos_del($al["alunos_del"]);
             
-            return $alunos;
+            return $aluno;
         }
         
         static function objConteudos($cont){
