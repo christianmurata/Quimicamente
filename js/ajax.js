@@ -133,3 +133,68 @@ function Cadastro(){
 		return false;
     }
 }
+//Turmas
+function turmas(turma){
+	$.ajax({
+			type: 'post',
+			url: '../paginas/sala.php',
+			data: {
+				turma:turma
+			},
+			success: function (response) {
+				window.location="../paginas/sala.php";
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown) { 
+				var erro = ("Um erro ocorreu. Tente novamente mais tarde." + errorThrown); 
+				msg('warning', erro);
+			}
+		});
+}
+//Adicionar Turmas
+function inserir_turmas(){
+	var nome = $("#turmas_nome").val();
+	$.ajax({
+		type: 'post',
+		url: '../controllers/control_professor.php',
+		data:{
+			action:"inserir", turmas_nome:nome
+		},
+		success: function(response){
+			if(response){
+				msg('danger', "Erro: " +response);
+				alert(response);
+			}
+			else{
+				msg('success', 'A turma foi cadastrada com sucesso!');
+				setTimeout('window.location="../paginas/professor.php"', 2000);
+			}
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown){
+			var erro = ("Um erro ocorreu. Tente novamentemas tarde." +errorThrown);
+			msg('warning', erro);
+		}
+	});
+}
+//Excluir turmas
+function excluir_turmas(id_turma){
+	$.ajax({
+		type: 'post',
+		url: '../controllers/control_professor.php',
+		data:{
+			action: "excluir", turmas_id:id_turma
+		},
+		success: function(response){
+			if(response){
+				msg('danger', "Erro: " +response);
+				alert(response);
+			}
+			else{
+				window.location="../paginas/professor.php";
+			}
+		},
+		error: function (XMLHttpRequest, textStatus, errorThrown){
+			var erro = ("Um erro ocorreu. Tente novamentemas tarde." +errorThrown);
+			msg('warning', erro);
+		}
+	});
+}

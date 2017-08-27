@@ -1,6 +1,6 @@
 <?php
  //   namespace Quimicamente\Model{
-    require "suporte.php";
+    require_once "suporte.php";
     include_once("entidades.php");
 
 
@@ -11,7 +11,7 @@
         static function objUsuarios($usr){
             $usuario = new Usuarios();
             $usuario->setUsuarios_id($usr["usuarios_id"]);
-            $usuario->setusuarios_nome($usr["usuarios_nome"]);
+            $usuario->setUsuarios_nome($usr["usuarios_nome"]);
             $usuario->setUsuarios_email($usr["usuarios_email"]);
             $usuario->setUsuarios_senha($usr["usuarios_senha"]);
             $usuario->setUsuarios_foto($usr["usuarios_foto"]);
@@ -33,8 +33,8 @@
                     $sql = "SELECT * FROM alunos WHERE usuarios_id = ?";
                     $param = array($usr["usuarios_id"]);
                     $n = Database::selecionarParam($sql, $param);
-
                     $usuario->setAlunos(Servico::objAlunos($n[0])); 
+                    //print_r($usuario->getAlunos()->getAlunos_id());
                 }
             }
             return $usuario;
@@ -45,14 +45,15 @@
         static function objTurmas($tur){
             $turma = new Turmas();
             $turma->setTurmas_id($tur["turmas_id"]);
+            $turma->setProfessores_id($tur["professores_id"]);
             $turma->setTurmas_nome($tur["turmas_nome"]);
-            $turma->setTurmas_excluido($tur["turmas_excluido"]);
+            $turma->setTurmas_del($tur["turma_del"]);
             
-            $sql = "SELECT * FROM professores WHERE professores_id = ?";
-            $param = array($tur["professores_id"]);
+            /*$sql = "SELECT * FROM professores WHERE professores_id = ?";
+            $param = $tur["professores_id"];
             
-            $query = Database::selecionarParam($sql, $param);
-            $turma->setProfessores(Servico::objProfessores($query[0]));
+            $query = Database::selecionaObjeto($sql, $param);
+            $turma->setProfessores(Servico::objProfessores($query[0]));*/
             
             return $turma;
         }       
@@ -76,17 +77,38 @@
             
             return $aluno;
         }
-        
         static function objConteudos($cont){
             $conteudo = new Conteudos();
             $conteudo->setConteudos_id($cont["conteudos_id"]);
             $conteudo->setConteudos_nome($cont["conteudos_nome"]);
             $conteudo->setConteudos_descricao($cont["conteudos_descricao"]);
             $conteudo->setConteudos_ordem($cont["conteudos_ordem"]);
-            $conteudo->setConteudos_tipo($cont["conteudos_tipo"]);
             $conteudo->setConteudos_del($cont["conteudos_del"]);
             
             return $conteudo;
+        }
+        
+        static function objConteudos_comunidade($cont){
+            $conteudo = new Conteudos_comunidade();
+            $conteudo->setConteudos_comunidade_id($cont["conteudos_comunidade_id"]);
+            $conteudo->setConteudos_comunidade_nome($cont["conteudos_comunidade_nome"]);
+            $conteudo->setConteudos_comunidade_descricao($cont["conteudos_comunidade_descricao"]);
+            $conteudo->setConteudos_comunidade_ordem($cont["conteudos_comunidade_ordem"]);
+            $conteudo->setConteudos_comunidade_del($cont["conteudos_comunidade_del"]);
+            
+            return $conteudo;
+        }
+
+        static function objProvas($cont){
+            
+            $prova = new Provas();
+            $prova->setProvas_id($cont["provas_id"]);
+            $prova->setProfessores_id($cont["professores_nome"]);
+            $prova->setTurmas_id($cont["turmas_descricao"]);
+            $prova->setProvas_data($cont["provas_data"]);
+            $prova->setProvas_del($cont["provas_del"]);
+            
+            return $prova;
         }
         
         static function objPerguntas($perg){
@@ -152,26 +174,36 @@
 
         	return $desempenho;
         }
-// ------------------------------ Usuarios ---------------------------------
-// ------------------------------ Tela sala aluno --------------------------
+
+        static function objConteudos_liberados($cont){
+            $conteudo_liberado = new Conteudos_liberados();
+            $conteudo_liberado->setConteudos_liberados_id($cont['conteudos_liberados_id']);
+            $conteudo_liberado->setConteudos_id($cont['conteudos_id']);
+            $conteudo_liberado->setTurmas_id($cont['turmas_id']);
+            $conteudo_liberado->setProfessores_id($cont['professores_id']);
+            $conteudo_liberado->setConteudos_liberados_del($cont['conteudos_liberados_del']);
+
+            return $conteudo_liberado;
+        }
         
-        static function selecionarConteudosAluno(){
-            $sql = "SELECT * FROM conteudos WHERE conteudos_del = 'N' ";
+        static function objConteudos_professor($conteudos){
+            $conteudo = new Conteudos_professor();
+            $conteudo->setConteudos_professor_id($conteudos['conteudos_professor_id']);
+            $conteudo->setProfessores_id($conteudos['professores_id']);
+            $conteudo->setConteudos_id($conteudos['conteudos_id']);
+            $conteudo->setConteudos_Professor_del($conteudos['conteudos_professor_del']);
             
-            try{
-                $query = Database::selecionar($sql);
-                
-                if($query){
-                	for($i = 0; $i < count($query); $i++){
-                		$conteudos[$i] = objConteudos($query[$i]);
-                	}
-                	return $conteudos;
-                }
-                
-            }catch(Exception $e){
-                die("Erro: ". $e->getMessage);
-            }
+            return $conteudo;
+        }
+        
+        static function objRecupera_senha($recup){
+            $recupera = new Recupera_senha();
+            $recupera->setRecupera_senha_id($recup["recupera_senha_id"]);
+            $recupera->setUsuarios_id($recup["usuarios_id"]);
+            $recupera->setRecupera_senha_hash($recup["recupera_senha_hash"]);
+            $recupera->setRecupera_senha_del($recup["recupera_senha_del"]);
             
+            return $recupera;
         }
 	}
 ?>

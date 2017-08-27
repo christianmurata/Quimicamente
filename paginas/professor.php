@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php include "../controllers/control_professor.php"; ?>
 <html lang="pt-br">
 <head>
 	<meta charset="utf-8"/>
@@ -9,12 +10,12 @@
     <link rel="stylesheet" href="../css/css_professor.css"/>
 	<link rel="stylesheet" href="../css/elements.css"/>
 	<link rel="stylesheet" href="../css/metisMenu.min.css"/>
-	<script type="text/javascript" src="http://code.jquery.com/jquery-2.0.0.min.js" /></script>
-	<script src="../js/java.js"></script>
-	<script src="../js/ajax.js"></script>
     <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.css">
 	<link rel="stylesheet" href="../assets/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" href="../assets/css/style.css">
+	<script type="text/javascript" src="http://code.jquery.com/jquery-2.0.0.min.js" /></script>
+	<script src="../js/java.js"></script>
+	<script src="../js/ajax.js"></script>
 
 	<style>
         .btn-qmt{
@@ -47,7 +48,7 @@
     </style>
 	
 	<script src="js/jquery-1.8.3.min.js"></script>
-	<link rel="shortcut icon" href="images/logo.ico">
+	<link rel="shortcut icon" href="../imagens/logo.ico">
 	<title> Tela Inicial | Quimicamente </title>
 </head>
 <body>      
@@ -101,81 +102,59 @@
 							<div class="panel-body">
 								<h1> lista de Turmas </h1>
 							<table class="table">
+								<?php if($turmas != false) {?>
 									<!-- Tabela -->
 									<thead>
 										<tr>
-											<th>ID</th>
+											<!--<th>Número</th>-->
 											<th>Turma</th>
-											<th>Status</th>
 											<th>Detalhes</th>
 											<th> &nbsp; </th>
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<th scope="row"><p>1</p></th>
-											<td><p>Turma do fundão</p></td>
-											<td>
-												<a href="#" class="b" data-toggle="modal" data-target="#atds">Ativa</a>
-												<!-- Modal -->
-												<div class="modal fade" id="atds" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-													<div class="modal-dialog">
-														<div class="modal-content">
-															<div class="modal-header">
-																<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-																<h4 class="modal-title" id="myModalLabel">Ativar/Desativar</h4>
+										<?php foreach($turmas as $turma){ $id=$turma->getTurmas_id();?>
+											<tr>
+												<td>
+													<p><?php echo $turma->getTurmas_nome(); ?></p>
+												</td>
+												<td>
+													<a href="sala.php?turma=<?php echo $id; ?>" class="b">Exibir</a></div>
+												</td>
+												<td>
+													<a href="#" class="b" data-toggle="modal" data-target="#<?php echo $turma->getTurmas_id(); ?>">Excluir</a>
+													<!-- Modal -->
+													<div class="modal fade" id="<?php echo $turma->getTurmas_id(); ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+														<div class="modal-dialog">
+															<div class="modal-content">
+																<div class="modal-header">
+																	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+																	<h4 class="modal-title" id="myModalLabel">Exclusão</h4>
+																</div>
+																<div class="modal-body">
+																	<center>
+																		<p> Deseja realmente excluir essa turma? </p>
+																		<button type="button" class="btn btn-success" onclick="excluir_turmas(<?php echo $id; ?>)">Confirmar</button>
+																		<button type="button" class="btn btn-danger" class="close" data-dismiss="modal">Cancelar</button>
+																	</center>
+																</div>
+																<!--<div class="modal-footer">
+																	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+																	<button type="button" class="btn btn-primary">Save changes</button>
+																</div>-->
 															</div>
-															<div class="modal-body">
-																<center>
-																	<p> Deseja realmente desativar essa turma? </p>
-																	<button type="button" class="btn btn-success">Confirmar</button>
-																	<button type="button" class="btn btn-danger" class="close" data-dismiss="modal">Cancelar</button>
-																</center>
-															</div>
-															<!--<div class="modal-footer">
-																<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-																<button type="button" class="btn btn-primary">Save changes</button>
-															</div>-->
-														</div><!-- /.modal-content -->
-													</div><!-- /.modal-dialog -->
-												</div><!-- /.modal -->
-											</td>
-											<td>
-												<a href="#" class="b">Exibir</a>
-											</td>
-											<td>
-												<a href="#" class="b" data-toggle="modal" data-target="#excluir">Excluir</a>
-												<!-- Modal -->
-												<div class="modal fade" id="excluir" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-													<div class="modal-dialog">
-														<div class="modal-content">
-															<div class="modal-header">
-																<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-																<h4 class="modal-title" id="myModalLabel">Exclusão</h4>
-															</div>
-															<div class="modal-body">
-																<center>
-																	<p> Deseja realmente excluir essa turma? </p>
-																	<button type="button" class="btn btn-success">Confirmar</button>
-																	<button type="button" class="btn btn-danger" class="close" data-dismiss="modal">Cancelar</button>
-																</center>
-															</div>
-															<!--<div class="modal-footer">
-																<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-																<button type="button" class="btn btn-primary">Save changes</button>
-															</div>-->
+															<!-- /.modal-content -->
 														</div>
-														<!-- /.modal-content -->
-													</div>
-													<!-- /.modal-dialog -->
-												</div><!-- /.modal -->
-											</td>
-										</tr>
-									</tbody>
+														<!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+												</td>
+											</tr>
+									<?php } }else{ echo "Esse professor não possui nenhuma turma!"; } ?>
+								</tbody>
 							</table>
 							</div>
 							<div class="panel-footer">
-								<input type="button" value="Todas as turmas" class="special"/>
+								<a href="inserir_turma.php"><input type="button" value="Criar Turmas" class="special"/></a>
 							</div>
 						</div><!--panel panel-quimicamente-->
 					</div> <!-- /.col-lg-8 -->
@@ -194,6 +173,54 @@
 						</div>
 					</div><!-- /.col-lg-4 -->
 				</div>
+				<div class="row"> 
+					<div class="col-lg-12">
+						<div class="panel panel-quimicamente">
+							<div class="panel-heading">
+								Conteúdos personalizados
+							</div>
+							<div class="panel-body">
+								<div class="flex flex-4">
+									<div class="box person">
+										<div class="image round">
+											<img src="../imagens/hist.jpg"/>
+										</div>
+										<center>
+											<p>História da Química</p>
+										</center>
+									</div>
+									<div class="box person">
+										<div class="image round">
+											<img src="../imagens/hist.jpg"/>
+										</div>
+										<center>
+											<p>História da Química</p>
+										</center>
+									</div>
+									<div class="box person">
+										<div class="image round">
+											<img src="../imagens/hist.jpg"/>
+										</div>
+										<center>
+											<p>História da Química</p>
+										</center>
+									</div>
+									<div class="box person">
+										<div class="image round">
+											<img src="../imagens/hist.jpg"/>
+										</div>
+										<center>
+											<p>História da Química</p>
+										</center>
+									</div>
+								</div>
+							</div>
+							<div class="panel-footer">
+								<input type="button" value="Adicionar conteúdo" class="special"/>
+							</div>
+						</div>
+					</div> <!-- /.col-lg-12 -->
+				</div><!--row-->
 				<div class="row"> 
 					<div class="col-lg-12">
 						<div class="panel panel-quimicamente">
@@ -240,8 +267,8 @@
 								<input type="button" value="Todos os conteúdos" class="special"/>
 							</div>
 						</div>
-					</div> <!-- /.col-lg-12 -->
-				</div>
+					</div><!-- /.col-lg-12 -->
+				</div><!--row-->
 				<script src="../assets/js/jquery-1.11.1.min.js"></script>
                 <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
                 <script src="../assets/js/jquery.backstretch.min.js"></script>
@@ -249,7 +276,7 @@
                 <script src="../assets/js/scripts.js"></script>
                 <script src="../js/metisMenu.min.js"></script>
                 <script src="../js/elements.js"></script>
-		</div>
+		</div><!--wrapper-->
 	</section><!--/Corpo da Página-->
 	<footer id="footer" class="hidden-xs">
 		<ul class="icons">

@@ -202,11 +202,11 @@
             return $this->turmas_id;
         }            
         
-        public function setProfessores($value){
+        public function setProfessores_id($value){
             $this->professores_id = $value;
         }
         
-        public function getProfessores(){
+        public function getProfessores_id(){
             return $this->professores_id;
         }
         

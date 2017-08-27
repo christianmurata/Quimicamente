@@ -25,7 +25,7 @@
             $drive = "pgsql";
             $host = "localhost";
             $porta = "5432";
-            $banco = "teste";
+            $banco = "quimicamente_teste";
             $usuario = "postgres";
             $senha = "murata97";
             //--------------------------------------------

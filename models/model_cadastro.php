@@ -57,7 +57,7 @@
                     die("Erro: ". $e->getMessage);
                 }
 
-                $sql = "INSERT INTO alunos(usuarios_id, turmas_id, conteudos_id, alunos_del) VALUES ((SELECT usuarios_id FROM usuarios ORDER BY usuarios_id DESC LIMIT 1), '1', '1', 'N');";
+                $sql = "INSERT INTO alunos(usuarios_id, turmas_id, conteudos_id, alunos_del) VALUES ((SELECT usuarios_id FROM usuarios ORDER BY usuarios_id DESC LIMIT 1), '0', '0', 'N');";
                 
                 try{
                     Database::executar($sql);
