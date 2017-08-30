@@ -7,12 +7,16 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../css/style.css"/>
     <link rel="stylesheet" href="../css/css_menu.css"/>
+    <link rel="stylesheet" href="../css/css_form.css"/>
     <link rel="stylesheet" href="../css/css_professor.css"/>
 	<link rel="stylesheet" href="../css/elements.css"/>
 	<link rel="stylesheet" href="../css/metisMenu.min.css"/>
     <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.css">
 	<link rel="stylesheet" href="../assets/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../sweet_alert/sweetalert2.css">
+    <script src="../sweet_alert/sweetalert2.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-2.0.0.min.js" /></script>
 	<script src="../js/java.js"></script>
 	<script src="../js/ajax.js"></script>
@@ -152,9 +156,33 @@
 									<?php } }else{ echo "Esse professor não possui nenhuma turma!"; } ?>
 								</tbody>
 							</table>
+								<?php
+									echo"Páginas:";
+										for($i = 1; $i < $tot_paginas + 1; $i++) {
+										echo "<a href='professor.php?pagina=$i'> ".$i."</a> ";
+									}
+								?>
 							</div>
 							<div class="panel-footer">
-								<a href="inserir_turma.php"><input type="button" value="Criar Turmas" class="special"/></a>
+								<!--<a href="inserir_turma.php"><input type="button" value="Criar Turmas" class="special"/></a>-->
+									<input type="submit" value="Nova Turma" class="special animated fadeInRight" data-toggle="modal" data-target="#inserir"/>
+										<div class="modal fade" id="inserir" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+												<div class="modal-dialog">
+													<div class="modal-content">
+														<div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title" id="myModalLabel">Nova Turma</h4>
+														</div>
+														<div class="modal-body">
+															<p>Nome da turma</p><input type="text" class="form-control" id="turmas_nome" name="turmas_nome" placeholder="Insira o nome da Turma">
+														</div>
+														<div class="modal-footer">
+																<button type="button" class="btn btn-success" onclick="inserir_turmas()">Salvar</button>
+																<button type="button" class="btn btn-danger" class="close" data-dismiss="modal">Cancelar</button>
+														</div>
+													</div><!-- /.modal-content -->
+												</div><!-- /.modal-dialog -->
+										</div> <!-- /.modal -->
 							</div>
 						</div><!--panel panel-quimicamente-->
 					</div> <!-- /.col-lg-8 -->
@@ -168,7 +196,7 @@
 								<br><br><br><br><br>
 							</div>
 							<div class="panel-footer">
-								<input type="button" value="Ranking completo" class="special"/>
+								<input type="button" value="Ranking completo" class="special" onclick="window.location='rank2.php'"/>
 							</div>
 						</div>
 					</div><!-- /.col-lg-4 -->
@@ -181,38 +209,16 @@
 							</div>
 							<div class="panel-body">
 								<div class="flex flex-4">
-									<div class="box person">
-										<div class="image round">
-											<img src="../imagens/hist.jpg"/>
-										</div>
-										<center>
-											<p>História da Química</p>
-										</center>
-									</div>
-									<div class="box person">
-										<div class="image round">
-											<img src="../imagens/hist.jpg"/>
-										</div>
-										<center>
-											<p>História da Química</p>
-										</center>
-									</div>
-									<div class="box person">
-										<div class="image round">
-											<img src="../imagens/hist.jpg"/>
-										</div>
-										<center>
-											<p>História da Química</p>
-										</center>
-									</div>
-									<div class="box person">
-										<div class="image round">
-											<img src="../imagens/hist.jpg"/>
-										</div>
-										<center>
-											<p>História da Química</p>
-										</center>
-									</div>
+									<?php if($conteudos_comun != false) { foreach($conteudos_comun as $conteudo_comun){ ?>
+											<div class="box person">
+												<div class="image round">
+													<img src="../imagens/hist.jpg"/>
+												</div>
+												<center>
+													<p><?php echo $conteudo_comun->getConteudos_comunidade_nome(); ?></p>
+												</center>
+											</div>
+										<?php } } else{ echo "Não há nenhum conteúdo personalizado cadastrado!"; } ?>
 								</div>
 							</div>
 							<div class="panel-footer">
@@ -229,38 +235,16 @@
 							</div>
 							<div class="panel-body">
 								<div class="flex flex-4">
-									<div class="box person">
-										<div class="image round">
-											<img src="../imagens/hist.jpg"/>
-										</div>
-										<center>
-											<p>História da Química</p>
-										</center>
-									</div>
-									<div class="box person">
-										<div class="image round">
-											<img src="../imagens/hist.jpg"/>
-										</div>
-										<center>
-											<p>História da Química</p>
-										</center>
-									</div>
-									<div class="box person">
-										<div class="image round">
-											<img src="../imagens/hist.jpg"/>
-										</div>
-										<center>
-											<p>História da Química</p>
-										</center>
-									</div>
-									<div class="box person">
-										<div class="image round">
-											<img src="../imagens/hist.jpg"/>
-										</div>
-										<center>
-											<p>História da Química</p>
-										</center>
-									</div>
+									<?php if($conteudos != false) { foreach($conteudos as $conteudo){ ?>
+											<div class="box person">
+												<div class="image round">
+													<img src="../imagens/hist.jpg"/>
+												</div>
+												<center>
+													<p><?php echo $conteudo->getConteudos_nome(); ?></p>
+												</center>
+											</div>
+										<?php } } else{ echo "Não há nenhum conteúdo cadastrado!"; } ?>
 								</div>
 							</div>
 							<div class="panel-footer">

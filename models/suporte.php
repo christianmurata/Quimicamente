@@ -25,9 +25,10 @@
             $drive = "pgsql";
             $host = "localhost";
             $porta = "5432";
-            $banco = "quimicamente_teste";
+            $banco = "quimicamente";
             $usuario = "postgres";
             $senha = "murata97";
+
             //--------------------------------------------
 
             //STRING DE CONEXÃƒO

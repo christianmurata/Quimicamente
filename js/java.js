@@ -3,7 +3,7 @@
 //SUCCESS, WARNING, DANGER, INFO, QUIMICAMENTE
 //como usar:
 //msg('tipo do alerta', 'texto do alerta');
-function msg(alerta, texto) {
+/*function msg(alerta, texto) {
      var resposta = '';
      $("#alerta").empty();
 
@@ -38,7 +38,7 @@ function msg(alerta, texto) {
      $(".alert").click(function() {
        $(".alert").hide();
      });
-} 
+}*/ 
 
 function pagina(user){
 		if(user == 2){
@@ -296,4 +296,16 @@ jQuery(document).ready(function() {
 				jQuery(this).closest('ul').find('.selected').removeClass('selected');
 				jQuery(this).parent().addClass('selected');
 			});
+});
+//alert - teste
+$(document).ready(function(){
+	$('#alerta').click(function() {
+		swal({
+			title: 'Error!',
+			text: 'Do you want to continue',
+			type: 'error',
+			confirmButtonText: 'Cool'
+	})
+		alert("teste");
+	});
 });

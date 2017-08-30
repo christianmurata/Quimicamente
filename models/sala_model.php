@@ -60,7 +60,7 @@
         }
 
         static function selecionarTurma($turma){
-        	$sql = "SELECT * FROM turmas WHERE turmas_id = ? AND turma_del = 'N'";
+        	$sql = "SELECT * FROM turmas WHERE turmas_id = ? AND turmas_del = 'N'";
             try{
                 $query = Database::selecionaObjeto($sql,$turma);
 

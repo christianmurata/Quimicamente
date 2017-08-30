@@ -10,6 +10,9 @@
 	<link rel="stylesheet" href="../css/elements.css"/>
 	<link rel="stylesheet" href="../assets/font-awesome/css/font-awesome.css">
 	<link rel="stylesheet" href="../css/animate.css">
+    <link rel="stylesheet" href="../sweet_alert/sweetalert2.css">
+    <script src="../sweet_alert/sweetalert2.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
 	<script type="text/javascript" src="../js/ajax.js"></script>
 	<script type="text/javascript" src="../js/java.js"></script>
 	<script type="text/javascript" src="../js/jquery.js"></script>
@@ -43,9 +46,9 @@
 		<script src="js/jquery.min.js"></script>
 		<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
 		<script src="js/bootstrap.min.js"></script>
+		<div id="alerta"></div>
 	<section id="banner">
 			<center>
-			<div id="alerta"></div>
 				<h1 class="pad"> &nbsp; </h1><br>
 				<!--<p> Faça o login para ter acesso a todo contéudo do site </p>-->
 			<div id="login">

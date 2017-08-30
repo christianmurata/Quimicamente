@@ -6,10 +6,13 @@
     session_start();
 
     $usuario = $_SESSION["login"];
-    $param = $professsor = $usuario->getProfessores()->getProfessores_id();
+    $param = $usuario->getProfessores()->getProfessores_id();
 
     $turmas = Model_professor::turmas($param);
-    
+    $tot_paginas = Model_professor::paginacao($param);
+    $conteudos = Model_professor::conteudos();
+    $conteudos_comun = Model_professor::conteudos_comunidade($param);
+
     if (isset($_POST["action"]))
     {
         if($_POST["action"] == "inserir"){
@@ -17,7 +20,7 @@
                 array("turmas_id" => 0,
                     "professores_id" => $param,
                     "turmas_nome" => $_POST["turmas_nome"],
-                    "turma_del" => "N"
+                    "turmas_del" => "N"
                 )
             );
             Model_professor::inserir_turmas($arrayTurma);

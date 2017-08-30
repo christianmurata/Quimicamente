@@ -144,15 +144,6 @@
         private $conteudos_id;
         private $alunos_del;
         
-        
-        public function setAlunos_id($value){
-            $this->alunos_id = $value;
-        }
-        
-        public function getAlunos_id(){
-            return $this->alunos_id;
-        }
-
         public function setUsuarios_id($value){
             $this->usuarios_id = $value;
         }
@@ -161,12 +152,20 @@
             return $this->usuarios_id;
         }
         
+        public function setAlunos_id($value){
+            $this->alunos_id = $value;
+        }
+        
+        public function getAlunos_id(){
+            return $this->alunos_id;
+        }
+        
         public function getTurmas_id(){
-            return $this->turmas_id;
+            return $this->turmas;
         }
         
         public function setTurmas_id($value){
-            $this->turmas_id = $value;
+            $this->turmas = $value;
         }    
         
         public function getConteudos_id(){
@@ -202,11 +201,11 @@
             return $this->turmas_id;
         }            
         
-        public function setProfessores_id($value){
+        public function setProfessores($value){
             $this->professores_id = $value;
         }
         
-        public function getProfessores_id(){
+        public function getProfessores(){
             return $this->professores_id;
         }
         
@@ -284,6 +283,74 @@
         public function setConteudos_del($value){
             $this->conteudos_del = $value;
         }      
+    }   
+
+    //-----------------------------------------------------------------------------------------------------
+    
+    class Conteudos_comunidade{
+        private $conteudos_comunidade_id;
+        private $professores_id;
+        private $conteudos_comunidade_nome;
+        private $conteudos_comunidade_descricao;
+        private $conteudos_comunidade_ordem;
+        private $conteudos_comunidade_tipo;
+        private $conteudos_comunidade_del;
+       
+        public function getConteudos_comunidade_id(){
+            return $this->conteudos_comunidade_id;
+        }
+
+        public function setConteudos_comunidade_id($conteudos_comunidade_id){
+            $this->conteudos_comunidade_id = $conteudos_comunidade_id;
+        }
+           
+        public function setProfessores_id($value){
+            $this->professores_id = $value;
+        }
+        
+        public function getProfessores_id(){
+            return $this->professores_id;
+        }
+
+        public function getConteudos_comunidade_nome(){
+            return $this->conteudos_comunidade_nome;
+        }
+
+        public function setConteudos_comunidade_nome($conteudos_comunidade_nome){
+            $this->conteudos_comunidade_nome = $conteudos_comunidade_nome;
+        }
+
+        public function getConteudos_comunidade_descricao(){
+            return $this->conteudos_comunidade_descricao;
+        }
+
+        public function setConteudos_comunidade_descricao($conteudos_comunidade_descricao){
+            $this->conteudos_comunidade_descricao = $conteudos_comunidade_descricao;
+        }
+
+        public function getConteudos_comunidade_ordem(){
+            return $this->conteudos_comunidade_ordem;
+        }
+
+        public function setConteudos_comunidade_ordem($conteudos_comunidade_ordem){
+            $this->conteudos_comunidade_ordem = $conteudos_comunidade_ordem;
+        }
+
+        public function getConteudos_comunidade_tipo(){
+            return $this->conteudos_comunidade_tipo;
+        }
+
+        public function setConteudos_comunidade_tipo($conteudos_comunidade_tipo){
+            $this->conteudos_comunidade_tipo = $conteudos_comunidade_tipo;
+        }
+
+        public function getConteudos_comunidade_del(){
+            return $this->conteudos_comunidade_del;
+        }
+
+        public function setConteudos_comunidade_del($conteudos_comunidade_del){
+            $this->conteudos_comunidade_del = $conteudos_comunidade_del;
+        }
     }
       
     //-----------------------------------------------------------------------------------------------------
@@ -328,6 +395,56 @@
     }
       
     //-----------------------------------------------------------------------------------------------------
+    
+    class Perguntas_comunidade{
+        private $perguntas_comunidade_id;
+        private $professores_id;
+        private $conteudos_comunidade_id;
+        private $perguntas_comunidade_descricao;
+        private $perguntas_comunidade_del;
+        
+        public function setPerguntas_comunidade_id($value){
+            $this->perguntas_comunidade_id = $value;
+        }
+        
+        public function getPerguntas_comunidade_id(){
+            return $this->perguntas_comunidade_id;
+        }
+        
+        public function setProfessores_id($value){
+            $this->professores_id = $value;
+        }
+        
+        public function getProfessores_id(){
+            return $this->professores_id;
+        }
+        
+        public function setConteudos_comunidade_id($value){
+            $this->conteudos_comunidade_id = $value;
+        }
+        
+        public function getConteudos_comunidade_id(){
+            return $this->conteudos_comunidade_id;
+        }
+        
+        public function getPerguntas_comunidade_descricao(){
+            return $this->perguntas_comunidade_descricao;
+        }
+        
+        public function setPerguntas_comunidade_descricao($value){
+            $this->perguntas_comunidade_descricao = $value;
+        }       
+        
+        public function getPerguntas_comunidade_del(){
+            return $this->perguntas_comunidade_del;
+        }
+        
+        public function setPerguntas_comunidade_del($value){
+            $this->perguntas_comunidade_del = $value;
+        }    
+    }
+      
+    //-----------------------------------------------------------------------------------------------------
 
     class Respostas{
         private $respostas_id;
@@ -348,7 +465,7 @@
             return $this->perguntas_id;
         }
         
-        public function getPerguntas($value){
+        public function getPerguntas_id($value){
             $this->perguntas_id = $value;
         }
         
@@ -375,13 +492,63 @@
         public function setRespostas_del($value){
             $this->respostas_del = $value;
         }
+    }      
+
+    //-----------------------------------------------------------------------------------------------------
+
+    class Respostas_comunidade{
+        private $respostas_comunidade_id;
+        private $perguntas_comunidade_id;
+        private $respostas_comunidade_desc;
+        private $respostas_comunidade_correta;
+        private $respostas_comunidade_del;
+        
+        public function setRespostas_comunidade_id(){
+            return $this->respostas_comunidade_id;
+        }
+        
+        public function getRespostas_comunidade_id($value){
+            $this->respostas_comunidade_id = $value;
+        }
+        
+        public function setPerguntas_comunidade_id(){
+            return $this->perguntas_comunidade_id;
+        }
+        
+        public function getPerguntas_comunidade_id($value){
+            $this->perguntas_comunidade_id = $value;
+        }
+        
+        public function setRespostas_comunidade_desc(){
+            return $this->respostas_comunidade_desc;
+        }
+        
+        public function getRespostas_comunidade_desc($value){
+            $this->respostas_comunidade_desc = $value;
+        }
+        
+        public function setRespostas_comunidade_correta(){
+            return $this->respostas_comunidade_correta;
+        }
+        
+        public function getRespostas_comunidade_correta($value){
+            $this->respostas_comunidade_correta = $value;
+        }
+        
+        public function getRespostas_comunidade_del(){
+            return $this->respostas_comunidade_del;
+        }
+
+        public function setRespostas_comunidade_del($value){
+            $this->respostas_comunidade_del = $value;
+        }
     }
       
     //-----------------------------------------------------------------------------------------------------
     
     class Slides{
         private $slides_id;
-        private $conteudo_id;
+        private $conteudos_id;
         private $slides_ordem;
         private $slides_conteudo;
         private $slides_del;
@@ -394,12 +561,12 @@
             return $this->slides_id;
         }
         
-        public function setConteudo_id($value){
-            $this->conteudo_id = $value;
+        public function setConteudos_id($value){
+            $this->conteudos_id = $value;
         }
         
-        public function getConteudo_id(){
-            return $this->conteudo_id;
+        public function getConteudos_id(){
+            return $this->conteudos_id;
         }
         
         public function getSlides_ordem(){
@@ -428,10 +595,61 @@
     }
       
     //-----------------------------------------------------------------------------------------------------
+      
+    class Slides_comunidade{
+        private $slides_comunidade_id;
+        private $conteudos_comunidade_id;
+        private $slides_comunidade_ordem;
+        private $slides_comunidade_conteudo;
+        private $slides_comunidade_del;
+        
+        public function getSlides_comunidade_id(){
+            return $this->slides_comunidade_id;
+        }
+
+        public function setSlides_comunidade_id($slides_comunidade_id){
+            $this->slides_comunidade_id = $slides_comunidade_id;
+        }
+
+        public function getConteudos_comunidade_id(){
+            return $this->conteudos_comunidade_id;
+        }
+
+        public function setConteudos_comunidade_id($conteudos_comunidade_id){
+            $this->conteudos_comunidade_id = $conteudos_comunidade_id;
+        }
+
+        public function getSlides_comunidade_ordem(){
+            return $this->slides_comunidade_ordem;
+        }
+
+        public function setSlides_comunidade_ordem($slides_comunidade_ordem){
+            $this->slides_comunidade_ordem = $slides_comunidade_ordem;
+        }
+
+        public function getSlides_comunidade_conteudo(){
+            return $this->slides_comunidade_conteudo;
+        }
+
+        public function setSlides_comunidade_conteudo($slides_comunidade_conteudo){
+            $this->slides_comunidade_conteudo = $slides_comunidade_conteudo;
+        }
+
+        public function getSlides_comunidade_del(){
+            return $this->slides_comunidade_del;
+        }
+
+        public function setSlides_comunidade_del($slides_comunidade_del){
+            $this->slides_comunidade_del = $slides_comunidade_del;
+        }
+    }
+
+    //-----------------------------------------------------------------------------------------------------
 
     class Provas{
         private $provas_id;
         private $professores_id;
+        private $turmas_id;
         private $provas_data;
         private $provas_del;
         
@@ -451,12 +669,20 @@
             $this->professores_id = $value;
         }
 
+        public function getTurmas_id(){
+            return $this->turmas_id;
+        }
+
+        public function setTurmas_id($value){
+            $this->turmas_id = $value;
+        }
+
         public function getProvas_data(){
             return $this->provas_data;
         }
 
         public function setProvas_data($value){
-            $this->provas_data = $Provas_data;
+            $this->provas_data = $value;
         }
 
         public function getProvas_del(){
@@ -569,14 +795,14 @@
         private $desempenhos_tempo;
         private $desempenhos_del;      
         
-        public function getAlunos(){
-            return $this->alunos_id;
-        }
-        
-        public function setAlunos($value){
-            $this->alunos_id = $value;
-        }    
-        
+		public function getAlunos_id(){
+			return $this->alunos_id;
+		}
+
+		public function setAlunos_id($alunos_id){
+			$this->alunos_id = $alunos_id;
+		}
+		
         public function setDesempenhos_id($value){
             $this->desempenhos_id = $value;
         }
@@ -618,11 +844,12 @@
         }  
     }
 
+    //-----------------------------------------------------------------------------------------------------
+
     class Conteudos_liberados{
         private $conteudos_liberados_id;
         private $conteudos_id;
         private $turmas_id;
-        private $professores_notafinal;
         private $conteudos_liberados_del;      
         
         public function getConteudos_liberados_id(){
@@ -664,5 +891,87 @@
         public function setConteudos_liberados_del($value){
             $this->conteudos_liberados_del = $value;
         }  
+    }
+
+    //-----------------------------------------------------------------------------------------------------
+
+    class Conteudos_comunidade_liberados{
+        private $conteudos_comunidade_liberados_id;
+        private $conteudos_comunidade_id;
+        private $turmas_id;
+        private $conteudos_comunidade_liberados_del;  
+        
+        public function getConteudos_comunidade_liberados_id(){
+            return $this->conteudos_comunidade_liberados_id;
+        }
+
+        public function setConteudos_comunidade_liberados_id($conteudos_comunidade_liberados_id){
+            $this->conteudos_comunidade_liberados_id = $conteudos_comunidade_liberados_id;
+        }
+
+        public function getConteudos_comunidade_id(){
+            return $this->conteudos_comunidade_id;
+        }
+
+        public function setConteudos_comunidade_id($conteudos_comunidade_id){
+            $this->conteudos_comunidade_id = $conteudos_comunidade_id;
+        }
+
+        public function getTurmas_id(){
+            return $this->turmas_id;
+        }
+
+        public function setTurmas_id($turmas_id){
+            $this->turmas_id = $turmas_id;
+        }
+
+        public function getConteudos_comunidade_liberados_del(){
+            return $this->conteudos_comunidade_liberados_del;
+        }
+
+        public function setConteudos_comunidade_liberados_del($conteudos_comunidade_liberados_del){
+            $this->conteudos_comunidade_liberados_del = $conteudos_comunidade_liberados_del;
+        }
+    }
+
+    //-----------------------------------------------------------------------------------------------------
+
+    class Recupera_senha{
+        private $Recupera_senha_id;
+        private $Usuarios_id;
+        private $Recupera_senha_hash;
+        private $Recupera_senha_del;
+        
+        public function getRecupera_senha_id(){
+            return $this->Recupera_senha_id;
+        }
+
+        public function setRecupera_senha_id($Recupera_senha_id){
+            $this->Recupera_senha_id = $Recupera_senha_id;
+        }
+
+        public function getUsuarios_id(){
+            return $this->Usuarios_id;
+        }
+
+        public function setUsuarios_id($Usuarios_id){
+            $this->Usuarios_id = $Usuarios_id;
+        }
+
+        public function getRecupera_senha_hash(){
+            return $this->Recupera_senha_hash;
+        }
+
+        public function setRecupera_senha_hash($Recupera_senha_hash){
+            $this->Recupera_senha_hash = $Recupera_senha_hash;
+        }
+
+        public function getRecupera_senha_del(){
+            return $this->Recupera_senha_del;
+        }
+
+        public function setRecupera_senha_del($Recupera_senha_del){
+            $this->Recupera_senha_del = $Recupera_senha_del;
+        }
     }
 ?>

@@ -69,10 +69,9 @@ function Cadastro(){
 			nome:nome, senha:senha, email:email,conf_senha:conf_senha,cpf:cpf , datanasc:datanasc
 		},
 		success: function (response) {
-			alert(response);
+			msg('danger', '<b> Erro </b>'+response);
 			/*
             if (response.indexOf("Email já cadastrado!") >= 0){
-				msg('danger', '<b> Erro </b>'+response);
 			}
 			else if (response.indexOf("CPF Inválido") >= 0){ 
 				msg('danger', '<b> Erro </b>'+response);
@@ -105,7 +104,7 @@ function Cadastro(){
 		type: 'post',
 		url: '../controllers/control_usuario.php',
 		data: {
-			nome:nome, senha:senha, email:email, conf_senha:conf_senha, datanasc:datanasc,
+			nome:nome, senha:senha, email:email, conf_senha:conf_senha, datanasc:datanasc
 		},
 		success: function (response) {
 			alert(response);
@@ -166,7 +165,7 @@ function inserir_turmas(){
 			}
 			else{
 				msg('success', 'A turma foi cadastrada com sucesso!');
-				setTimeout('window.location="../paginas/professor.php"', 2000);
+				setTimeout('window.location="../paginas/professor.php"', 3000);
 			}
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown){
@@ -186,10 +185,11 @@ function excluir_turmas(id_turma){
 		success: function(response){
 			if(response){
 				msg('danger', "Erro: " +response);
-				alert(response);
+				//alert(response);
 			}
 			else{
-				window.location="../paginas/professor.php";
+				msg('success', 'Turma excluida com sucesso!');
+				setTimeout('window.location="../paginas/professor.php"', 3000);
 			}
 		},
 		error: function (XMLHttpRequest, textStatus, errorThrown){
