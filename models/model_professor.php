@@ -76,7 +76,7 @@
         static function inserir_turmas($arrayTurmas){
             $novaTurma = Servico::objTurmas($arrayTurmas[0]);
             $sql = "INSERT INTO turmas(professores_id, turmas_nome, turmas_del) VALUES(?, ?, 'N')";
-            $param = array($novaTurma->getProfessores(),
+            $param = array($novaTurma->getProfessores_id(),
                            $novaTurma->getTurmas_nome()
                            );
             try{

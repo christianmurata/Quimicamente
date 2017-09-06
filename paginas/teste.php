@@ -3,8 +3,8 @@
     
     session_start();
     $usuario = $_SESSION["login"];
-    echo $usuario->getUsuarios_nome();
+    echo $usuario->getAlunos()->getTurmas_id();
 
     //$professor = $usuario->getProfessores();
-    echo $usuario->getProfessores()->getProfessores_id();
+    //echo $usuario->getProfessores()->getProfessores_id();
 ?>

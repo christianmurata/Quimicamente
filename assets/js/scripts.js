@@ -38,33 +38,33 @@ jQuery(document).ready(function() {
     */
     $('.f1 fieldset:first').fadeIn('slow');
     
-    $('.f1 input[type="text"], .f1 input[type="password"], .f1 textarea').on('focus', function() {
+    $('.f1 input[type="text"], .f1 input[type="password"],.f1 input[type="date"], .f1 textarea').on('focus', function() {
     	$(this).removeClass('input-error');
-		alerta.innerHTML = "";
+		//label.innerHTML = "";
     });
     
     // next step
     $('.f1 .btn-next').on('click', function() {
     	var parent_fieldset = $(this).parents('fieldset');
     	var next_step = true;
-		var alerta = document.getElementById("alerta");
     	// navigation steps / progress steps
     	var current_active_step = $(this).parents('.f1').find('.f1-step.active');
     	var progress_line = $(this).parents('.f1').find('.f1-progress-line');
 
-		if(alerta.innerHTML != "")
-		{
+		if( $("#label_nome").html() != ""  || $("#label_sobrenome").html() != "" || $("#label_dtnas").html() != "" || $("#label_cpf").html() != "" || $("#label_email").html() != "" || $("#label_senha").html() != "" || $("#label_conf_senha").html() != "")
+		{	
 			next_step = false;
+			msg('warning', 'Preencha todos os campos corretamente!')
 		}
     	// fields validation
-    	parent_fieldset.find('input[type="text"], input[type="password"], textarea').each(function() {
+    	parent_fieldset.find('input[type="text"], input[type="password"], input[type="date"], textarea').each(function() {
     		if( $(this).val() == "" ) {
     			$(this).addClass('input-error');
     			next_step = false;
-				msg('warning', '<b> Atenção </b> Preencha todos os campos');
+				msg('warning', 'Preencha todos os campos');
     		}
     		else {
-    			$(this).removeClass('input-error');
+    			//$(this).removeClass('input-error');
     		}
     	});
     	// fields validation
@@ -116,6 +116,16 @@ jQuery(document).ready(function() {
     		}
     	});
     	// fields validation
+		//
+		$(this).find('input[type="text"], input[type="password"], textarea').each(function() {
+    		if($(this).hasClass('input-error') >= 0 ) {
+    			next_step = false;
+    		}
+    		else {
+    			next_step = true;
+    		}
+    	});
+		//
     	
     });
     

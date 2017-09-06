@@ -45,7 +45,7 @@
         static function objTurmas($tur){
             $turma = new Turmas();
             $turma->setTurmas_id($tur["turmas_id"]);
-            $turma->setProfessores($tur["professores_id"]);
+            $turma->setProfessores_id($tur["professores_id"]);
             $turma->setTurmas_nome($tur["turmas_nome"]);
             $turma->setTurmas_del($tur["turmas_del"]);
             

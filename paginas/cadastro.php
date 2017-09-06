@@ -18,6 +18,13 @@
 	<script type="text/javascript" src="../js/java.js"></script>
 	<script type="text/javascript" src="../js/jquery.js"></script>
 	<script type="text/javascript" src="../js/ajax.js"></script>
+	<style>
+		.navbar {
+			background-color: transparent;
+			border-color: transparent;
+			position: absolute;
+		}
+	</style>
 	<link rel="shortcut icon" href="../imagens/logo.ico">
 	<title> Cadastro | Quimicamente </title>
 </head>
@@ -51,7 +58,7 @@
 	
 	<!--Corpo da página-->
 	<section id="cadastro">
-		<form role="form" action="" method="POST" class="f1" onsubmit="return Cadastro();">
+		<form role="form" name="cadastro" action="" method="POST" class="f1" onsubmit="return Cadastro();">
 			<center>
 				<div class="f1-steps">
 															<div class="f1-progress">
@@ -124,7 +131,7 @@
 						<li><a href="http://quarkztech.blogspot.com.br" target="_blank">Blog dos Desenvolvedores</a></li>
 						<li><a href="http://www.cti.feb.unesp.br/" target="_blank">Site do CTI</a></li>
 					<br><br>
-						<li><a href="https://www.facebook.com/quarkzQuimicamente" target="_blank"><img src="../images/ico_face.png" width="50" /></a></li>
+						<li><a href="https://www.facebook.com/quarkzQuimicamente" target="_blank"><img src="../imagens/ico_face.png" width="50" /></a></li>
 						<li><img src="../imagens/ico_twitter.png" width="50" /></li>
 						<li><img src="../imagens/ico_blog.png" width="50"/></li>
 						<li><img src="../imagens/ico_link.png" width="50" /></li>

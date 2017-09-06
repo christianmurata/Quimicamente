@@ -166,23 +166,23 @@ function verifica_senha() {
 	if(forca == 0){
 		barra_forca.style.width ="20%";
 		barra_forca.style.backgroundColor = "#000";
-		barra_forca.innerHTML = "<p> Fraca </p>";
+		//barra_forca.innerHTML = "<p> Fraca </p>";
 	}else if((forca > 0) && (forca < 30)){
 		barra_forca.style.width ="35%";
 		barra_forca.style.backgroundColor = "#B20000";
-		barra_forca.innerHTML = "<p> Fraca </p>";
+		//barra_forca.innerHTML = "<p> Fraca </p>";
 	}else if((forca >= 30) && (forca < 60)){
 		barra_forca.style.width ="50%";
 		barra_forca.style.backgroundColor = "#FF9900";
-		barra_forca.innerHTML = "<p> Boa </p>";
+		//barra_forca.innerHTML = "<p> Boa </p>";
 	}else if((forca >= 60) && (forca < 85)){
 		barra_forca.style.width ="75%";
 		barra_forca.style.backgroundColor = "#99CC00";
-		barra_forca.innerHTML = "<p> Muito boa </p>";
+		//barra_forca.innerHTML = "<p> Muito boa </p>";
 	}else{
-		barra_forca.style.width ="100%";
+		barra_forca.style.width ="150%";
 		barra_forca.style.backgroundColor = "#009900";
-		barra_forca.innerHTML = "<p> Excelente </p>";
+		//barra_forca.innerHTML = "<p> Excelente </p>";
 	}
 	var w = forca*0.99; //daquele jeito
 	if (w==0) w=3;
@@ -193,38 +193,56 @@ function verifica_senha() {
 function confirma_nome(str, campo){
 	if(str.length < 3){
 		//document.getElementById(campo).removeClass('input-ok');
+		$('#'+campo+'').removeClass('input-ok');
 		$('#'+campo+'').addClass('input-error');
+		$('#label_'+campo+'').html("Nome inválido");
 	}
 	else{
 		//document.getElementById(campo).removeClass('input-error');
+		$('#'+campo+'').removeClass('input-error');
 		$('#'+campo+'').addClass('input-ok');
+		$('#label_'+campo+'').html("");
 	}
 }
 
 //Confirmação de senha
+function conta_senha(){
+	//alert("");
+	senha = document.getElementById("senha").value;
+	if(senha.length < 6){
+		$('#senha').removeClass('input-ok');
+		$('#senha').addClass('input-error');
+		$('#label_senha').html("Senha muito curta");
+	}
+	else{
+		$('#senha').removeClass('input-error');
+		$('#senha').addClass('input-ok');
+		$('#label_senha').html("");
+	}
+}
 function confirma_senha(){
 	senha = document.getElementById("senha").value;
 	conf_senha = document.getElementById("conf_senha").value;
 
 	if(senha != conf_senha){
-		alerta('warning', '<b> Atenção </b> as senhas não conferem!');
 		$('#senha').removeClass('input-ok');
 		$('#conf_senha').removeClass('input-ok');
 		$('#senha').addClass('input-error');
 		$('#conf_senha').addClass('input-error');
+		$('#label_conf_senha').html("As senhas não conferem");
 	}
 	else{
-		document.getElementById("alerta").innerHTML = "";
 		$('#senha').removeClass('input-error');
 		$('#conf_sennha').removeClass('input-error');
 		$('#senha').addClass('input-ok');
 		$('#conf_senha').addClass('input-ok');
+		$('#label_conf_senha').html("");
 	}
 		
 }
 
 //Confirmação CPF
-function TestaCPF(strCPF) {
+function confirma_cpf(strCPF) {
     var Soma;
     var Resto;
     Soma = 0;
@@ -238,8 +256,9 @@ function TestaCPF(strCPF) {
     if ((Resto == 10) || (Resto == 11))  
 		Resto = 0;
     if (Resto != parseInt(strCPF.substring(9, 10)) ) {
-		alerta('warning', '<b> Atenção </b> CPF inválido!');
+		$('#cpf').removeClass('input-ok');
 		$('#cpf').addClass('input-error');
+		$('#label_cpf').html("CPF inválido");
 	}
 	
 	Soma = 0;
@@ -254,13 +273,69 @@ function TestaCPF(strCPF) {
     if ((Resto == 10) || (Resto == 11))  
 		Resto = 0;
     if (Resto != parseInt(strCPF.substring(10, 11) ) ){
-		alerta('warning', '<b> Atenção </b> CPF inválido!');
+		$('#cpf').removeClass('input-ok');
 		$('#cpf').addClass('input-error');
+		$('#label_cpf').html("CPF inválido");
 	}
 	else{
-		document.getElementById("alerta").innerHTML = "";
 		$('#cpf').removeClass('input-error');
 		$('#cpf').addClass('input-ok');
+		$('#label_cpf').html("");
+	}
+}
+
+//Confirmação email
+function confirma_email(field) {
+	usuario = field.value.substring(0, field.value.indexOf("@"));
+	dominio = field.value.substring(field.value.indexOf("@")+ 1, field.value.length);
+
+	if ((usuario.length >=1) &&
+		(dominio.length >=3) && 
+		(usuario.search("@")==-1) && 
+		(dominio.search("@")==-1) &&
+		(usuario.search(" ")==-1) && 
+		(dominio.search(" ")==-1) &&
+		(dominio.search(".")!=-1) &&      
+		(dominio.indexOf(".") >=1)&& 
+		(dominio.lastIndexOf(".") < dominio.length - 1)) {
+			$('#email').removeClass('input-error');
+			$('#email').addClass('input-ok');
+			$('#label_email').html("");
+	}
+	else{
+		$('#email').removeClass('input-ok');
+		$('#email').addClass('input-error');
+		$('#label_email').html("Email inválido");
+	}
+}
+
+//confirmação data
+ function confirma_data(campo,valor) {
+	var date=valor;
+	var ardt=new Array;
+	var ExpReg=new RegExp("(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/[12][0-9]{3}");
+	ardt=date.split("/");
+	erro=false;
+	if ( date.search(ExpReg)==-1){
+		erro = true;
+		}
+	else if (((ardt[1]==4)||(ardt[1]==6)||(ardt[1]==9)||(ardt[1]==11))&&(ardt[0]>30))
+		erro = true;
+	else if ( ardt[1]==2) {
+		if ((ardt[0]>28)&&((ardt[2]%4)!=0))
+			erro = true;
+		if ((ardt[0]>29)&&((ardt[2]%4)==0))
+			erro = true;
+	}
+	if (erro) {
+		$('#dtnas').removeClass('input-ok');
+		$('#dtnas').addClass('input-error');
+		$('#label_dtnas').html("Data inválida");
+	}
+	else{
+		$('#dtnas').removeClass('input-error');
+		$('#dtnas').addClass('input-ok');
+		$('#label_dtnas').html("");
 	}
 }
 

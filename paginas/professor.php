@@ -20,6 +20,7 @@
 	<script type="text/javascript" src="http://code.jquery.com/jquery-2.0.0.min.js" /></script>
 	<script src="../js/java.js"></script>
 	<script src="../js/ajax.js"></script>
+	<script src="../js/mensagens.js"></script>
 
 	<style>
         .btn-qmt{
