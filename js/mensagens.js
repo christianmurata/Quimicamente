@@ -59,7 +59,7 @@ function msg(alerta, msg){
 //SUCCESS, WARNING, DANGER, INFO, QUIMICAMENTE
 //como usar:
 //msg('tipo do alerta', 'texto do alerta');
-function msg(alerta, texto) {
+function alerta(alerta, texto) {
      var resposta = '';
      $("#alerta").empty();
 

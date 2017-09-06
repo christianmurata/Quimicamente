@@ -9,15 +9,15 @@ function login(){
 		action:"login", email:email, senha:senha
 	  },
 	  success: function (response) {
-		alert(response);
+		//alert(response);
 		if (response.indexOf("errAlreadyLogged") >= 0){ 
-			msg('danger', '<b> Erro </b> ao efetuar o Login, ainda existe uma sessÃ£o aberta.');
+			msg('danger', 'Erro ao efetuar o Login, ainda existe uma sessão aberta.');
 		}
 		else if (response.indexOf("errInvalidCredentials") >= 0){ 
-			msg('danger', '<b> Erro </b> UsuÃ¡rio ou senha incorretos.');
+			msg('danger', 'Erro usuário ou senha incorretos.');
 		}
 		else{
-			msg('success', '<b> Sucesso </b> ao efetuar o Login.');
+			msg('success', 'Sucesso ao efetuar o Login.');
 			if(response.indexOf("2") >=0 )
 				setTimeout('window.location="../paginas/professor.php"', 5000);
 			else
@@ -32,7 +32,6 @@ function login(){
 	 });
 	return false;
 }
-
 function logout(){
 	$.ajax({
 		type: 'post',
@@ -69,7 +68,7 @@ function Cadastro(){
 			nome:nome, senha:senha, email:email,conf_senha:conf_senha,cpf:cpf , datanasc:datanasc
 		},
 		success: function (response) {
-			msg('danger', '<b> Erro </b>'+response);
+			alerta('danger', 'Erro'+response);
 			/*
             if (response.indexOf("Email já cadastrado!") >= 0){
 			}
@@ -107,7 +106,7 @@ function Cadastro(){
 			nome:nome, senha:senha, email:email, conf_senha:conf_senha, datanasc:datanasc
 		},
 		success: function (response) {
-			alert(response);
+			alerta('danger', 'Erro'+response);
 			/*if (response.indexOf("Email já cadastrado!") >= 0){
 				msg('danger', '<b> Erro </b>'+response);
 			}

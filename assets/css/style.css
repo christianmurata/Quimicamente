@@ -38,8 +38,8 @@
 
 .f1-buttons { text-align: right; padding: 0px; margin: 0px;}
 
-.f1 .input-error { border-color: red; }
-.f1 .input-ok { border-color: green; }
+.f1 .input-error { border: 1px solid red; }
+.f1 .input-ok { border: 2px solid #00FF00; }
 
 
 

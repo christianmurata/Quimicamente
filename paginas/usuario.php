@@ -1,11 +1,11 @@
 		<fieldset>
 					<div class="form-group">
 						<label class="sr-only" for="f1-first-name">Nome</label>
-						<input type="text" name="nome" maxlength="20" placeholder="Nome" class="f1-first-name form-control" id="nome" data-toggle="tooltip" data-placement="bottom" title="Insira seu nome">
+						<input type="text" name="nome" maxlength="20" placeholder="Nome" onblur="javascript:confirma_nome(this.value, this.id)" class="f1-first-name form-control" id="nome" data-toggle="tooltip" data-placement="bottom" title="Insira seu nome">
 					</div>
 					<div class="form-group">
 						<label class="sr-only" for="f1-last-name">Sobrenome</label>
-						<input type="text" name="sobrenome" maxlength="20" placeholder="Sobrenome" class="f1-last-name form-control" id="sobrenome" data-toggle="tooltip" data-placement="bottom" title="Insira seu sobrenome">
+						<input type="text" name="sobrenome" maxlength="20" placeholder="Sobrenome" onblur="javascript:confirma_nome(this.value, this.id)" class="f1-last-name form-control" id="sobrenome" data-toggle="tooltip" data-placement="bottom" title="Insira seu sobrenome">
 					</div>
 					<div class="form-group">
 						&nbsp;
@@ -33,7 +33,7 @@
 					<div id="barra_forca"></div>
 				</div>
 				<div class="form-group">
-					<input type="password" name="conf_senha" placeholder="Confirme sua senha" class="f1-repeat-password form-control" id="conf_senha" data-toggle="tooltip" data-placement="bottom" title="Insira sua confirmação de Senha"/>
+					<input type="password" name="conf_senha" placeholder="Confirme sua senha" onblur="javascript:confirma_senha()" class="f1-repeat-password form-control" id="conf_senha" data-toggle="tooltip" data-placement="bottom" title="Insira sua confirmação de Senha"/>
 				</div>
 				<div class="f1-buttons">
 					<input type="button" class="default btn btn-next total" value="Próximo"><br><br>

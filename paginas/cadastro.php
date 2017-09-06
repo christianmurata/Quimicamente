@@ -11,10 +11,14 @@
 	<link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.css">
 	<link rel="stylesheet" href="../assets/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../sweet_alert/sweetalert2.css">
+    <script src="../sweet_alert/sweetalert2.js"></script>
+	<script src="../js/mensagens.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
 	<script type="text/javascript" src="../js/java.js"></script>
 	<script type="text/javascript" src="../js/jquery.js"></script>
 	<script type="text/javascript" src="../js/ajax.js"></script>
-	<link rel="shortcut icon" href="../images/logo.ico">
+	<link rel="shortcut icon" href="../imagens/logo.ico">
 	<title> Cadastro | Quimicamente </title>
 </head>
 <body>
@@ -45,7 +49,6 @@
 		<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
 		<script src="../js/bootstrap.min.js"></script>
 	
-		<div id="alerta"></div>
 	<!--Corpo da página-->
 	<section id="cadastro">
 		<form role="form" action="" method="POST" class="f1" onsubmit="return Cadastro();">
@@ -68,6 +71,7 @@
 															</div>
 					</div><!--f1-steps--><br>
 					<div class="panel panel-default">
+							<div id="alerta"></div>
 							<!--<div class="panel-heading">
 								<h1> Cadastro </h1>
 							</div>-->

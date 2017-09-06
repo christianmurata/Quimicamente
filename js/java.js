@@ -1,45 +1,3 @@
-//alerts personalizados bootstrap
-//tipos de alerts:
-//SUCCESS, WARNING, DANGER, INFO, QUIMICAMENTE
-//como usar:
-//msg('tipo do alerta', 'texto do alerta');
-/*function msg(alerta, texto) {
-     var resposta = '';
-     $("#alerta").empty();
-
-     if (alerta === 'success') {
-       resposta = "<div class='alert alert-success' role='alert'>" +
-         "<button type='button' class='close' data-dismiss='alert' class='close'>&times;</button>" +
-         texto + "</div>";
-     } 
-	 else if (alerta === 'warning') {
-       resposta = "<div class='alert alert-warning' role='alert'>" +
-         "<button type='button' class='close' data-dismiss='alert' class='close'>&times;</button>" +
-         texto + "</div>";
-     } 
-	 else if (alerta === 'danger') {
-       resposta = "<div class='alert alert-danger' role='alert'>" +
-         "<button type='button' class='close' data-dismiss='alert' class='close'>&times;</button>" +
-         texto + "</div>";
-     }
-	 else if(alerta === 'info'){
-		resposta = "<div class='alert alert-info' role='alert'>" +
-         "<button type='button' class='close' data-dismiss='alert' class='close'>&times;</button>" +
-         texto + "</div>";
-	 }
-	 else if(alerta === 'quimicamente'){
-		resposta = "<div class='alert alert-quimicamente' role='alert'>" +
-         "<button type='button' class='close' data-dismiss='alert' class='close'>&times;</button>" +
-         texto + "</div>";
-	 }
-
-     $("#alerta").append(resposta);
-
-     $(".alert").click(function() {
-       $(".alert").hide();
-     });
-}*/ 
-
 function pagina(user){
 		if(user == 2){
 			//location.reload();
@@ -49,44 +7,6 @@ function pagina(user){
 			//location.reload();
 			$("#form").load("../paginas/usuario.php");
 		}
-}
-//Mensagem de erro personalizada
-function CustomAlert(){
-	//Mensagem de erro
-    this.error = function(dialog){
-        var winW = window.innerWidth;
-        var winH = window.innerHeight;
-        var dialogoverlay = document.getElementById('dialogoverlay');
-        var dialogbox = document.getElementById('dialogbox');
-        dialogoverlay.style.display = "block";
-        dialogbox.style.top = "100px";
-        dialogbox.style.display = "block";
-        document.getElementById('alertError').innerHTML = dialog;
-		setTimeout("limpa()", 2000);
-    }
-	//Mensagem ok
-	this.render = function(dialog){
-        var winW = window.innerWidth;
-        var winH = window.innerHeight;
-        var dialogoverlay = document.getElementById('dialogoverlay');
-        var dialogbox = document.getElementById('dialogbox');
-        dialogoverlay.style.display = "block";
-        dialogbox.style.top = "100px";
-        dialogbox.style.display = "block";
-        document.getElementById('dialogboxbody').innerHTML = dialog;
-		document.getElementById('dialogboxbody').style.color = "#aaa";
-		document.getElementById('dialogboxbody').style.borderRadius = "7px";
-		document.getElementById('dialogboxbody').style.border = "1px solid grey";
-		//setTimeout(limpa(), 3000);
-    }
-}
-var Alert = new CustomAlert();
-
-function limpa(){
-		document.getElementById('dialogboxbody').innerHTML = "";
-		document.getElementById('dialogboxbody').style.color = "";
-		document.getElementById('dialogboxbody').style.borderRadius = "";
-		document.getElementById('dialogboxbody').style.border = "";
 }
 
 //Validar Login
@@ -115,7 +35,6 @@ function ValidarLogin(strLogin,strSenha)
 }
 
 //Função loading
-/* DESENVOLVIDO POR FERNANDO NETO (Merece seus devidos créditos em nosso tcc)*/
 $(document).ready(function(){
 		// ESCONDE O CONTEUDO
 		$('div#mae').hide(); 
@@ -142,6 +61,7 @@ $(document).ready(function(){
 		});
 
 });
+
 //Voltar ao topo
 $(document).ready(function(){
 
@@ -177,7 +97,7 @@ $(document).ready(function(){
 
 //Mascara para o campo data
 function mascaraData( campo, e )
-{
+{	
 	var kC = (document.all) ? event.keyCode : e.keyCode;
 	var data = campo.value;
 	
@@ -268,44 +188,80 @@ function verifica_senha() {
 	if (w==0) w=3;
 	barra_forca.style.width = w+"%";
 }
+
+//Corfirmação de nome
+function confirma_nome(str, campo){
+	if(str.length < 3){
+		//document.getElementById(campo).removeClass('input-ok');
+		$('#'+campo+'').addClass('input-error');
+	}
+	else{
+		//document.getElementById(campo).removeClass('input-error');
+		$('#'+campo+'').addClass('input-ok');
+	}
+}
+
 //Confirmação de senha
 function confirma_senha(){
 	senha = document.getElementById("senha").value;
 	conf_senha = document.getElementById("conf_senha").value;
 
-	if(senha != conf_senha)
-	{
-		msg('warning', '<b> Atenção </b> as senhas não conferem!');
+	if(senha != conf_senha){
+		alerta('warning', '<b> Atenção </b> as senhas não conferem!');
+		$('#senha').removeClass('input-ok');
+		$('#conf_senha').removeClass('input-ok');
 		$('#senha').addClass('input-error');
+		$('#conf_senha').addClass('input-error');
 	}
-	else
-	{
+	else{
 		document.getElementById("alerta").innerHTML = "";
 		$('#senha').removeClass('input-error');
+		$('#conf_sennha').removeClass('input-error');
 		$('#senha').addClass('input-ok');
+		$('#conf_senha').addClass('input-ok');
 	}
 		
 }
 
-//Função menu lateral
-jQuery(document).ready(function() {
-		jQuery('ul.form li a').click(
-			function(e) {
-				e.preventDefault(); // prevent the default action
-				e.stopPropagation; // stop the click from bubbling
-				jQuery(this).closest('ul').find('.selected').removeClass('selected');
-				jQuery(this).parent().addClass('selected');
-			});
-});
-//alert - teste
-$(document).ready(function(){
-	$('#alerta').click(function() {
-		swal({
-			title: 'Error!',
-			text: 'Do you want to continue',
-			type: 'error',
-			confirmButtonText: 'Cool'
-	})
-		alert("teste");
-	});
-});
+//Confirmação CPF
+function TestaCPF(strCPF) {
+    var Soma;
+    var Resto;
+    Soma = 0;
+    
+	for (i=1; i<=9; i++) {
+		Soma = Soma + parseInt(strCPF.substring(i-1, i)) * (11 - i);
+	}
+	
+		Resto = (Soma * 10) % 11;
+	
+    if ((Resto == 10) || (Resto == 11))  
+		Resto = 0;
+    if (Resto != parseInt(strCPF.substring(9, 10)) ) {
+		alerta('warning', '<b> Atenção </b> CPF inválido!');
+		$('#cpf').addClass('input-error');
+	}
+	
+	Soma = 0;
+
+    for (i = 1; i <= 10; i++) {
+		Soma = Soma + parseInt(strCPF.substring(i-1, i)) * (12 - i);
+	}
+
+
+	Resto = (Soma * 10) % 11;
+	
+    if ((Resto == 10) || (Resto == 11))  
+		Resto = 0;
+    if (Resto != parseInt(strCPF.substring(10, 11) ) ){
+		alerta('warning', '<b> Atenção </b> CPF inválido!');
+		$('#cpf').addClass('input-error');
+	}
+	else{
+		document.getElementById("alerta").innerHTML = "";
+		$('#cpf').removeClass('input-error');
+		$('#cpf').addClass('input-ok');
+	}
+}
+
+ 
