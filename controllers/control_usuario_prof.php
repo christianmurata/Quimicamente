@@ -13,7 +13,7 @@
     if(strlen($_POST["email"]) < 7)
         die("Insira um email válido!");
                 
-    if(strlen($_POST["senha"]) < 8)
+    if(strlen($_POST["senha"]) < 6)
         die("Senha muito curta!");
 
     $sql = "SELECT * FROM usuarios WHERE usuarios_email = ?";

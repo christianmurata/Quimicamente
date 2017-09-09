@@ -68,7 +68,12 @@ function Cadastro(){
 			nome:nome, senha:senha, email:email,conf_senha:conf_senha,cpf:cpf , datanasc:datanasc
 		},
 		success: function (response) {
-			alerta('danger', 'Erro'+response);
+			if(response)
+				msg('danger', 'Erro'+response);
+			else{
+				msg('success', 'Cadastro realizado com sucesso!');
+				setTimeout('window.location="../paginas/login.php"', 1000);
+			}
 			/*
             if (response.indexOf("Email já cadastrado!") >= 0){
 			}
@@ -106,7 +111,12 @@ function Cadastro(){
 			nome:nome, senha:senha, email:email, conf_senha:conf_senha, datanasc:datanasc
 		},
 		success: function (response) {
-			alerta('danger', 'Erro'+response);
+			if(response)
+				msg('danger', 'Erro'+response);
+			else{
+				msg('success', 'Cadastro realizado com sucesso!');
+				setTimeout('window.location="../paginas/login.php"', 1000);
+			}
 			/*if (response.indexOf("Email já cadastrado!") >= 0){
 				msg('danger', '<b> Erro </b>'+response);
 			}
