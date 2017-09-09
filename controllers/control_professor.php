@@ -3,6 +3,8 @@
     include_once("../models/entidades.php");
     include_once("../models/model_professor.php");
 
+    //ambiente de teste
+
     session_start();
 
     $usuario = $_SESSION["login"];
