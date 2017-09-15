@@ -1,3 +1,9 @@
+﻿<script src="../js/ajax.js"></script>
+<style>
+    .nav{
+        background: f6f6f6;
+    }
+</style>
 <nav class="navbar navbar-default navbar-fixed-top" style="background-color: #ccc">        
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -15,20 +21,20 @@
 				<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Menu<span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="sala.php"><span class="glyphicon glyphicon-blackboard"></span>     Sala</a></li>
-						<li><a href="#"><span class="glyphicon glyphicon-user"></span>     Perfil</a></li>
-						<li><a href="#"><span class="glyphicon glyphicon-edit"></span>     Curso</a></li>
-						<li><a href="#"><span class="glyphicon glyphicon-time"></span>     Competir</a></li>
-						<li><a href="#"><span class="glyphicon glyphicon-cog"></span>     Sobre</a></li>
-						<li><a href="#"><span class="glyphicon glyphicon-log-out"></span>     Sair</a></li>
+						<li><a href="alteradados2.php"><span class="glyphicon glyphicon-user"></span>     Perfil</a></li>
+						<!--<li><a href="#"><span class="glyphicon glyphicon-edit"></span>     Curso</a></li> -->
+						<li><a href="modoCompeticao.php"><span class="glyphicon glyphicon-time"></span>     Competir</a></li>
+						<!--<li><a href="#"><span class="glyphicon glyphicon-cog"></span>     Mapa do site</a></li> -->
+						<li onclick="return logout();"><a href=""><span class="glyphicon glyphicon-log-out"></span>     Sair</a></li>
 					</ul>
 				</li>
-				<li class="trap"><a href="#">Sobre</a></li>
+				<!-- <li class="trap"><a href="#">Sobre</a></li> -->
 				<li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span><span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#"><span class="glyphicon glyphicon-wrench"></span>     Editar perfil</a></li>
+                        <li><a href="alteradados2.php"><span class="glyphicon glyphicon-wrench"></span>     Editar perfil</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-log-out"></span>     Sair</a></li>
+                        <li onclick="return logout();"><a href="#"><span class="glyphicon glyphicon-log-out"></span>     Sair</a></li>
                     </ul>
                 </li>
             </ul>

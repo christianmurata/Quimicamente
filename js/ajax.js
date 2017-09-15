@@ -207,3 +207,16 @@ function excluir_turmas(id_turma){
 		}
 	});
 }
+
+$(document).ready(function(){
+	$.ajax({
+		url: '../controllers/control_professor.php',
+		success: function(response){
+			
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown){
+			var erro = ("Um erro ocorreu. Tente novamentemas tarde." +errorThrown);
+			msg('warning', erro);
+		}
+	});
+});

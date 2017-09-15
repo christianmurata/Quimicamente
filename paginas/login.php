@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../css/style.css"/>
 	<link rel="stylesheet" href="../css/css_login.css"/>
-	<link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" href="../assets/bootstrap/css/bootstrap2.css">
 	<link rel="stylesheet" href="../css/elements.css"/>
 	<link rel="stylesheet" href="../assets/font-awesome/css/font-awesome.css">
 	<link rel="stylesheet" href="../css/animate.css">
@@ -17,6 +17,13 @@
 	<script type="text/javascript" src="../js/ajax.js"></script>
 	<script type="text/javascript" src="../js/java.js"></script>
 	<script type="text/javascript" src="../js/jquery.js"></script>
+	<style>
+		.navbar {
+			background-color: transparent;
+			border-color: transparent;
+			position: absolute;
+		}
+	</style>
 	<link rel="shortcut icon" href="../imagens/logo.ico">
 	<title> Login | Quimicamente </title>
 </head>
@@ -30,7 +37,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a href="#"><img id="img" src="../imagens/logoQuim.png"/></a>
+					<a href="#"><img id="img" src="../imagens/Quim.png"/></a>
 				</div>
 				<div id="navbar" class="navbar-collapse collapse navbar-right">
 					<ul class="nav navbar-nav navbar-text">

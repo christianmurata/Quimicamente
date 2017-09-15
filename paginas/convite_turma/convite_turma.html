@@ -1,0 +1,35 @@
+<link href="../sweet_alert/sweetalert2.css" rel="stylesheet">
+<style>
+    .btn-qmt{
+        background-color: #4FFFBC;
+    }
+</style>
+<div class="modal fade" id="modalConfirmaConvite" role="dialog" data-keyboard="false" data-backdrop="static" tab-index="-1">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Confirmar convite</h4>
+            </div>
+
+            <p>Deseja mesmo entrar na sala <b><span id="nome_sala"></span></b>?</p>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-qmt btn-confirmar">Sim</button>
+                <button type="button" class="btn" onclick="location.href = 'usuario.php'">Não</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalError" role="dialog" data-keyboard="false" data-backdrop="static" tab-index="-1">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Erro</h4>
+            </div>
+            <b><p align="center" id="err-message"></p></b>
+            <div class="modal-footer"></div>
+        </div>
+    </div>
+</div>
+<script src="../sweet_alert/sweetalert2.js"></script>
+<script src="convite_turma/js/script_convite_turma.js"></script>

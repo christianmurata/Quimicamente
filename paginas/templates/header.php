@@ -6,8 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">    
 	<meta name="description" content="Site do curso de química baseado em EaD">
 	<meta name="keywords" content="química, quimicamente, quarkz, cti, tcc, 3º ano">
-	<meta name="author" content="WILLIAN">
-	<title>ESTUDO</title>
+	<meta name="author" content="Quarkz Technology">
+	<title>Quimicamente</title>
     <!--adicionando o bootstrap-->
 	<link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <!--css personalizado-->

@@ -1,0 +1,35 @@
+$("#mostrar1").click(function(){
+	$("#pergunta1").show();
+	$("#pergunta2").hide();
+	$("#pergunta3").hide();
+	$("#pergunta4").hide();
+	$("#pergunta5").hide();
+});
+$("#mostrar2").click(function(){
+	$("#pergunta2").show();
+	$("#pergunta1").hide();
+	$("#pergunta3").hide();
+	$("#pergunta4").hide();
+	$("#pergunta5").hide();
+});
+$("#mostrar3").click(function(){
+	$("#pergunta3").show();
+	$("#pergunta2").hide();
+	$("#pergunta1").hide();
+	$("#pergunta4").hide();
+	$("#pergunta5").hide();
+});
+$("#mostrar4").click(function(){
+	$("#pergunta4").show();
+	$("#pergunta2").hide();
+	$("#pergunta3").hide();
+	$("#pergunta1").hide();
+	$("#pergunta5").hide();
+});
+$("#mostrar5").click(function(){
+	$("#pergunta5").show();
+	$("#pergunta2").hide();
+	$("#pergunta3").hide();
+	$("#pergunta4").hide();
+	$("#pergunta1").hide();
+});

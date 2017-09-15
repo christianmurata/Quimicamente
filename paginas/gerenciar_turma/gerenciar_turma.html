@@ -1,0 +1,456 @@
+<style>
+        .btn-qmt{
+            background: #4FFFBC;
+            color: white;
+        }
+        
+        .btn-painel{
+            width: 95%;
+            overflow-wrap: break-word;
+        }
+        
+        .panel-quimicamente{
+            border-color: #4FFFBC;
+        }
+        
+        .panel-quimicamente > .panel-heading {
+            border-color: #4FFFBC;
+            color: white;
+            background-color: #4FFFBC;
+        }
+        
+        [id*=questao]{
+            cursor: pointer;
+        }
+        [id*=selModulo]{
+            cursor: pointer;
+        }
+        [id*=modulo]{
+            cursor: pointer;   
+        }
+        .btn-right{
+            float: right;
+        }
+    </style>
+    <div class="container-fluid">
+        <nav class="navbar navbar-default navbar-fixed-top" style="background-color: #ccc">        
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><img src="../imagens/logoQuim.png" width="200px"></a>
+            </div>
+			
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right" style="padding-right:10px;">
+                    <li class="active"><a href="#">Curso</a></li>
+					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Menu<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#"><span class="glyphicon glyphicon-blackboard"></span>     Sala</a></li>
+							<li><a href="#"><span class="glyphicon glyphicon-user"></span>     Perfil</a></li>
+							<li><a href="#"><span class="glyphicon glyphicon-edit"></span>     Curso</a></li>
+							<li><a href="#"><span class="glyphicon glyphicon-time"></span>     Competir</a></li>
+							<li><a href="#"><span class="glyphicon glyphicon-cog"></span>     Sobre</a></li>
+							<li><a href="#"><span class="glyphicon glyphicon-log-out"></span>     Sair</a></li>
+						</ul>
+					</li>
+					<li><a href="#">Sobre</a></li>
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span><span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#"><span class="glyphicon glyphicon-wrench"></span>     Editar perfil</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-log-out"></span>     Sair</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+			<!--FINAL DA BARRA DE NAVEGAÇÃO SUPERIOR-->						
+        </nav>		
+	</div>		  
+		  
+	<!--CONTEÚDO DA PÁGINA-->
+	<div class="col-md-8 col-md-offset-2" style="padding-top: 70px">			
+		<div class="form-group">
+                    <div class="col-sm-8">
+                        <div class="panel panel-quimicamente">
+                            <div class="panel-heading">
+                                <h3>Gerenciar sala</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover" id="table-alunos">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" style="width: 15%">Selecionar</th>
+                                                <th scope="col">Nome</th>
+                                                <th scope="col">Rendimento</th>
+                                                <th scope="col"></th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <!--
+                                            <tr>
+                                                <td>
+                                                    <input type="checkbox" id="aluno1" onchange="excluiLista(1);">
+                                                </td>
+                                                <td>Pedro</td>
+                                                <td>70%</td>
+                                                <td><button class="btn btn-sm btn-qmt btn-right btn-painel" data-toggle="modal" data-target="#modalAluno">Detalhes</button></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input type="checkbox" id="aluno2" onchange="excluiLista(2);">
+                                                </td>
+                                                <td>Pedro</td>
+                                                <td>70%</td>
+                                                <td><button class="btn btn-sm btn-qmt btn-right btn-painel" data-toggle="modal" data-target="#modalAluno">Detalhes</button></td>
+                                            </tr>
+                                            -->
+                                        </tbody>
+                                        <tfoot>Selecione alunos para mais opções, clique para detalhes do rendimento</tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  
+                    <div class="col-sm-3  col-sm-offset-1">
+                        <div class="panel panel-quimicamente">
+                            <div class="panel-heading">
+                                <h3 id="nome-turma" style="text-align: center;"></h3>
+                            </div>
+                            <div class="panel-body">
+                                <p>Alunos: <span id="lbl-num-alunos">-</span></p>
+                                <p>Rendimento médio: <span id="lbl-rendimento-turma">-</span></p>
+                                <div align="center">
+                                    <button type="button" class="btn btn-qmt btn-painel" data-toggle="modal" data-target="#modalNotas"><b>Melhores notas</b></button>
+                                </div>
+                                <br>
+                                <div align="center">
+                                    <button type="button" class="btn btn-qmt btn-painel" data-toggle="modal" onclick="limpaQuestao();" data-target="#modalProva"><b>Elaborar prova</b></button>
+                                </div>
+                                <br>
+                                <div align="center">
+                                    <button type="button" data-toggle="modal" data-target="#modalModulo" class="btn btn-qmt btn-painel" onclick="limpaModulo()"><b>Liberar módulo</b></button>
+                                </div>
+                                <br>
+                                <div align="center">
+                                    <button type="button" data-toggle="modal" data-target="#modalConvidar" class="btn btn-qmt btn-painel"><b>Convidar alunos</b></button>
+                                </div>
+                                <br>
+                                <div align="center">
+                                    <button type="button" id="btnRemove" class="btn btn-danger btn-painel" data-toggle="modal" data-target="#modalRemove" disabled><b>Remover alunos</b>
+                                    </button>
+                                </div>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+              </div>		
+	</div>
+    <!---------------------------------------------- MODAIS -------------------------------------------------> 
+     <div class="modal fade" id="modalRemove" role="dialog" tabindex="-1" aria-labelledby="modalRemoveAluno">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span> </button>
+                            <h4 class="modal-title">Confirmar exclusão</h4>
+                        </div>
+						
+							<b><p>Deseja mesmo remover os alunos da sala? Essa ação não pode ser desfeita.</p></b>
+						
+						<div class="modal-footer">
+							<button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close">Excluir</button>
+							<button type="button" class="btn" data-dismiss="modal">Cancelar</button>
+						</div>
+                    </div>
+                </div>
+        </div> 
+    
+        <div class="modal fade" id="modalConvidar" role="dialog" tabindex="-1" aria-labelledby="modalConvidar">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span> </button>
+                            <h4 class="modal-title">Convidar alunos</h4>
+                        </div>
+							<p>Envie esse link para seus alunos e os convide para a sua sala!</p>
+                            <input type="text" class="form-control input-convite-link" style="margin-left: 10%; margin-top: 20px; margin-bottom: 20px; width: 80%;" readonly>
+                            
+						
+						<div class="modal-footer">
+							<button type="button" class="btn btn-qmt btn-copiar-link" data-dismiss="modal">Copiar!</button>
+							<button type="button" class="btn" data-dismiss="modal">Cancelar</button>
+						</div>
+                    </div>
+                </div>
+        </div>        
+    
+        <div class="modal fade" id="modalModulo" role="dialog" tabindex="-1" aria-labelledby="modalDesbloqueiaModelo">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span> </button>
+                            <h4 class="modal-title">Liberar Módulo</h4>
+                        </div>
+						
+							<div class="table-responsive">
+                                <table class="table table-hover" id="table-liberar-modulos">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Modulo:
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr id="selModulo1" onclick="selecModulo(1)">
+                                            <td>
+                                                Modulo 1
+                                            </td>
+                                        </tr>
+                                        <tr id="selModulo2" onclick="selecModulo(2)">
+                                            <td>
+                                                Modulo 2
+                                            </td>
+                                        </tr>
+                                        <tr id="selModulo3" onclick="selecModulo(3)">
+                                            <td>
+                                                Modulo 3
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+						
+						<div class="modal-footer">
+							<button type="button" class="btn btn-qmt" data-dismiss="modal" aria-label="Close">Desbloquear</button>
+							<button type="button" class="btn" data-dismiss="modal">Cancelar</button>
+						</div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="modal fade" id="modalNotas" role="dialog" tabindex="-1" aria-labelledby="modalNotas">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span> </button>
+                            <h4 class="modal-title">Notas</h4>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table" id="table-notas">
+                                <thead>
+                                    <tr>
+                                        <th>Prova ID</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!--
+                                    <tr>
+                                         <td onclick="expandeProva(1);" id="prova">
+                                                <b>Prova 1</b> <span style="float: right" class="glyphicon glyphicon-collapse-down"></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            
+                                            <div class="table-responsive" id="prova1" style="display: none;">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Aluno</th>
+                                                            <th>Acertos</th>
+                                                            <th>Nota</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        
+                                                        <tr>
+                                                            <td>Pedro</td>
+                                                            <td>7/10</td>
+                                                            <td><b>7,0</b></td>
+                                                        </tr>
+                                                        
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                        -->
+                                </tbody>
+                            </table>
+                        </div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-qmt" data-dismiss="modal" aria-label="Close">OK</button>
+						</div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="modal fade" id="modalAluno" role="dialog" tabindex="-1" aria-labelledby="modalAluno">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span> </button>
+                            <h4 class="modal-title">Nome do aluno</h4>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-hover" id="table-detalhes-aluno">
+                                <thead>
+                                    <tr>
+                                        <th>Prova No.</th>
+                                        <th>Acertos</th>
+                                        <th>Nota</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-qmt" data-dismiss="modal" aria-label="Close">OK</button>
+						</div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="modal fade" id="modalModulo" role="dialog" tabindex="-1" aria-labelledby="modalDesbloqueiaModulo">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span> </button>
+                            <h4 class="modal-title">Liberar Módulo</h4>
+                        </div>
+						
+							<div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Modulo:
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr id="selModulo1" onclick="selecModulo(1)">
+                                            <td>
+                                                Modulo 1
+                                            </td>
+                                        </tr>
+                                        <tr id="selModulo2" onclick="selecModulo(2)">
+                                            <td>
+                                                Modulo 2
+                                            </td>
+                                        </tr>
+                                        <tr id="selModulo3" onclick="selecModulo(3)">
+                                            <td>
+                                                Modulo 3
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+						
+						<div class="modal-footer">
+							<button type="button" class="btn btn-qmt" data-dismiss="modal" aria-label="Close">Desbloquear</button>
+							<button type="button" class="btn" data-dismiss="modal">Cancelar</button>
+						</div>
+                    </div>
+                </div>
+            </div> 
+    
+        <div class="modal fade" id="modalProva" role="dialog" tabindex="-1" aria-labelledby="modalProva">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span> </button>
+                            <h4 class="modal-title">Montar prova</h4>
+                        </div>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th> Módulo:</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td onclick="expandeModulo(1);" id="modulo">
+                                                <b>Modulo 1</b> <span style="float: right" class="glyphicon glyphicon-collapse-down"></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="table-responsive" style="display: none;" id="questaoModulo1">
+                                                    <table class="table table-hover">
+                                                            <tr>
+                                                                <td id="questao1" onclick="selecQuestao(1);">
+                                                                    Questão 1
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td id="questao2" onclick="selecQuestao(2);">
+                                                                    Questão 2
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td id="questao3" onclick="selecQuestao(3);">
+                                                                    Questão 3
+                                                                </td>
+                                                            </tr>
+                                                    </table>
+                                            </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td onclick="expandeModulo(2);" id="modulo">
+                                                <b>Modulo 2</b> <span class="glyphicon glyphicon-collapse-down" style="float: right"></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="table-responsive" style="display: none;" id="questaoModulo1">
+                                                    <table class="table table-hover">
+                                                            <tr>
+                                                                <td id="questao4" onclick="selecQuestao(4);">
+                                                                    Questão 1
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td id="questao5" onclick="selecQuestao(5);">
+                                                                    Questão 2
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td id="questao6" onclick="selecQuestao(6);">
+                                                                    Questão 3
+                                                                </td>
+                                                            </tr>
+                                                    </table>
+                                            </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-qmt" data-dismiss="modal" aria-label="Close">Montar Prova</button>
+							<button type="button" class="btn" data-dismiss="modal">Cancelar</button>
+						</div>
+                    </div>
+                </div>
+            </div>
+		        
+    <!--CHAMADA DOS SCRIPTS-->
+    <script src="../assets/bootstrap/js/jquery-3.2.1.js"></script>
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="gerenciar_turma/js/script_gerSala.js"></script>

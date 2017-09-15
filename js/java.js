@@ -327,6 +327,9 @@ function confirma_email(field) {
 		if ((ardt[0]>29)&&((ardt[2]%4)==0))
 			erro = true;
 	}
+	else if(ardt[2] < 1910 || ardt[2] > 2017){
+		erro = true;
+	}
 	if (erro) {
 		$('#dtnas').removeClass('input-ok');
 		$('#dtnas').addClass('input-error');

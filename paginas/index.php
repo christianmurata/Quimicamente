@@ -7,25 +7,24 @@
 	<link rel="stylesheet" href="../css/style.css"/>
 	<link rel="stylesheet" href="../css/css_form.css"/>
 	<link rel="stylesheet" href="../css/css_index.css"/>
-	<link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" href="../assets/bootstrap/css/bootstrap2.css">
 	<link rel="stylesheet" href="../assets/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" href="../assets/css/style.css">
 	<link rel="stylesheet" href="../css/animate.css">
 	<link rel="stylesheet" href="../css/hover.css">
 	<script src="../js/jquery.min.js"></script>
 	<script src="../js/java.js"></script>
+	<style>
+		.navbar {
+			background-color: transparent;
+			border-color: transparent;
+			position: absolute;
+		}
+	</style>
 	<link rel="shortcut icon" href="../imagens/logo.ico">
 	<title> Home | Quimicamente </title>
 </head>
 <body>
-<style>
-    .navbar-default{
-        background-color: transparent;
-        border-color: transparent;
-    }
-    .fadeInUp{
-        color: white;
-    }
 </style>
 	<div id="loading">
 		<center><img src="../imagens/logo.png" width="100px" height="100px"/><span>Carregando...</span></center>
@@ -40,13 +39,13 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a href="index.html"><img id="img" src="../imagens/logoQuim.png"/></a>
+					<a href="index.html"><img id="img" src="../imagens/Quim.png"/></a>
 				</div>
 				<div id="navbar" class="navbar-collapse collapse navbar-right">
 					<ul class="nav navbar-nav navbar-text">
-						<li><a href="index.html" class="menu ativo">Home</a></li>
-						<li><a href="sobre.html" class="menu">Sobre</a></li>
-						<li class="hidden-xs"><a href="cadastro.html" class="menu">Cadastro</a></li>
+						<li><a href="#" class="menu ativo">Home</a></li>
+						<li><a href="sobre.php" class="menu">Sobre</a></li>
+						<li><a href="cadastro.php" class="menu">Cadastro</a></li>
 						<li><a href="login.php" class="menu">Login </a></li>
 					</ul>
 				</div><!--/.nav-collapse -->
@@ -173,7 +172,7 @@
 		<center>
 			<h1 class="pad animated fadeInLeft"> O melhor da Química você só encontra aqui </h1>
 			<h3 class="animated fadeInRight">conteúdo completo para os químicos de plantão</h3><br><br>
-			<input type="button" value="Cadastre-se" class="back big animated fadeInLeft" onclick="location.href='cadastro.html'"/>
+			<input type="button" value="Cadastre-se" class="back big animated fadeInLeft" onclick="location.href='cadastro.php'"/>
 		</center>
 		<!-- Javascript -->
         <script src="../assets/js/jquery-1.11.1.min.js"></script>

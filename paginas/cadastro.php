@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="../css/css_form.css"/>
 	<link rel="stylesheet" href="../css/hover.css">
 	<link rel="stylesheet" href="../css/elements.css"/>
-	<link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" href="../assets/bootstrap/css/bootstrap2.css">
 	<link rel="stylesheet" href="../assets/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../sweet_alert/sweetalert2.css">
@@ -38,13 +38,13 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a href="#"><img id="img" src="../imagens/logoQuim.png"/></a>
+					<a href="#"><img id="img" src="../imagens/Quim.png"/></a>
 				</div>
 				<div id="navbar" class="navbar-collapse collapse navbar-right">
 					<ul class="nav navbar-nav navbar-text">
-						<li><a href="index.html" class="menu">Home</a></li>
-						<li><a href="sobre.html" class="menu">Sobre</a></li>
-						<li><a href="cadastro.html" class="menu ativo">Cadastro</a></li>
+						<li><a href="index.php" class="menu">Home</a></li>
+						<li><a href="sobre.php" class="menu">Sobre</a></li>
+						<li><a href="cadastro.php" class="menu ativo">Cadastro</a></li>
 						<li><a href="login.php" class="menu">Login </a></li>
 					</ul>
 				</div><!--/.nav-collapse -->

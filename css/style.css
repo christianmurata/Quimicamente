@@ -66,6 +66,14 @@ p {
 	}
 }
 
+.nav > li.disabled > a {
+  color: #aaa;
+}
+.nav > li.disabled > a:hover,
+.nav > li.disabled > a:focus {
+  color: #aaa;
+}
+
 #mae{
 	width: auto;
 	height: auto;

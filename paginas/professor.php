@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <?php include "../controllers/control_professor.php"; ?>
 <html lang="pt-br">
 <head>
@@ -78,7 +79,7 @@
 							<li><a href="#"><span class="glyphicon glyphicon-edit"></span>     Curso</a></li>
 							<li><a href="#"><span class="glyphicon glyphicon-time"></span>     Competir</a></li>
 							<li><a href="#"><span class="glyphicon glyphicon-cog"></span>     Sobre</a></li>
-							<li><a href="#"><span class="glyphicon glyphicon-log-out"></span>     Sair</a></li>
+							<li><a href="#" onclick = "logout();"><span class="glyphicon glyphicon-log-out"></span>     Sair</a></li>
 						</ul>
 					</li>
 					<li><a href="#">Sobre</a></li>
@@ -87,7 +88,7 @@
                         <ul class="dropdown-menu">
                             <li><a href="#"><span class="glyphicon glyphicon-wrench"></span>     Editar perfil</a></li>
                             <li role="separator" class="divider"></li>
-                            <li onclick = "return logout();"><a href="#"><span class="glyphicon glyphicon-log-out"></span>     Sair</a></li>
+                            <li onclick = "logout();"><a href="#"><span class="glyphicon glyphicon-log-out"></span>     Sair</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -124,7 +125,7 @@
 													<p><?php echo $turma->getTurmas_nome(); ?></p>
 												</td>
 												<td>
-													<a href="sala.php?turma=<?php echo $id; ?>" class="b">Exibir</a></div>
+													<a href="gerenciar_turma.php?id=<?php echo $id; ?>" class="b">Exibir</a></div>
 												</td>
 												<td>
 													<a href="#" class="b" data-toggle="modal" data-target="#<?php echo $turma->getTurmas_id(); ?>">Excluir</a>
@@ -197,7 +198,7 @@
 								<br><br><br><br><br>
 							</div>
 							<div class="panel-footer">
-								<input type="button" value="Ranking completo" class="special" onclick="window.location='rank2.php'"/>
+								<input type="button" value="Ranking completo" class="special" onclick="window.location='rank.php'"/>
 							</div>
 						</div>
 					</div><!-- /.col-lg-4 -->
@@ -223,7 +224,7 @@
 								</div>
 							</div>
 							<div class="panel-footer">
-								<input type="button" value="Adicionar conteúdo" class="special"/>
+								<input type="button" value="Adicionar conteúdo" class="special" onclick="window.location='adicionar_conteudos.php'"/>
 							</div>
 						</div>
 					</div> <!-- /.col-lg-12 -->

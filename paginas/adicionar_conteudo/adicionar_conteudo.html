@@ -1,0 +1,317 @@
+    ' <style>
+        form.cadModulo-form fieldset {
+            display: none;
+            border-style: solid;
+            border-width: 2px;
+            border-color: #4FFFBC;
+            border-radius: 5px;
+        }
+        
+        form.cadModulo-form fieldset > .form-top{
+            border-color: #4FFFBC;
+            background-color: #4FFFBC;
+            color: white;
+            padding-top: 0.5%;
+            padding-left: 1%;
+            padding-bottom: 0.5%;
+        }
+        
+        [id*=selModulo]{
+            cursor: pointer;
+        }
+        
+        .btn-ctn-tools{
+            margin-right: 10px;
+            float: left;
+        }
+        
+        .btn-qmt{
+            background-color: #4FFFBC;
+        }
+        
+        [class*=novo-slide]{
+            background-color: #DADADA;
+            width: 90%;
+            height: 40px;
+            margin-top: 30px;
+            margin-left: 10px;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+            border-style: solid;
+            border-width: 3px;
+            border-color: #4FFFBC;
+            border-bottom: none;
+            cursor: pointer;
+        }
+        [class*=novo-slide]:hover{
+            background-color: #BABABA;
+        }
+        
+        [class^=nova-questao]{
+            background-color: #DADADA;
+            width: 90%;
+            height: 40px;
+            margin-top: 30px;
+            margin-left: 10px;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+            border-style: solid;
+            border-width: 3px;
+            border-color: #4FFFBC;
+            border-bottom: none;
+            cursor: pointer;
+        }
+        [class^=nova-questao]:hover{
+            background-color: #BABABA;
+        }
+        
+        [class*=exclui-questao]{
+            background-color: lightcoral;
+            width: 90%;
+            margin-left: 10px;
+            cursor: pointer;
+            text-align: center;
+            float: left;
+            border-bottom-left-radius: 3px;
+            border-bottom-right-radius: 3px;
+        }
+        [class*=exclui-questao]:hover{
+            background-color: firebrick;
+            color: white;
+        }
+        
+        [class*=exclui-slide]{
+            background-color: lightcoral;
+            width: 50%;
+            margin-left: 10px;
+            cursor: pointer;
+            text-align: center;
+            float: left;
+            border-bottom-left-radius: 3px;
+        }
+        [class*=exclui-slide]:hover{
+            background-color: firebrick;
+            color: white;
+        }
+        
+        [class*=move-slide]{
+            background-color: #4FFFBC;
+            width: 20%;
+            float: left;
+            text-align: center;
+            cursor: pointer;
+        }
+        
+        [class*=move-slide-dn]{
+            border-bottom-right-radius: 3px;
+        }
+        
+        [class*=move-slide]:hover{
+            background-color: #31c1a1;
+        }
+        
+        [id*=form-alt]{
+            width: 90%;
+        }
+        
+        .btnBox{
+            margin: 10px;
+            float: right;
+        }
+        
+    </style>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.6/summernote.css" rel="stylesheet">
+    <div class="container-fluid">
+        <nav class="navbar navbar-default navbar-fixed-top" style="background-color: #ccc">
+            <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><img src="../imagens/logoQuim.png" width="200px"></a>
+            </div>
+			
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right" style="padding-right:10px;">
+                    <li class="active"><a href="#">Curso</a></li>
+					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Menu<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#"><span class="glyphicon glyphicon-blackboard"></span>     Sala</a></li>
+							<li><a href="#"><span class="glyphicon glyphicon-user"></span>     Perfil</a></li>
+							<li><a href="#"><span class="glyphicon glyphicon-edit"></span>     Curso</a></li>
+							<li><a href="#"><span class="glyphicon glyphicon-time"></span>     Competir</a></li>
+							<li><a href="#"><span class="glyphicon glyphicon-cog"></span>     Sobre</a></li>
+							<li><a href="#"><span class="glyphicon glyphicon-log-out"></span>     Sair</a></li>
+						</ul>
+					</li>
+					<li><a href="#">Sobre</a></li>
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span><span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#"><span class="glyphicon glyphicon-wrench"></span>     Editar perfil</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-log-out"></span>     Sair</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            </div>
+			<!--FINAL DA BARRA DE NAVEGAÇÃO SUPERIOR-->						
+        </nav>		
+	</div>		  
+		  
+	<!--CONTEÚDO DA PÁGINA-->
+    <div class="row">
+	   <div class="col-sm-8 col-sm-offset-2" style="padding-top: 70px">			
+		<form role="form" action="" method="post" class="cadModulo-form">
+                        		
+                        		<fieldset>
+		                        	<div class="form-top">
+		                        		<div class="form-top-left">
+		                        			<h3>Em qual módulo o conteúdo vai pertencer?</h3>
+		                                  </div>
+                                    </div>
+		                            <div class="form-bottom">
+				                    	<div class="table-reponsive" style="height: 400px; overflow-y: scroll; overflow-x: hidden;">
+                                            <table class="table table-hover" id="table-modulo" onselectstart="return false;">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Módulo</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <!--
+                                                    <tr id="selModulo1" onclick="selecModulo(1)">
+                                                        <td>Modulo 1</td>
+                                                    </tr>
+                                                    <tr id="selModulo2" onclick="selecModulo(2)">
+                                                        <td>Modulo 2</td>
+                                                    </tr>
+                                                    <tr id="selModulo3" onclick="selecModulo(3)">
+                                                        <td>Modulo 3</td>
+                                                    </tr>
+                                                    -->
+                                                </tbody>
+                                            </table>
+                                        </div>
+				                    </div>
+                                    <div id="botoes" style="margin:1%;">
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalNovoModulo" style="margin-right: 1%;" onclick="limpa_novo_modulo()">Novo módulo</button>
+                                        <button type="button" class="btn btn-next btn-qmt" id="avanca1" onclick="carregarSlides(marcado)" disabled>Próximo</button>
+                                        </div>
+			                    </fieldset>
+			                    
+			                    <fieldset>
+		                        	<div class="form-top">
+		                        		<div class="form-top-left">
+		                        			<h3>Edição dos Slides</h3>
+		                        		</div>
+		                            </div>
+		                            <div class="form-bottom">
+                                        <div class="col-sm-8">
+                                            <p align="center">Slides disponíveis: <span class="slide-restante">7</span></p>
+				                            <div id="summernote"></div>
+                                        
+                                        </div>
+                                        
+				                    </div>
+                                    <div class="col-md-3 col-md-offset-1">
+                                        <div class="box-slides" onselectstart="return false;" style="background-color: #CCC; height: 200px; overflow-y: scroll; overflow-x: hidden; margin-top: 30px;">
+                                        </div>
+                                        <div class="box-questoes" onselectstart="return false;" style="background-color: #EEE; height: 200px; overflow-y: scroll; overflow-x: hidden;">
+                                        </div>
+                                    </div>
+                                    <div class="btnBox">
+                                        <button type="button" class="btn btn-qmt btn-ctn-tools btn-new-slide" onclick="novoSlide()">Novo Slide</button>
+                                        <button type="button" class="btn btn-qmt btn-ctn-tools" data-toggle="modal" data-target="#modalNovaQuestao" onclick="limpa_alt()">Nova Questão</button>
+                                        <button type="button" class="btn btn-qmt btn-ctn-tools btn-salva-conteudo" onclick="salvarSlides()" disabled>SALVAR CONTEÚDO</button>
+                                    </div>
+			                    </fieldset>
+		                    </form>	
+	</div>
+    <!------------------------------------ MODAIS ---------------------------------->
+
+    <div class="modal fade" id="modalNovoModulo" role="dialog" tabindex="-1" aria-labelledby="modalNovoModulo">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span> </button>
+                            <h4 class="modal-title">Novo módulo</h4>
+                        </div>
+                        
+						<div class="form-group">
+                            <p>Nome do Módulo</p>
+                            <input type="text" class="form-control form-nome-modulo" onkeyup="testa_novo_modulo()" id="form-nome-modulo" name="form-nome-modulo">
+                        </div>
+                        
+						<div class="form-group">
+                            <p>Descrição do Módulo</p>
+                            <input type="text" class="form-control form-desc-modulo" onkeyup="testa_novo_modulo()" id="form-desc-modulo" name="form-desc-modulo">
+                        </div>
+                        
+                        <div class="form-group">
+                            <p>Selecione o módulo que estará na posição anterior a este.</p>
+                            <select class="form-control form-posicao-modulo" id="form-posicao-modulo" name="form-posicao-modulo">
+                                <option value="0">Nenhum</option>
+                            </select>
+                        </div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-qmt btn-novo-modulo" data-dismiss="modal" onclick="if(testa_novo_modulo()) insere_modulo()" disabled>Inserir</button>
+							<button type="button" class="btn" data-dismiss="modal">Cancelar</button>
+						</div>
+                    </div>
+                </div>
+        </div>  
+    </div>
+    
+    <div class="modal fade" id="modalNovaQuestao" role="dialog" tabindex="-1" aria-labelledby="modalNovaQuestao">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span> </button>
+                            <h4 class="modal-title">Nova questão</h4>
+                        </div>
+                        <div style="margin-left: 40px;">
+                            <div class="form-group">
+                                <p>Digite o enunciado: </p>
+                                <input type="text" class="form-control form-alt-enunciado" onkeyup="testa_questao()" id="form-alt-enunciado" name="form-enunciado">
+                            </div>
+
+                            <div class="form-group">
+                                <p>Alternativa 1 [CORRETA]:</p>
+                                <input type="text" onkeyup="testa_questao()" class="form-control form-alt-1" id="form-alt-1" name="form-alt-1">
+                            </div>
+
+                            <div class="form-group">
+                                <p>Alternativa 2 [ERRADA]:</p>
+                                <input type="text" onkeyup="testa_questao()" class="form-control form-alt-2" id="form-alt-2" name="form-alt-2">
+                            </div>
+
+                            <div class="form-group">
+                                <p>Alternativa 3 [ERRADA]:</p>
+                                <input type="text" onkeyup="testa_questao()" class="form-control form-alt-3" id="form-alt-3" name="form-alt-3">
+                            </div>
+
+                            <div class="form-group">
+                                <p>Alternativa 4 [ERRADA]:</p>
+                                <input type="text" onkeyup="testa_questao()" class="form-control form-alt-4" id="form-alt-4" name="form-alt-4">
+                            </div>
+
+                            <div class="form-group">
+                                <p>Alternativa 5 [ERRADA]:</p>
+                                <input type="text" onkeyup="testa_questao()" class="form-control form-alt-5" id="form-alt-5" name="form-alt-5">
+                            </div>
+                        </div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-qmt btn-nova-questao" onclick="if(testa_questao()) insere_questao(true);" data-dismiss="modal" aria-label="Close" disabled>Inserir</button>
+							<button type="button" class="btn" data-dismiss="modal">Cancelar</button>
+						</div>
+                    </div>
+                </div>
+        </div>  
+    <!--CHAMADA DOS SCRIPTS-->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.6/summernote.js"></script>
+    <script src="adicionar_conteudo/js/script_adcCtd.js"></script>
