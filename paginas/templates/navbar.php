@@ -4,7 +4,7 @@
         background: f6f6f6;
     }
 </style>
-<nav class="navbar navbar-default navbar-fixed-top" style="background-color: #ccc">        
+<nav class="navbar navbar-default navbar-fixed-top" style="background-color: #fff">        
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                 <span class="sr-only">Toggle navigation</span>

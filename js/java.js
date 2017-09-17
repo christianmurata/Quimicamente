@@ -34,65 +34,64 @@ function ValidarLogin(strLogin,strSenha)
       }
 }
 
-//Função loading
+
 $(document).ready(function(){
-		// ESCONDE O CONTEUDO
-		$('div#mae').hide(); 
-		// DAR O EFEITO ... E MUDA DE COR
-		function loadProgress(){ 
-			var atribuicao = "div#loading span";
-			var loadRet = setInterval(function(){$(atribuicao).append('');}, 500);
-			var cor     = setInterval(function(){$("div#loading").css('color','#777');}, 500);
-			setInterval(function(){
-			clearInterval(loadRet);
-			clearInterval(cor);
-			$(atribuicao).html('')
-			$("div#loading").css('color','#000');
-			}, 2000);
+		//função loading
+		if(document.getElementById("mae")){
+			// ESCONDE O CONTEUDO
+			$('div#mae').hide(); 
+			// DAR O EFEITO ... E MUDA DE COR
+			function loadProgress(){ 
+				var atribuicao = "div#loading span";
+				var loadRet = setInterval(function(){$(atribuicao).append('');}, 500);
+				var cor     = setInterval(function(){$("div#loading").css('color','#777');}, 500);
+				setInterval(function(){
+				clearInterval(loadRet);
+				clearInterval(cor);
+				$(atribuicao).html('')
+				$("div#loading").css('color','#000');
+				}, 2000);
+			}
+			loadProgress();
+			setInterval(loadProgress, 0);
+			
+			
+			// MOSTRA O CONTEUDO QUANDO O SITE FOR CARREGADO POR COMPLETO
+			$(window).load(function(){
+				$('div#loading').fadeOut();
+				$('div#mae').fadeIn();
+			});
 		}
-		loadProgress();
-		setInterval(loadProgress, 0);
+		//função voltar ao topo
+		if(document.getElementById("backtopo")){
+			// hide #back-top first
+			$('#backtopo').hide();
+			
+			// fade in #back-top
+			$(function () {
+				$(window).scroll(function () {
+					if ($(this).scrollTop() > 150) {
+						$('#backtopo').fadeIn();
+					} else {
+						$('#backtopo').fadeOut();
+					}
+				});
 		
+				// scroll body to 0px on click
+				$('#backtopo').click(function () {
+					$('body,html').animate({
+						scrollTop: 0
+					}, 800);
+					return false;
+				});
 		
-		// MOSTRA O CONTEUDO QUANDO O SITE FOR CARREGADO POR COMPLETO
-		$(window).load(function(){
-			$('div#loading').fadeOut();
-			$('div#mae').fadeIn();
-		});
-
-});
-
-//Voltar ao topo
-$(document).ready(function(){
-
-    // hide #back-top first
-    $('#backtopo').hide();
-       
-    // fade in #back-top
-    $(function () {
-        $(window).scroll(function () {
-            if ($(this).scrollTop() > 150) {
-                $('#backtopo').fadeIn();
-            } else {
-                $('#backtopo').fadeOut();
-            }
-        });
-
-        // scroll body to 0px on click
-        $('#backtopo').click(function () {
-            $('body,html').animate({
-                scrollTop: 0
-            }, 800);
-            return false;
-        });
-
-		$('.click-scroll').click(function () {
-			$('html, body').animate({
-				scrollTop: $("#title").offset().top
-				}, 800); // Tempo em ms que a animação irá durar
-		})
-    });
-
+				$('.click-scroll').click(function () {
+					$('html, body').animate({
+						scrollTop: $("#title").offset().top
+						}, 800); // Tempo em ms que a animação irá durar
+				})
+			});
+		}
 });
 
 //Mascara para o campo data

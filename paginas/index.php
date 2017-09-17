@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../assets/css/style.css">
 	<link rel="stylesheet" href="../css/animate.css">
 	<link rel="stylesheet" href="../css/hover.css">
-	<script src="../js/jquery.min.js"></script>
+	<script src="../js/jquery.js"></script>
 	<script src="../js/java.js"></script>
 	<style>
 		.navbar {
@@ -39,7 +39,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a href="index.html"><img id="img" src="../imagens/Quim.png"/></a>
+					<a href="index.html"><img id="img" src="../imagens/logoQuim.png"/></a>
 				</div>
 				<div id="navbar" class="navbar-collapse collapse navbar-right">
 					<ul class="nav navbar-nav navbar-text">
@@ -178,7 +178,6 @@
         <script src="../assets/js/jquery-1.11.1.min.js"></script>
         <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
         <script src="../assets/js/jquery.backstretch.min.js"></script>
-        <script src="../assets/js/retina-1.1.0.min.js"></script>
         <script src="../assets/js/scripts.js"></script>
 	</section>
 	<footer id="footer" class="hidden-xs">
