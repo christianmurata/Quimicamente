@@ -19,9 +19,9 @@ function login(){
 		else{
 			msg('success', 'Sucesso ao efetuar o Login.');
 			if(response.indexOf("2") >=0 )
-				setTimeout('window.location="../paginas/professor.php"', 5000);
+				setTimeout('window.location="../paginas/professor.php"', 1000);
 			else
-				setTimeout('window.location="../paginas/teste.php"', 5000);
+				setTimeout('window.location="../paginas/teste.php"', 1000);
 
 		}
 	  },
@@ -174,7 +174,7 @@ function inserir_turmas(){
 			}
 			else{
 				msg('success', 'A turma foi cadastrada com sucesso!');
-				setTimeout('window.location="../paginas/professor.php"', 3000);
+				setTimeout('window.location="../paginas/professor.php"', 1000);
 			}
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown){
@@ -198,7 +198,7 @@ function excluir_turmas(id_turma){
 			}
 			else{
 				msg('success', 'Turma excluida com sucesso!');
-				setTimeout('window.location="../paginas/professor.php"', 3000);
+				setTimeout('window.location="../paginas/professor.php"', 1000);
 			}
 		},
 		error: function (XMLHttpRequest, textStatus, errorThrown){
