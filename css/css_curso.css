@@ -1,0 +1,34 @@
+*{padding: 0; margin: 0; border: 0;}
+html{
+    background-color: #4FFFBC;
+}
+@media(max-width: 400px){    
+    .jumbotron{
+        padding-top: 150px;
+        background-color: transparent;
+    }
+}
+@media(min-width: 400px){    
+    .jumbotron{
+        padding-top: 250px;
+        background-color: transparent;
+    }
+}
+.curso{
+    background-color: #4FFFBC;
+    color:#fff;
+    width: 100%;
+    height: 670px;
+}
+.seta{
+    padding-top: 200px;
+}
+
+.hvr-icon-hang:hover, .hvr-icon-hang:link, .hvr-icon-hang:visited, .hvr-icon-hang:active{
+    color: #fff;
+}
+
+#footer{
+    background-color: #4FFFBC;
+    color:#fff;
+}
