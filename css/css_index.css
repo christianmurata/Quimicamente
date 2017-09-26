@@ -105,3 +105,16 @@
 .panel-yellow > a:hover {
   color: #df8a13;
 }
+
+.f1-icon{
+	color: #f6f6f6;
+	background-color: #aaa;
+}
+
+.f1-icon:active, .f1-icon:hover {
+	background-color: #4fffbc;
+}
+
+#footer a:active, #footer a:hover {
+	color: #4fffbc;
+}

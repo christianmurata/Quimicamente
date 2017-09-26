@@ -4,6 +4,22 @@
 	background-position: center top;
 	background-size: cover;	
 }
+#footer{
+	background: #4FFFBC;
+	color: #f6f6f6;
+}
+
+#footer a:active, #footer a:hover {
+	color: #aaa;
+}
+.f1-icon{
+	color: #4FFFBC;
+	background-color: #f6f6f6;
+}
+
+.f1-icon:active, .f1-icon:hover {
+	background-color: #aaa;
+}
 #tipo{
 	height: 325px;
 	width: 100%;

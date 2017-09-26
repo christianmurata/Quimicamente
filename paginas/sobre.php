@@ -3,12 +3,12 @@
 <head>
 	<meta charset="utf-8"/>
 	<link rel="stylesheet" href="../css/style.css"/>
+    <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../css/css_sobre.css">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/bootstrap/css/bootstrap2.css">
 	<link rel="stylesheet" href="../assets/font-awesome/css/font-awesome.css">
-    <link rel="stylesheet" href="../assets/css/style.css">
 	<link rel="stylesheet" href="../css/animate.css">
 	<script src="../js/jquery-1.8.3.min.js"></script>
 	<script src="../js/java.js"></script>
@@ -165,29 +165,6 @@
 		</section><!--/mae-->
 	</center>
 	<!---->
-	<footer id="footer" class="hidden-xs">
-	<ul class="icons">
-						<li><a href="https://www.facebook.com/cti.unesp.bauru/?fref=ts" target="_blank">Facebook</a><br></li>
-						<li><a href="http://quarkztech.blogspot.com.br" target="_blank">Blog dos Desenvolvedores</a></li>
-						<li><a href="http://www.cti.feb.unesp.br/" target="_blank">Site do CTI</a></li>
-					<br><br>
-						<li><a href="https://www.facebook.com/quarkzQuimicamente" target="_blank"><img src="../imagens/ico_face.png" width="50" /></a></li>
-						<li><img src="../imagens/ico_twitter.png" width="50" /></li>
-						<li><img src="../imagens/ico_blog.png" width="50"/></li>
-						<li><img src="../imagens/ico_link.png" width="50" /></li>
-	</ul>
-		<div class="container">
-					<ul class="copyright">
-						<li>&copy; 2017 Quimicamente </li>
-						<li>Desenvolvido por: Quarkz Technology </li> 
-					</ul>
-		</div>
-	</footer>
-	<footer id="footer" class="visible-xs">
-		<ul class="copyright">
-				<li>Desenvolvido por: Quarkz Technology </li> 
-		</ul>
-	</footer>
-	
+	<?php include 'templates/footer.php'; ?>
 </body>
 </html>

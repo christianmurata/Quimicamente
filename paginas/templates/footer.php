@@ -1,14 +1,14 @@
 <link href="../css/footer.css" rel="stylesheet" media="screen">
 <footer id="footer" class="hidden-xs">
 	<ul class="icons">
-						<li><a href="https://www.facebook.com/cti.unesp.bauru/?fref=ts" target="_blank">Facebook</a><br></li>
-						<li><a href="http://quarkztech.blogspot.com.br" target="_blank">Blog dos Desenvolvedores</a></li>
-						<li><a href="http://www.cti.feb.unesp.br/" target="_blank">Site do CTI</a></li>
-					<br><br>
-						<li><a href="https://www.facebook.com/quarkzQuimicamente" target="_blank"><img src="../imagens/ico_face.png" width="50" /></a></li>
-						<li><img src="../imagens/ico_twitter.png" width="50" /></li>
-						<li><img src="../imagens/ico_blog.png" width="50"/></li>
-						<li><img src="../imagens/ico_link.png" width="50" /></li>
+		<li><a href="https://www.facebook.com/cti.unesp.bauru/?fref=ts" target="_blank">Facebook</a><br></li>
+		<li><a href="http://quarkztech.blogspot.com.br" target="_blank">Blog dos Desenvolvedores</a></li>
+		<li><a href="http://www.cti.feb.unesp.br/" target="_blank">Site do CTI</a></li>
+		<br><br>
+		<li><a href="https://www.facebook.com/quarkzQuimicamente/" target="_blank"><div class="f1-icon"><i class="fa fa-facebook-official"></i></div></a></li>
+		<li><a href="https://www.youtube.com/channel/UCPBNAUqMTUKC37re0UokOjg" target="_blank"><div class="f1-icon"><i class="fa fa-youtube"></i></div></a></li>
+		<li><a href="https://www.instagram.com/quarkztech" target="_blank"><div class="f1-icon"><i class="fa fa-instagram"></i></div></a></li>
+		<li><a href="https://twitter.com/QuarkzTech" target="_blank"><div class="f1-icon"><i class="fa fa-twitter"></i></div></a></li>
 	</ul>
 		<div class="container">
 					<ul class="copyright">
@@ -21,4 +21,4 @@
 		<ul class="copyright">
 				<li>Desenvolvido por: Quarkz Technology </li> 
 		</ul>
-	</footer>
+</footer>

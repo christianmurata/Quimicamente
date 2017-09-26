@@ -31,4 +31,6 @@ html{
 #footer{
     background-color: #4FFFBC;
     color:#fff;
+	font-size: 15pt;
+	font-weight: 'bold';
 }

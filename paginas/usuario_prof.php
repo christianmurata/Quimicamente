@@ -20,7 +20,7 @@
 						<br>&nbsp;
 					</div>
 					<div class="f1-buttons"><br>
-						<input type="button" class="total default btn btn-next" value="Próximo"><br><br>
+						<input type="button" class="total special btn btn-next" value="Próximo"><br><br>
 						<input type="button" class="total default btn btn-next" value="Cancelar">
 					</div>
 		</fieldset>
@@ -40,8 +40,8 @@
 					<label class="label_error" id="label_conf_senha"></label>
 				</div>
 				<div class="f1-buttons">
-					<input type="button" class="default btn btn-next total" value="Próximo"><br><br>
-					<input type="button" class="special btn-previous total" value="Voltar"/>
+					<input type="button" class="special btn btn-next total" value="Próximo"><br><br>
+					<input type="button" class="default btn-previous total" value="Voltar"/>
 				</div>
 		</fieldset>
 
@@ -59,8 +59,8 @@
 					<label for="priority-low">Li e aceito os termos e condições </label><br>
 				</div>
 				<div class="f1-buttons">
-					<input type="submit" class="total default btn btn-submit" value="Criar conta"/><br><br>
-					<input type="button" class="total special btn-previous" value="Voltar"/>
+					<input type="submit" class="total special btn btn-submit" value="Criar conta"/><br><br>
+					<input type="button" class="total default btn-previous" value="Voltar"/>
 				</div>
 				<!-- Javascript -->
 				<script src="../assets/js/jquery-1.11.1.min.js"></script>
