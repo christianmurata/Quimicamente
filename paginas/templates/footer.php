@@ -1,4 +1,3 @@
-<link href="../css/footer.css" rel="stylesheet" media="screen">
 <footer id="footer" class="hidden-xs">
 	<ul class="icons">
 		<li><a href="https://www.facebook.com/cti.unesp.bauru/?fref=ts" target="_blank">Facebook</a><br></li>

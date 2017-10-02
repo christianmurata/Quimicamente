@@ -1,5 +1,4 @@
 @charset "UTF-8";
-@import url(font-awesome.min.css);
 @import "http://fonts.googleapis.com/css?family=Raleway:400,700";
 
 ::-moz-selection { background: #4FFFBC ; color: #fff; text-shadow: none; }
@@ -64,14 +63,6 @@ p {
 		width: auto;
 		height: auto;
 	}
-}
-
-.nav > li.disabled > a {
-  color: #aaa;
-}
-.nav > li.disabled > a:hover,
-.nav > li.disabled > a:focus {
-  color: #aaa;
 }
 
 #mae{

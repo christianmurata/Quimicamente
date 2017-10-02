@@ -10,8 +10,7 @@ function pagina(user){
 }
 
 //Validar Login
-function ValidarLogin(strLogin,strSenha)
-{
+function ValidarLogin(strLogin,strSenha){
 //linha de debug
 //alert("Login " + strLogin + "\n" + "Senha: " + strSenha);
      if (strLogin == "")
@@ -33,66 +32,6 @@ function ValidarLogin(strLogin,strSenha)
         return true;
       }
 }
-
-
-$(document).ready(function(){
-		//função loading
-		if(document.getElementById("mae")){
-			// ESCONDE O CONTEUDO
-			$('div#mae').hide(); 
-			// DAR O EFEITO ... E MUDA DE COR
-			function loadProgress(){ 
-				var atribuicao = "div#loading span";
-				var loadRet = setInterval(function(){$(atribuicao).append('');}, 500);
-				var cor     = setInterval(function(){$("div#loading").css('color','#777');}, 500);
-				setInterval(function(){
-				clearInterval(loadRet);
-				clearInterval(cor);
-				$(atribuicao).html('')
-				$("div#loading").css('color','#000');
-				}, 2000);
-			}
-			loadProgress();
-			setInterval(loadProgress, 0);
-			
-			
-			// MOSTRA O CONTEUDO QUANDO O SITE FOR CARREGADO POR COMPLETO
-			$(window).load(function(){
-				$('div#loading').fadeOut();
-				$('div#mae').fadeIn();
-			});
-		}
-		//função voltar ao topo
-		if(document.getElementById("backtopo")){
-			// hide #back-top first
-			$('#backtopo').hide();
-			
-			// fade in #back-top
-			$(function () {
-				$(window).scroll(function () {
-					if ($(this).scrollTop() > 150) {
-						$('#backtopo').fadeIn();
-					} else {
-						$('#backtopo').fadeOut();
-					}
-				});
-		
-				// scroll body to 0px on click
-				$('#backtopo').click(function () {
-					$('body,html').animate({
-						scrollTop: 0
-					}, 800);
-					return false;
-				});
-		
-				$('.click-scroll').click(function () {
-					$('html, body').animate({
-						scrollTop: $("#title").offset().top
-						}, 800); // Tempo em ms que a animação irá durar
-				})
-			});
-		}
-});
 
 //Mascara para o campo data
 function mascaraData( campo, e )
@@ -190,18 +129,24 @@ function verifica_senha() {
 
 //Corfirmação de nome
 function confirma_nome(str, campo){
+	console.log(str);
 	if(str.length < 3){
 		//document.getElementById(campo).removeClass('input-ok');
 		$('#'+campo+'').removeClass('input-ok');
 		$('#'+campo+'').addClass('input-error');
 		$('#label_'+campo+'').html("Nome inválido");
-	}
-	else{
+	}else if(str[0] == " " || str[1] == " " || str[2] == " "){
+		$('#'+campo+'').removeClass('input-ok');
+		$('#'+campo+'').addClass('input-error');
+		$('#label_'+campo+'').html("Nome inválido");
+		console.log('tem espaços em brancos');
+	}else{
 		//document.getElementById(campo).removeClass('input-error');
 		$('#'+campo+'').removeClass('input-error');
 		$('#'+campo+'').addClass('input-ok');
 		$('#label_'+campo+'').html("");
 	}
+
 }
 
 //Confirmação de senha
@@ -340,5 +285,87 @@ function confirma_email(field) {
 		$('#label_dtnas').html("");
 	}
 }
+
+$(document).ready(function(){
+	//Verifica a pagina atual e adiciona a class ativo
+	var url_atual = window.location.href;
+	var navbar = $('body').find('#navbar');
+	if(url_atual == 'http://200.145.153.172/quarkz/Quimicamente/paginas/index.php'  || url_atual == 'http://200.145.153.172/quarkz/Quimicamente/paginas/'){
+		navbar.find('a[href="index.php"]').addClass('ativo');
+	}else if(url_atual == 'http://200.145.153.172/quarkz/Quimicamente/paginas/sobre.php'){
+		navbar.find('a[href="sobre.php"]').addClass('ativo');
+	}else if(url_atual == 'http://200.145.153.172/quarkz/Quimicamente/paginas/cadastro.php'){
+		navbar.find('a[href="cadastro.php"]').addClass('ativo');
+	}else if(url_atual == 'http://200.145.153.172/quarkz/Quimicamente/paginas/login.php'){
+		navbar.find('a[href="login.php"]').addClass('ativo');
+	}else{
+		console.log('Algo de errado não está certo!');
+	}
+
+	//Substitui os caracteres especiais do nome ou do sobrenome
+	$('body').on('keyup','input[id="nome"], input[id="sobrenome"]', function(){
+		var str = $(this).val();
+		str = str.replace(/[^a-zA-Z 0-9]+/g, '');
+		$(this).val(str);
+	})
+
+	//função loading
+	if(document.getElementById("mae")){
+		// ESCONDE O CONTEUDO
+		$('div#mae').hide(); 
+		// DAR O EFEITO ... E MUDA DE COR
+		function loadProgress(){ 
+			var atribuicao = "div#loading span";
+			var loadRet = setInterval(function(){$(atribuicao).append('');}, 500);
+			var cor     = setInterval(function(){$("div#loading").css('color','#777');}, 500);
+			setInterval(function(){
+			clearInterval(loadRet);
+			clearInterval(cor);
+			$(atribuicao).html('')
+			$("div#loading").css('color','#000');
+			}, 2000);
+		}
+		loadProgress();
+		setInterval(loadProgress, 0);
+		
+		
+		// MOSTRA O CONTEUDO QUANDO O SITE FOR CARREGADO POR COMPLETO
+		$(window).load(function(){
+			$('div#loading').fadeOut();
+			$('div#mae').fadeIn();
+		});
+	}
+	//função voltar ao topo
+	if(document.getElementById("backtopo")){
+		// hide #back-top first
+		$('#backtopo').hide();
+		
+		//fade in #back-top
+		$(function () {
+			$(window).scroll(function () {
+				if ($(this).scrollTop() > 150) {
+					$('#backtopo').fadeIn();
+				} else {
+					$('#backtopo').fadeOut();
+				}
+			});
+	
+			// scroll body to 0px on click
+			$('#backtopo').click(function () {
+				$('body,html').animate({
+					scrollTop: 0
+				}, 800);
+				return false;
+			});
+	
+			$('.click-scroll').click(function () {
+				$('html, body').animate({
+					scrollTop: $("#title").offset().top
+					}, 800); // Tempo em ms que a animação irá durar
+			})
+		});
+	}
+});
+
 
  

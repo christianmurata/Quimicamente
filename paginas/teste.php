@@ -3,5 +3,5 @@
     session_start();
     $usuario = $_SESSION["login"];
 
-    echo $usuario->getUsuarios_nome();
+    echo $usuario->getUsuarios_nivel();
 ?>

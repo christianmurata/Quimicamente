@@ -16,33 +16,10 @@
 	<title> Sobre | Quimicamente </title>
 </head>
 <body>
+	<?php include 'templates/nav.php'; ?>
 	<div id="loading">
-		<center><img src="imagens/logo.png" width="100px" height="100px"/><span>Carregando...</span></center>
+		<center><img src="../imagens/logo.png" width="100px" height="100px"/><span>Carregando...</span></center>
 	</div>
-<div id="mae">
-	<nav class="navbar navbar-default navbar-fixed-top">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a href="index.html"><img id="img" src="../imagens/Quim.png"/></a>
-				</div>
-				<div id="navbar" class="navbar-collapse collapse navbar-right">
-					<ul class="nav navbar-nav navbar-text">
-						<li><a href="index.php" class="menu">Home</a></li>
-						<li><a href="#" class="menu ativo">Sobre</a></li>
-						<li><a href="cadastro.php" class="menu">Cadastro</a></li>
-						<li><a href="login.php" class="menu">Login </a></li>
-					</ul>
-				</div><!--/.nav-collapse -->
-			</div>
-		</nav>
-		<!-- Bootstrap core JavaScript
-		================================================== -->
 	<!--Corpo da página-->
 	<center>
 		<div id="backtopo" class="hidden-xs">
@@ -161,7 +138,6 @@
 				<script src="../assets/bootstrap/js/bootstrap.min.js"></script>
 				<script src="../assets/js/jquery.backstretch.min.js"></script>
 				<script src="../assets/js/retina-1.1.0.min.js"></script>
-				<script src="../assets/js/scripts.js"></script>
 		</section><!--/mae-->
 	</center>
 	<!---->
