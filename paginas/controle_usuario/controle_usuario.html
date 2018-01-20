@@ -1,0 +1,68 @@
+<style>
+    .btn-qmt {
+        background: #4FFFBC;
+        color: #454545;
+    }
+
+    .btn-qmt:hover{
+        background: #5dcea3;
+        color: #454545;
+    }
+
+    .btn-painel {
+        width: 95%;
+        overflow-wrap: break-word;
+    }
+
+    .panel-quimicamente {
+        border-color: #4FFFBC;
+    }
+
+    .panel-quimicamente > .panel-heading {
+        border-color: #4FFFBC;
+        color: white;
+        background-color: #4FFFBC;
+    }
+
+    .table-hover > thead > tr:hover {
+        background-color: #D2D2D2;
+    }
+
+</style>
+
+<div class="container-fluid">
+
+    <!--CONTEÚDO DA PÁGINA-->
+    <div class="col-sm-8 col-sm-offset-2" style="padding-top: 40px; padding-bottom: 40px;">
+        <div class="row">
+            <div class="panel panel-quimicamente">
+                <div class="panel-heading">
+                    <h3 id="nome-turma"
+                        style="white-space: nowrap;text-overflow: ellipsis;display: block;overflow: hidden">
+                        Controle de usuários</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive" style="height: 570px;">
+                        <table class="table table-hover" id="table-users" >
+                            <thead>
+                            <tr>
+                                <th scope="col">Nome</th>
+                                <th scope="col" style="width: 20%">Ação</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <button type="button" class="btn special btn-qmt" id="btn-pg-ant" disabled>Página Anterior</button>
+                    <button type="button" class="btn special btn-qmt" id="btn-pg-prox">Próxima Página</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--CHAMADA DOS SCRIPTS-->
+<script src="controle_usuario/js/controle_usuario.js"></script>

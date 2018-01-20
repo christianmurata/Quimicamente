@@ -1,0 +1,1352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="quimicamente@localhost">
+  <database-model serializer="dbm" rdbms="POSTGRES" format-version="4.4">
+    <root id="1"/>
+    <database id="2" parent="1" name="quimicamente">
+      <ObjectId>16394</ObjectId>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </database>
+    <database id="3" parent="1" name="postgres">
+      <ObjectId>12029</ObjectId>
+    </database>
+    <schema id="4" parent="2" name="public">
+      <ObjectId>2200</ObjectId>
+      <IntrospectionTimestamp>2017-11-29.13:54:14.130</IntrospectionTimestamp>
+      <IntrospectionStateNumber>741</IntrospectionStateNumber>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="5" parent="2" name="pg_catalog">
+      <ObjectId>11</ObjectId>
+    </schema>
+    <schema id="6" parent="2" name="pg_toast">
+      <ObjectId>99</ObjectId>
+    </schema>
+    <schema id="7" parent="2" name="pg_temp_1">
+      <ObjectId>11215</ObjectId>
+    </schema>
+    <schema id="8" parent="2" name="pg_toast_temp_1">
+      <ObjectId>11216</ObjectId>
+    </schema>
+    <schema id="9" parent="2" name="information_schema">
+      <ObjectId>11480</ObjectId>
+    </schema>
+    <sequence id="10" parent="4" name="alunos_alunos_id_seq">
+      <ObjectId>16791</ObjectId>
+      <StateNumber>713</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="11" parent="4" name="alunos_turma_alunos_turma_id_seq">
+      <ObjectId>16804</ObjectId>
+      <StateNumber>715</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="12" parent="4" name="conteudos_comunidade_conteudos_comunidade_id_seq">
+      <ObjectId>16775</ObjectId>
+      <StateNumber>711</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="13" parent="4" name="conteudos_comunidade_liberado_conteudos_comunidade_liberado_seq">
+      <ObjectId>17027</ObjectId>
+      <StateNumber>741</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="14" parent="4" name="conteudos_conteudos_id_seq">
+      <ObjectId>16764</ObjectId>
+      <StateNumber>709</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="15" parent="4" name="conteudos_liberados_conteudos_liberados_id_seq">
+      <ObjectId>17004</ObjectId>
+      <StateNumber>739</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="16" parent="4" name="desempenhos_desempenhos_id_seq">
+      <ObjectId>16841</ObjectId>
+      <StateNumber>719</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="17" parent="4" name="perguntas_comunidade_perguntas_comunidade_id_seq">
+      <ObjectId>16886</ObjectId>
+      <StateNumber>725</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="18" parent="4" name="perguntas_perguntas_id_seq">
+      <ObjectId>16854</ObjectId>
+      <StateNumber>721</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="19" parent="4" name="professores_professores_id_seq">
+      <ObjectId>16736</ObjectId>
+      <StateNumber>705</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="20" parent="4" name="provas_provas_id_seq">
+      <ObjectId>16820</ObjectId>
+      <StateNumber>717</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="21" parent="4" name="questoes_provas_questoes_provas_id_seq">
+      <ObjectId>16955</ObjectId>
+      <StateNumber>733</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="22" parent="4" name="recupera_senha_recupera_senha_id_seq">
+      <ObjectId>16991</ObjectId>
+      <StateNumber>737</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="23" parent="4" name="respostas_comunidade_respostas_comunidade_id_seq">
+      <ObjectId>16907</ObjectId>
+      <StateNumber>727</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="24" parent="4" name="respostas_prova_respostas_prova_id_seq">
+      <ObjectId>16973</ObjectId>
+      <StateNumber>735</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="25" parent="4" name="respostas_respostas_id_seq">
+      <ObjectId>16870</ObjectId>
+      <StateNumber>723</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="26" parent="4" name="slides_comunidade_slides_comunidade_id_seq">
+      <ObjectId>16939</ObjectId>
+      <StateNumber>731</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="27" parent="4" name="slides_slides_id_seq">
+      <ObjectId>16923</ObjectId>
+      <StateNumber>729</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="28" parent="4" name="turmas_turmas_id_seq">
+      <ObjectId>16751</ObjectId>
+      <StateNumber>707</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="29" parent="4" name="usuarios_usuarios_id_seq">
+      <ObjectId>16723</ObjectId>
+      <StateNumber>703</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <table id="30" parent="4" name="alunos">
+      <ObjectId>16793</ObjectId>
+      <StateNumber>735</StateNumber>
+    </table>
+    <table id="31" parent="4" name="alunos_turma">
+      <ObjectId>16806</ObjectId>
+      <StateNumber>715</StateNumber>
+    </table>
+    <table id="32" parent="4" name="conteudos">
+      <ObjectId>16766</ObjectId>
+      <StateNumber>739</StateNumber>
+    </table>
+    <table id="33" parent="4" name="conteudos_comunidade">
+      <ObjectId>16777</ObjectId>
+      <StateNumber>741</StateNumber>
+    </table>
+    <table id="34" parent="4" name="conteudos_comunidade_liberados">
+      <ObjectId>17029</ObjectId>
+      <StateNumber>741</StateNumber>
+    </table>
+    <table id="35" parent="4" name="conteudos_liberados">
+      <ObjectId>17006</ObjectId>
+      <StateNumber>739</StateNumber>
+    </table>
+    <table id="36" parent="4" name="desempenhos">
+      <ObjectId>16843</ObjectId>
+      <StateNumber>719</StateNumber>
+    </table>
+    <table id="37" parent="4" name="perguntas">
+      <ObjectId>16856</ObjectId>
+      <StateNumber>723</StateNumber>
+    </table>
+    <table id="38" parent="4" name="perguntas_comunidade">
+      <ObjectId>16888</ObjectId>
+      <StateNumber>733</StateNumber>
+    </table>
+    <table id="39" parent="4" name="professores">
+      <ObjectId>16738</ObjectId>
+      <StateNumber>741</StateNumber>
+    </table>
+    <table id="40" parent="4" name="provas">
+      <ObjectId>16822</ObjectId>
+      <StateNumber>735</StateNumber>
+    </table>
+    <table id="41" parent="4" name="questoes_provas">
+      <ObjectId>16957</ObjectId>
+      <StateNumber>733</StateNumber>
+    </table>
+    <table id="42" parent="4" name="recupera_senha">
+      <ObjectId>16993</ObjectId>
+      <StateNumber>737</StateNumber>
+    </table>
+    <table id="43" parent="4" name="respostas">
+      <ObjectId>16872</ObjectId>
+      <StateNumber>723</StateNumber>
+    </table>
+    <table id="44" parent="4" name="respostas_comunidade">
+      <ObjectId>16909</ObjectId>
+      <StateNumber>727</StateNumber>
+    </table>
+    <table id="45" parent="4" name="respostas_prova">
+      <ObjectId>16975</ObjectId>
+      <StateNumber>735</StateNumber>
+    </table>
+    <table id="46" parent="4" name="slides">
+      <ObjectId>16925</ObjectId>
+      <StateNumber>729</StateNumber>
+    </table>
+    <table id="47" parent="4" name="slides_comunidade">
+      <ObjectId>16941</ObjectId>
+      <StateNumber>731</StateNumber>
+    </table>
+    <table id="48" parent="4" name="turmas">
+      <ObjectId>16753</ObjectId>
+      <StateNumber>741</StateNumber>
+    </table>
+    <table id="49" parent="4" name="usuarios">
+      <ObjectId>16725</ObjectId>
+      <StateNumber>737</StateNumber>
+    </table>
+    <column id="50" parent="30" name="alunos_id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>713</StateNumber>
+      <SequenceName>alunos_alunos_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;alunos_alunos_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="51" parent="30" name="usuarios_id">
+      <Position>2</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>713</StateNumber>
+    </column>
+    <column id="52" parent="30" name="conteudos_ordem">
+      <Position>3</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>713</StateNumber>
+    </column>
+    <column id="53" parent="30" name="alunos_del">
+      <Position>4</Position>
+      <DataType>char|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>713</StateNumber>
+    </column>
+    <index id="54" parent="30" name="pkalunos_id">
+      <ObjectId>16797</ObjectId>
+      <ColNames>alunos_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="55" parent="30" name="pkalunos_id">
+      <ObjectId>16798</ObjectId>
+      <ColNames>alunos_id</ColNames>
+      <UnderlyingIndexName>pkalunos_id</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="56" parent="30" name="fkalunos_usuarios_id">
+      <ObjectId>16799</ObjectId>
+      <ColNames>usuarios_id</ColNames>
+      <RefTableId>16725</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>usuarios</RefTableName>
+      <RefKeyName>pkusuarios_id</RefKeyName>
+      <RefColNames>usuarios_id</RefColNames>
+    </foreign-key>
+    <column id="57" parent="31" name="alunos_turma_id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>715</StateNumber>
+      <SequenceName>alunos_turma_alunos_turma_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;alunos_turma_alunos_turma_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="58" parent="31" name="alunos_id">
+      <Position>2</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>715</StateNumber>
+    </column>
+    <column id="59" parent="31" name="turmas_id">
+      <Position>3</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>715</StateNumber>
+    </column>
+    <column id="60" parent="31" name="alunos_turma_del">
+      <Position>4</Position>
+      <DataType>char|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>715</StateNumber>
+    </column>
+    <foreign-key id="61" parent="31" name="fkalunos_turma_alunos_id">
+      <ObjectId>16810</ObjectId>
+      <ColNames>alunos_id</ColNames>
+      <RefTableId>16793</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>alunos</RefTableName>
+      <RefKeyName>pkalunos_id</RefKeyName>
+      <RefColNames>alunos_id</RefColNames>
+    </foreign-key>
+    <foreign-key id="62" parent="31" name="fkalunos_turma_turmas_id">
+      <ObjectId>16815</ObjectId>
+      <ColNames>turmas_id</ColNames>
+      <RefTableId>16753</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>turmas</RefTableName>
+      <RefKeyName>pkturmas_id</RefKeyName>
+      <RefColNames>turmas_id</RefColNames>
+    </foreign-key>
+    <column id="63" parent="32" name="conteudos_id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>709</StateNumber>
+      <SequenceName>conteudos_conteudos_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;conteudos_conteudos_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="64" parent="32" name="conteudos_nome">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>709</StateNumber>
+    </column>
+    <column id="65" parent="32" name="conteudos_descricao">
+      <Position>3</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>709</StateNumber>
+    </column>
+    <column id="66" parent="32" name="conteudos_foto">
+      <Position>4</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>709</StateNumber>
+    </column>
+    <column id="67" parent="32" name="conteudos_ordem">
+      <Position>5</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>709</StateNumber>
+    </column>
+    <column id="68" parent="32" name="conteudos_del">
+      <Position>6</Position>
+      <DataType>char|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>709</StateNumber>
+    </column>
+    <index id="69" parent="32" name="pkconteudos_id">
+      <ObjectId>16773</ObjectId>
+      <ColNames>conteudos_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="70" parent="32" name="pkconteudos_id">
+      <ObjectId>16774</ObjectId>
+      <ColNames>conteudos_id</ColNames>
+      <UnderlyingIndexName>pkconteudos_id</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="71" parent="33" name="conteudos_comunidade_id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>711</StateNumber>
+      <SequenceName>conteudos_comunidade_conteudos_comunidade_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;conteudos_comunidade_conteudos_comunidade_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="72" parent="33" name="professores_id">
+      <Position>2</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>711</StateNumber>
+    </column>
+    <column id="73" parent="33" name="conteudos_comunidade_nome">
+      <Position>3</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>711</StateNumber>
+    </column>
+    <column id="74" parent="33" name="conteudos_comunidade_descricao">
+      <Position>4</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>711</StateNumber>
+    </column>
+    <column id="75" parent="33" name="conteudos_comunidade_ordem">
+      <Position>5</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>711</StateNumber>
+    </column>
+    <column id="76" parent="33" name="conteudos_comunidade_imagem">
+      <Position>6</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>711</StateNumber>
+    </column>
+    <column id="77" parent="33" name="conteudos_comunidade_del">
+      <Position>7</Position>
+      <DataType>char|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>711</StateNumber>
+    </column>
+    <index id="78" parent="33" name="pkconteudos_comunidade_id">
+      <ObjectId>16784</ObjectId>
+      <ColNames>conteudos_comunidade_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="79" parent="33" name="pkconteudos_comunidade_id">
+      <ObjectId>16785</ObjectId>
+      <ColNames>conteudos_comunidade_id</ColNames>
+      <UnderlyingIndexName>pkconteudos_comunidade_id</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="80" parent="33" name="fkconteudos_comunidade_professores_id">
+      <ObjectId>16786</ObjectId>
+      <ColNames>professores_id</ColNames>
+      <RefTableId>16738</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>professores</RefTableName>
+      <RefKeyName>pkprofessores_id</RefKeyName>
+      <RefColNames>professores_id</RefColNames>
+    </foreign-key>
+    <column id="81" parent="34" name="conteudos_comunidade_liberados_id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>741</StateNumber>
+      <SequenceName>conteudos_comunidade_liberado_conteudos_comunidade_liberado_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;conteudos_comunidade_liberado_conteudos_comunidade_liberado_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="82" parent="34" name="conteudos_comunidade_id">
+      <Position>2</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>741</StateNumber>
+    </column>
+    <column id="83" parent="34" name="turmas_id">
+      <Position>3</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>741</StateNumber>
+    </column>
+    <column id="84" parent="34" name="professores_id">
+      <Position>4</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>741</StateNumber>
+    </column>
+    <column id="85" parent="34" name="conteudos_comunidade_liberados_del">
+      <Position>5</Position>
+      <DataType>char|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>741</StateNumber>
+    </column>
+    <index id="86" parent="34" name="fkconteudos_comunidade_liberados_id">
+      <ObjectId>17033</ObjectId>
+      <ColNames>conteudos_comunidade_liberados_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="87" parent="34" name="fkconteudos_comunidade_liberados_id">
+      <ObjectId>17034</ObjectId>
+      <ColNames>conteudos_comunidade_liberados_id</ColNames>
+      <UnderlyingIndexName>fkconteudos_comunidade_liberados_id</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="88" parent="34" name="fkconteudos_comunidade_liberados_conteudos_id">
+      <ObjectId>17035</ObjectId>
+      <ColNames>conteudos_comunidade_id</ColNames>
+      <RefTableId>16777</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>conteudos_comunidade</RefTableName>
+      <RefKeyName>pkconteudos_comunidade_id</RefKeyName>
+      <RefColNames>conteudos_comunidade_id</RefColNames>
+    </foreign-key>
+    <foreign-key id="89" parent="34" name="fkconteudos_comunidade_liberados_turmas_id">
+      <ObjectId>17040</ObjectId>
+      <ColNames>turmas_id</ColNames>
+      <RefTableId>16753</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>turmas</RefTableName>
+      <RefKeyName>pkturmas_id</RefKeyName>
+      <RefColNames>turmas_id</RefColNames>
+    </foreign-key>
+    <foreign-key id="90" parent="34" name="fkconteudos_comunidade_liberados_professores_id">
+      <ObjectId>17045</ObjectId>
+      <ColNames>professores_id</ColNames>
+      <RefTableId>16738</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>professores</RefTableName>
+      <RefKeyName>pkprofessores_id</RefKeyName>
+      <RefColNames>professores_id</RefColNames>
+    </foreign-key>
+    <column id="91" parent="35" name="conteudos_liberados_id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>739</StateNumber>
+      <SequenceName>conteudos_liberados_conteudos_liberados_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;conteudos_liberados_conteudos_liberados_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="92" parent="35" name="conteudos_id">
+      <Position>2</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>739</StateNumber>
+    </column>
+    <column id="93" parent="35" name="turmas_id">
+      <Position>3</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>739</StateNumber>
+    </column>
+    <column id="94" parent="35" name="professores_id">
+      <Position>4</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>739</StateNumber>
+    </column>
+    <column id="95" parent="35" name="conteudos_liberados_del">
+      <Position>5</Position>
+      <DataType>char|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>739</StateNumber>
+    </column>
+    <index id="96" parent="35" name="fkconteudos_liberados_id">
+      <ObjectId>17010</ObjectId>
+      <ColNames>conteudos_liberados_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="97" parent="35" name="fkconteudos_liberados_id">
+      <ObjectId>17011</ObjectId>
+      <ColNames>conteudos_liberados_id</ColNames>
+      <UnderlyingIndexName>fkconteudos_liberados_id</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="98" parent="35" name="fkconteudos_liberados_conteudos_id">
+      <ObjectId>17012</ObjectId>
+      <ColNames>conteudos_id</ColNames>
+      <RefTableId>16766</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>conteudos</RefTableName>
+      <RefKeyName>pkconteudos_id</RefKeyName>
+      <RefColNames>conteudos_id</RefColNames>
+    </foreign-key>
+    <foreign-key id="99" parent="35" name="fkconteudos_liberados_turmas_id">
+      <ObjectId>17017</ObjectId>
+      <ColNames>turmas_id</ColNames>
+      <RefTableId>16753</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>turmas</RefTableName>
+      <RefKeyName>pkturmas_id</RefKeyName>
+      <RefColNames>turmas_id</RefColNames>
+    </foreign-key>
+    <foreign-key id="100" parent="35" name="fkconteudos_liberados_professores_id">
+      <ObjectId>17022</ObjectId>
+      <ColNames>professores_id</ColNames>
+      <RefTableId>16738</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>professores</RefTableName>
+      <RefKeyName>pkprofessores_id</RefKeyName>
+      <RefColNames>professores_id</RefColNames>
+    </foreign-key>
+    <column id="101" parent="36" name="desempenhos_id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>719</StateNumber>
+      <SequenceName>desempenhos_desempenhos_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;desempenhos_desempenhos_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="102" parent="36" name="alunos_id">
+      <Position>2</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>719</StateNumber>
+    </column>
+    <column id="103" parent="36" name="desempenhos_notafinal">
+      <Position>3</Position>
+      <DataType>double precision|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>719</StateNumber>
+    </column>
+    <column id="104" parent="36" name="desempenhos_tempo">
+      <Position>4</Position>
+      <DataType>double precision|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>719</StateNumber>
+    </column>
+    <column id="105" parent="36" name="desempenhos_dificuldade">
+      <Position>5</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>719</StateNumber>
+    </column>
+    <column id="106" parent="36" name="desempenhos_del">
+      <Position>6</Position>
+      <DataType>char|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>719</StateNumber>
+    </column>
+    <index id="107" parent="36" name="pkdesempenhos_id">
+      <ObjectId>16847</ObjectId>
+      <ColNames>desempenhos_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="108" parent="36" name="pkdesempenhos_id">
+      <ObjectId>16848</ObjectId>
+      <ColNames>desempenhos_id</ColNames>
+      <UnderlyingIndexName>pkdesempenhos_id</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="109" parent="36" name="fkdesempenhos_alunos_id">
+      <ObjectId>16849</ObjectId>
+      <ColNames>alunos_id</ColNames>
+      <RefTableId>16793</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>alunos</RefTableName>
+      <RefKeyName>pkalunos_id</RefKeyName>
+      <RefColNames>alunos_id</RefColNames>
+    </foreign-key>
+    <column id="110" parent="37" name="perguntas_id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>721</StateNumber>
+      <SequenceName>perguntas_perguntas_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;perguntas_perguntas_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="111" parent="37" name="conteudos_id">
+      <Position>2</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>721</StateNumber>
+    </column>
+    <column id="112" parent="37" name="perguntas_descricao">
+      <Position>3</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>721</StateNumber>
+    </column>
+    <column id="113" parent="37" name="perguntas_del">
+      <Position>4</Position>
+      <DataType>char|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>721</StateNumber>
+    </column>
+    <index id="114" parent="37" name="pkperguntas_id">
+      <ObjectId>16863</ObjectId>
+      <ColNames>perguntas_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="115" parent="37" name="pkperguntas_id">
+      <ObjectId>16864</ObjectId>
+      <ColNames>perguntas_id</ColNames>
+      <UnderlyingIndexName>pkperguntas_id</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="116" parent="37" name="fkperguntas_conteudos_id">
+      <ObjectId>16865</ObjectId>
+      <ColNames>conteudos_id</ColNames>
+      <RefTableId>16766</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>conteudos</RefTableName>
+      <RefKeyName>pkconteudos_id</RefKeyName>
+      <RefColNames>conteudos_id</RefColNames>
+    </foreign-key>
+    <column id="117" parent="38" name="perguntas_comunidade_id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>725</StateNumber>
+      <SequenceName>perguntas_comunidade_perguntas_comunidade_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;perguntas_comunidade_perguntas_comunidade_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="118" parent="38" name="professores_id">
+      <Position>2</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>725</StateNumber>
+    </column>
+    <column id="119" parent="38" name="conteudos_comunidade_id">
+      <Position>3</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>725</StateNumber>
+    </column>
+    <column id="120" parent="38" name="perguntas_comunidade_descricao">
+      <Position>4</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>725</StateNumber>
+    </column>
+    <column id="121" parent="38" name="perguntas_comunidade_del">
+      <Position>5</Position>
+      <DataType>char|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>725</StateNumber>
+    </column>
+    <index id="122" parent="38" name="pkperguntas_comunidade_id">
+      <ObjectId>16895</ObjectId>
+      <ColNames>perguntas_comunidade_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="123" parent="38" name="pkperguntas_comunidade_id">
+      <ObjectId>16896</ObjectId>
+      <ColNames>perguntas_comunidade_id</ColNames>
+      <UnderlyingIndexName>pkperguntas_comunidade_id</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="124" parent="38" name="fk_perguntas_comunidade_professores_id">
+      <ObjectId>16902</ObjectId>
+      <ColNames>professores_id</ColNames>
+      <RefTableId>16738</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>professores</RefTableName>
+      <RefKeyName>pkprofessores_id</RefKeyName>
+      <RefColNames>professores_id</RefColNames>
+    </foreign-key>
+    <foreign-key id="125" parent="38" name="fkperguntas_comunidade_conteudos_id">
+      <ObjectId>16897</ObjectId>
+      <ColNames>conteudos_comunidade_id</ColNames>
+      <RefTableId>16777</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>conteudos_comunidade</RefTableName>
+      <RefKeyName>pkconteudos_comunidade_id</RefKeyName>
+      <RefColNames>conteudos_comunidade_id</RefColNames>
+    </foreign-key>
+    <column id="126" parent="39" name="professores_id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>705</StateNumber>
+      <SequenceName>professores_professores_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;professores_professores_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="127" parent="39" name="usuarios_id">
+      <Position>2</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>705</StateNumber>
+    </column>
+    <column id="128" parent="39" name="professores_cpf">
+      <Position>3</Position>
+      <DataType>char(16)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>705</StateNumber>
+    </column>
+    <column id="129" parent="39" name="professores_del">
+      <Position>4</Position>
+      <DataType>char|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>705</StateNumber>
+    </column>
+    <index id="130" parent="39" name="pkprofessores_id">
+      <ObjectId>16742</ObjectId>
+      <ColNames>professores_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="131" parent="39" name="professores_professores_cpf_key">
+      <ObjectId>16744</ObjectId>
+      <ColNames>professores_cpf</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="132" parent="39" name="pkprofessores_id">
+      <ObjectId>16743</ObjectId>
+      <ColNames>professores_id</ColNames>
+      <UnderlyingIndexName>pkprofessores_id</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="133" parent="39" name="professores_professores_cpf_key">
+      <ObjectId>16745</ObjectId>
+      <ColNames>professores_cpf</ColNames>
+      <UnderlyingIndexName>professores_professores_cpf_key</UnderlyingIndexName>
+    </key>
+    <foreign-key id="134" parent="39" name="fkprofessores_usuarios_id">
+      <ObjectId>16746</ObjectId>
+      <ColNames>usuarios_id</ColNames>
+      <RefTableId>16725</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>usuarios</RefTableName>
+      <RefKeyName>pkusuarios_id</RefKeyName>
+      <RefColNames>usuarios_id</RefColNames>
+    </foreign-key>
+    <column id="135" parent="40" name="provas_id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>717</StateNumber>
+      <SequenceName>provas_provas_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;provas_provas_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="136" parent="40" name="professores_id">
+      <Position>2</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>717</StateNumber>
+    </column>
+    <column id="137" parent="40" name="turmas_id">
+      <Position>3</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>717</StateNumber>
+    </column>
+    <column id="138" parent="40" name="provas_data">
+      <Position>4</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>717</StateNumber>
+    </column>
+    <column id="139" parent="40" name="provas_desc">
+      <Position>5</Position>
+      <DataType>text|0</DataType>
+      <StateNumber>717</StateNumber>
+    </column>
+    <column id="140" parent="40" name="provas_del">
+      <Position>6</Position>
+      <DataType>char|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>717</StateNumber>
+    </column>
+    <index id="141" parent="40" name="pkprovas_id">
+      <ObjectId>16829</ObjectId>
+      <ColNames>provas_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="142" parent="40" name="pkprovas_id">
+      <ObjectId>16830</ObjectId>
+      <ColNames>provas_id</ColNames>
+      <UnderlyingIndexName>pkprovas_id</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="143" parent="40" name="fkprovas_professores_id">
+      <ObjectId>16831</ObjectId>
+      <ColNames>professores_id</ColNames>
+      <RefTableId>16738</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>professores</RefTableName>
+      <RefKeyName>pkprofessores_id</RefKeyName>
+      <RefColNames>professores_id</RefColNames>
+    </foreign-key>
+    <foreign-key id="144" parent="40" name="fkprovas_turmas_id">
+      <ObjectId>16836</ObjectId>
+      <ColNames>turmas_id</ColNames>
+      <RefTableId>16753</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>turmas</RefTableName>
+      <RefKeyName>pkturmas_id</RefKeyName>
+      <RefColNames>turmas_id</RefColNames>
+    </foreign-key>
+    <column id="145" parent="41" name="questoes_provas_id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>733</StateNumber>
+      <SequenceName>questoes_provas_questoes_provas_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;questoes_provas_questoes_provas_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="146" parent="41" name="provas_id">
+      <Position>2</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>733</StateNumber>
+    </column>
+    <column id="147" parent="41" name="perguntas_comunidade_id">
+      <Position>3</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>733</StateNumber>
+    </column>
+    <column id="148" parent="41" name="questoes_provas_del">
+      <Position>4</Position>
+      <DataType>char|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>733</StateNumber>
+    </column>
+    <index id="149" parent="41" name="pkquestoes_prova_id">
+      <ObjectId>16961</ObjectId>
+      <ColNames>questoes_provas_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="150" parent="41" name="pkquestoes_prova_id">
+      <ObjectId>16962</ObjectId>
+      <ColNames>questoes_provas_id</ColNames>
+      <UnderlyingIndexName>pkquestoes_prova_id</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="151" parent="41" name="fkquestoes_provas_id">
+      <ObjectId>16963</ObjectId>
+      <ColNames>provas_id</ColNames>
+      <RefTableId>16822</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>provas</RefTableName>
+      <RefKeyName>pkprovas_id</RefKeyName>
+      <RefColNames>provas_id</RefColNames>
+    </foreign-key>
+    <foreign-key id="152" parent="41" name="fkquestoes_perguntas_comunidade_id">
+      <ObjectId>16968</ObjectId>
+      <ColNames>perguntas_comunidade_id</ColNames>
+      <RefTableId>16888</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>perguntas_comunidade</RefTableName>
+      <RefKeyName>pkperguntas_comunidade_id</RefKeyName>
+      <RefColNames>perguntas_comunidade_id</RefColNames>
+    </foreign-key>
+    <column id="153" parent="42" name="recupera_senha_id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>737</StateNumber>
+      <SequenceName>recupera_senha_recupera_senha_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;recupera_senha_recupera_senha_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="154" parent="42" name="usuarios_id">
+      <Position>2</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>737</StateNumber>
+    </column>
+    <column id="155" parent="42" name="recupera_senha_hash">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>737</StateNumber>
+    </column>
+    <column id="156" parent="42" name="recupera_senha_del">
+      <Position>4</Position>
+      <DataType>char|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>737</StateNumber>
+    </column>
+    <index id="157" parent="42" name="pkrecupera_senha_id">
+      <ObjectId>16997</ObjectId>
+      <ColNames>recupera_senha_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="158" parent="42" name="pkrecupera_senha_id">
+      <ObjectId>16998</ObjectId>
+      <ColNames>recupera_senha_id</ColNames>
+      <UnderlyingIndexName>pkrecupera_senha_id</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="159" parent="42" name="fkrecupera_senha_usuarios_id">
+      <ObjectId>16999</ObjectId>
+      <ColNames>usuarios_id</ColNames>
+      <RefTableId>16725</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>usuarios</RefTableName>
+      <RefKeyName>pkusuarios_id</RefKeyName>
+      <RefColNames>usuarios_id</RefColNames>
+    </foreign-key>
+    <column id="160" parent="43" name="respostas_id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>723</StateNumber>
+      <SequenceName>respostas_respostas_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;respostas_respostas_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="161" parent="43" name="perguntas_id">
+      <Position>2</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>723</StateNumber>
+    </column>
+    <column id="162" parent="43" name="respostas_desc">
+      <Position>3</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>723</StateNumber>
+    </column>
+    <column id="163" parent="43" name="respostas_correta">
+      <Position>4</Position>
+      <DataType>char|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>723</StateNumber>
+    </column>
+    <column id="164" parent="43" name="respostas_del">
+      <Position>5</Position>
+      <DataType>char|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>723</StateNumber>
+    </column>
+    <index id="165" parent="43" name="pkrespostas_id">
+      <ObjectId>16879</ObjectId>
+      <ColNames>respostas_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="166" parent="43" name="pkrespostas_id">
+      <ObjectId>16880</ObjectId>
+      <ColNames>respostas_id</ColNames>
+      <UnderlyingIndexName>pkrespostas_id</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="167" parent="43" name="fkrespostas_perguntas_id">
+      <ObjectId>16881</ObjectId>
+      <ColNames>perguntas_id</ColNames>
+      <RefTableId>16856</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>perguntas</RefTableName>
+      <RefKeyName>pkperguntas_id</RefKeyName>
+      <RefColNames>perguntas_id</RefColNames>
+    </foreign-key>
+    <column id="168" parent="44" name="respostas_comunidade_id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>727</StateNumber>
+      <SequenceName>respostas_comunidade_respostas_comunidade_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;respostas_comunidade_respostas_comunidade_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="169" parent="44" name="perguntas_comunidade_id">
+      <Position>2</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>727</StateNumber>
+    </column>
+    <column id="170" parent="44" name="respostas_comunidade_desc">
+      <Position>3</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>727</StateNumber>
+    </column>
+    <column id="171" parent="44" name="respostas_comunidade_correta">
+      <Position>4</Position>
+      <DataType>char|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>727</StateNumber>
+    </column>
+    <column id="172" parent="44" name="respostas_comunidade_del">
+      <Position>5</Position>
+      <DataType>char|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>727</StateNumber>
+    </column>
+    <index id="173" parent="44" name="pkrespostas_comunidade_id">
+      <ObjectId>16916</ObjectId>
+      <ColNames>respostas_comunidade_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="174" parent="44" name="pkrespostas_comunidade_id">
+      <ObjectId>16917</ObjectId>
+      <ColNames>respostas_comunidade_id</ColNames>
+      <UnderlyingIndexName>pkrespostas_comunidade_id</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="175" parent="44" name="fkrespostas_comunidade_perguntas_id">
+      <ObjectId>16918</ObjectId>
+      <ColNames>perguntas_comunidade_id</ColNames>
+      <RefTableId>16888</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>perguntas_comunidade</RefTableName>
+      <RefKeyName>pkperguntas_comunidade_id</RefKeyName>
+      <RefColNames>perguntas_comunidade_id</RefColNames>
+    </foreign-key>
+    <column id="176" parent="45" name="respostas_prova_id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>735</StateNumber>
+      <SequenceName>respostas_prova_respostas_prova_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;respostas_prova_respostas_prova_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="177" parent="45" name="alunos_id">
+      <Position>2</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>735</StateNumber>
+    </column>
+    <column id="178" parent="45" name="provas_id">
+      <Position>3</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>735</StateNumber>
+    </column>
+    <column id="179" parent="45" name="respostas_prova_media">
+      <Position>4</Position>
+      <DataType>double precision|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>735</StateNumber>
+    </column>
+    <column id="180" parent="45" name="respostas_prova_del">
+      <Position>5</Position>
+      <DataType>char|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>735</StateNumber>
+    </column>
+    <index id="181" parent="45" name="pkrespostas_prova_id">
+      <ObjectId>16979</ObjectId>
+      <ColNames>respostas_prova_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="182" parent="45" name="pkrespostas_prova_id">
+      <ObjectId>16980</ObjectId>
+      <ColNames>respostas_prova_id</ColNames>
+      <UnderlyingIndexName>pkrespostas_prova_id</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="183" parent="45" name="fkrespostas_prova_alunos_id">
+      <ObjectId>16981</ObjectId>
+      <ColNames>alunos_id</ColNames>
+      <RefTableId>16793</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>alunos</RefTableName>
+      <RefKeyName>pkalunos_id</RefKeyName>
+      <RefColNames>alunos_id</RefColNames>
+    </foreign-key>
+    <foreign-key id="184" parent="45" name="fkrespostas_prova_provas_id">
+      <ObjectId>16986</ObjectId>
+      <ColNames>provas_id</ColNames>
+      <RefTableId>16822</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>provas</RefTableName>
+      <RefKeyName>pkprovas_id</RefKeyName>
+      <RefColNames>provas_id</RefColNames>
+    </foreign-key>
+    <column id="185" parent="46" name="slides_id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>729</StateNumber>
+      <SequenceName>slides_slides_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;slides_slides_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="186" parent="46" name="conteudos_id">
+      <Position>2</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>729</StateNumber>
+    </column>
+    <column id="187" parent="46" name="slides_ordem">
+      <Position>3</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>729</StateNumber>
+    </column>
+    <column id="188" parent="46" name="slides_conteudo">
+      <Position>4</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>729</StateNumber>
+    </column>
+    <column id="189" parent="46" name="slides_del">
+      <Position>5</Position>
+      <DataType>char|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>729</StateNumber>
+    </column>
+    <index id="190" parent="46" name="pkslides_id">
+      <ObjectId>16932</ObjectId>
+      <ColNames>slides_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="191" parent="46" name="pkslides_id">
+      <ObjectId>16933</ObjectId>
+      <ColNames>slides_id</ColNames>
+      <UnderlyingIndexName>pkslides_id</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="192" parent="46" name="fkslides_conteudos_id">
+      <ObjectId>16934</ObjectId>
+      <ColNames>conteudos_id</ColNames>
+      <RefTableId>16766</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>conteudos</RefTableName>
+      <RefKeyName>pkconteudos_id</RefKeyName>
+      <RefColNames>conteudos_id</RefColNames>
+    </foreign-key>
+    <column id="193" parent="47" name="slides_comunidade_id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>731</StateNumber>
+      <SequenceName>slides_comunidade_slides_comunidade_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;slides_comunidade_slides_comunidade_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="194" parent="47" name="conteudos_comunidade_id">
+      <Position>2</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>731</StateNumber>
+    </column>
+    <column id="195" parent="47" name="slides_comunidade_ordem">
+      <Position>3</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>731</StateNumber>
+    </column>
+    <column id="196" parent="47" name="slides_comunidade_conteudo">
+      <Position>4</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>731</StateNumber>
+    </column>
+    <column id="197" parent="47" name="slides_comunidade_del">
+      <Position>5</Position>
+      <DataType>char|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>731</StateNumber>
+    </column>
+    <index id="198" parent="47" name="pkslides_comunidade_id">
+      <ObjectId>16948</ObjectId>
+      <ColNames>slides_comunidade_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="199" parent="47" name="pkslides_comunidade_id">
+      <ObjectId>16949</ObjectId>
+      <ColNames>slides_comunidade_id</ColNames>
+      <UnderlyingIndexName>pkslides_comunidade_id</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="200" parent="47" name="fkslides_comunidade_conteudos_id">
+      <ObjectId>16950</ObjectId>
+      <ColNames>conteudos_comunidade_id</ColNames>
+      <RefTableId>16777</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>conteudos_comunidade</RefTableName>
+      <RefKeyName>pkconteudos_comunidade_id</RefKeyName>
+      <RefColNames>conteudos_comunidade_id</RefColNames>
+    </foreign-key>
+    <column id="201" parent="48" name="turmas_id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>707</StateNumber>
+      <SequenceName>turmas_turmas_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;turmas_turmas_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="202" parent="48" name="professores_id">
+      <Position>2</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>707</StateNumber>
+    </column>
+    <column id="203" parent="48" name="turmas_nome">
+      <Position>3</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>707</StateNumber>
+    </column>
+    <column id="204" parent="48" name="turmas_del">
+      <Position>4</Position>
+      <DataType>char|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>707</StateNumber>
+    </column>
+    <index id="205" parent="48" name="pkturmas_id">
+      <ObjectId>16757</ObjectId>
+      <ColNames>turmas_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="206" parent="48" name="pkturmas_id">
+      <ObjectId>16758</ObjectId>
+      <ColNames>turmas_id</ColNames>
+      <UnderlyingIndexName>pkturmas_id</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="207" parent="48" name="fkturmas_professores_id">
+      <ObjectId>16759</ObjectId>
+      <ColNames>professores_id</ColNames>
+      <RefTableId>16738</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>professores</RefTableName>
+      <RefKeyName>pkprofessores_id</RefKeyName>
+      <RefColNames>professores_id</RefColNames>
+    </foreign-key>
+    <column id="208" parent="49" name="usuarios_id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>703</StateNumber>
+      <SequenceName>usuarios_usuarios_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;usuarios_usuarios_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="209" parent="49" name="usuarios_nome">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>703</StateNumber>
+    </column>
+    <column id="210" parent="49" name="usuarios_email">
+      <Position>3</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>703</StateNumber>
+    </column>
+    <column id="211" parent="49" name="usuarios_senha">
+      <Position>4</Position>
+      <DataType>char(32)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>703</StateNumber>
+    </column>
+    <column id="212" parent="49" name="usuarios_nivel">
+      <Position>5</Position>
+      <DataType>char|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>703</StateNumber>
+    </column>
+    <column id="213" parent="49" name="usuarios_datanasc">
+      <Position>6</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>703</StateNumber>
+    </column>
+    <column id="214" parent="49" name="usuarios_foto">
+      <Position>7</Position>
+      <DataType>text|0</DataType>
+      <StateNumber>703</StateNumber>
+    </column>
+    <column id="215" parent="49" name="usuarios_del">
+      <Position>8</Position>
+      <DataType>char|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>703</StateNumber>
+    </column>
+    <index id="216" parent="49" name="pkusuarios_id">
+      <ObjectId>16732</ObjectId>
+      <ColNames>usuarios_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="217" parent="49" name="usuarios_usuarios_email_key">
+      <ObjectId>16734</ObjectId>
+      <ColNames>usuarios_email</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="218" parent="49" name="pkusuarios_id">
+      <ObjectId>16733</ObjectId>
+      <ColNames>usuarios_id</ColNames>
+      <UnderlyingIndexName>pkusuarios_id</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="219" parent="49" name="usuarios_usuarios_email_key">
+      <ObjectId>16735</ObjectId>
+      <ColNames>usuarios_email</ColNames>
+      <UnderlyingIndexName>usuarios_usuarios_email_key</UnderlyingIndexName>
+    </key>
+  </database-model>
+</dataSource>

@@ -1,0 +1,238 @@
+INSERT INTO perguntas(conteudos_id, perguntas_descricao, perguntas_del)VALUES (1, 'Atualmente, existem quantos elementos químicos na Tabela Periodica?', 'N');
+INSERT INTO perguntas(conteudos_id, perguntas_descricao, perguntas_del)VALUES (1, 'Qual elemento químico que se encontra na Família VIIA e no 5ª período?', 'N');
+INSERT INTO perguntas(conteudos_id, perguntas_descricao, perguntas_del)VALUES (1, 'Qual a principal característica da familia VIIIA?', 'N');
+INSERT INTO perguntas(conteudos_id, perguntas_descricao, perguntas_del)VALUES (1, 'O que é ligação covalente?', 'N');
+INSERT INTO perguntas(conteudos_id, perguntas_descricao, perguntas_del)VALUES (1, 'O que é uma ligação molecular?', 'N');
+INSERT INTO perguntas(conteudos_id, perguntas_descricao, perguntas_del)VALUES (1, 'O que é matéria?', 'N');
+INSERT INTO perguntas(conteudos_id, perguntas_descricao, perguntas_del)VALUES (1, 'O que é um átomo?', 'N');
+INSERT INTO perguntas(conteudos_id, perguntas_descricao, perguntas_del)VALUES (1, 'Com base no Mércurio responda: O Mercúrio é um metal ou não metal? Qual seu estado físico em temperatura ambiente?', 'N');
+INSERT INTO perguntas(conteudos_id, perguntas_descricao, perguntas_del)VALUES (1, 'Qual o modelo atômico apresentado por Rutherford e Bohr?', 'N');
+INSERT INTO perguntas(conteudos_id, perguntas_descricao, perguntas_del)VALUES (1, 'Pd é o símbolo que representa o elemento:', 'N');
+
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (1,'113 elementos', 'S','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (1,'90 elementos', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (1,'142 elementos', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (1,'110 elementos', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (1,'97 elementos', 'N','N');
+
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (2,'Íodo', 'S','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (2,'Bromo', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (2,'Oxigênio', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (2,'Flúor', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (2,'Zinco', 'N','N');
+
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (3, 'Todos são gases nobres.', 'S','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (3,'Todos são NÃO metais.', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (3,'Todos não tem a última camada.', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (3,'Todos começam com A.', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (3,'Todos são metais.', 'N','N');
+
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (4,'É quando um átomo doa um elétron para outro átomo', 'S','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (4,'É quando um átomo compartilha um elétron com outro átomo', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (4,'É quando um átomo divide um elétron com outro átomo', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (4,'É quando um átomo junta-se com outro átomo', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (4,'É quando um átomo se liga a outro átomo', 'N','N');
+
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (5,'É quando um átomo compartilha um elétron com outro atomo.', 'S','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (5,'É quando um átomo doa um elétron para outro átomo.', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (5,'É quando um átomo divide um elétron com outro átomo.', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (5,'É quando um átomo junta-se com outro átomo.', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (5,'É quando um átomo se liga a outro átomo.', 'N','N');
+
+
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (6,'É tudo que tem massa e ocupa lugar no espaço.', 'S','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (6,'É o atomo', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (6,'Tudo que constitui a vida de uma pessoa', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (6,'É uma coisa que é ensinada na escola.', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (6,'É uma lição da vida', 'N','N');
+
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (7,'São pequenas partículas que formam a matéria', 'S','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (7,'É o Oxigênio', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (7,'São os elementos', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (7,'Pequenas bolinha, que unidas, formam um objeto', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (7,'É o hidrogenio', 'N','N');
+
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (8,'Metal. Líquido', 'S','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (8,'Metal. Sólido', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (8,'Metal. Gasoso', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (8,'Não metal. Gasoso', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (8,'Não metal. Líquido', 'N','N');
+
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (9,'Os prótons e os nêutrons dentro do núcleo e os elétrons na eletrosfera.', 'S','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (9,'Os prótons, neutrons e elétrons em um só lugar.', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (9,'Os prótons no núcleo e os neutrons na eletrosfera.', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (9,'Os elétrons e neutrons no núcleo e os prótons na eletrosfera', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (9,'Nenhum, não foram Rutherford e Bohr os inventores.', 'N','N');
+
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (10,'Paládio.', 'S','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (10,'Fósforo.', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (10,'Polônio.', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (10,'Criptônio.', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (10,'Neônio.', 'N','N');
+
+INSERT INTO perguntas(conteudos_id, perguntas_descricao, perguntas_del)VALUES (2, 'Qual elemento químico dado abaixo não é um gás nobre?', 'N');
+INSERT INTO perguntas(conteudos_id, perguntas_descricao, perguntas_del)VALUES (2, 'O vinagre usado para temperar saladas é uma mistura, em proporções adequadas, de:', 'N');
+INSERT INTO perguntas(conteudos_id, perguntas_descricao, perguntas_del)VALUES (2, 'O número atômico do ouro é:', 'N');
+INSERT INTO perguntas(conteudos_id, perguntas_descricao, perguntas_del)VALUES (2, 'Quando o sulfito de sódio reage com ácido clorídrico obtém-se respectivamente:', 'N');
+INSERT INTO perguntas(conteudos_id, perguntas_descricao, perguntas_del)VALUES (2, 'O ácido H2SO3 é categorizado como:', 'N');
+INSERT INTO perguntas(conteudos_id, perguntas_descricao, perguntas_del)VALUES (2, 'Se colocado em água, o ácido H3BO3 ele se dissociará em:', 'N');
+INSERT INTO perguntas(conteudos_id, perguntas_descricao, perguntas_del)VALUES (2, 'Qual a nomenclatura dos ácidos HNO3 e HNO2 ?', 'N');
+INSERT INTO perguntas(conteudos_id, perguntas_descricao, perguntas_del)VALUES (2, 'Qual a fórmula do composto idróxido de platina IV?', 'N');
+INSERT INTO perguntas(conteudos_id, perguntas_descricao, perguntas_del)VALUES (2, 'Qual a nomenclatura correta do composto Pb(OH)4"?', 'N');
+INSERT INTO perguntas(conteudos_id, perguntas_descricao, perguntas_del)VALUES (2, 'Marque a alternativa correspondentes às características dos fenóis:', 'N');
+INSERT INTO perguntas(conteudos_id, perguntas_descricao, perguntas_del)VALUES (2, 'Qual é o nome da família 2A?', 'N');
+INSERT INTO perguntas(conteudos_id, perguntas_descricao, perguntas_del)VALUES (2, 'A eletrosfera, parte externa do átomo, é formada por:', 'N');
+INSERT INTO perguntas(conteudos_id, perguntas_descricao, perguntas_del)VALUES (2, 'O H2SO4 é um(a):', 'N');
+INSERT INTO perguntas(conteudos_id, perguntas_descricao, perguntas_del)VALUES (2, 'O CuOH é um(a):', 'N');
+INSERT INTO perguntas(conteudos_id, perguntas_descricao, perguntas_del)VALUES (2, 'O NaCl é um(a):', 'N');
+INSERT INTO perguntas(conteudos_id, perguntas_descricao, perguntas_del)VALUES (2, 'Os nomes corretos das substâncias NaOH, HNO3 e CaO são:', 'N');
+INSERT INTO perguntas(conteudos_id, perguntas_descricao, perguntas_del)VALUES (2, 'Sulfato de cobre e nitrato de prata são considerados:', 'N');
+INSERT INTO perguntas(conteudos_id, perguntas_descricao, perguntas_del)VALUES (2, 'Quem criou a Tabela Periódica?', 'N');
+INSERT INTO perguntas(conteudos_id, perguntas_descricao, perguntas_del)VALUES (2, 'Qual o único exemplo que não é classificado como uma nuvem eletrônica?', 'N');
+INSERT INTO perguntas(conteudos_id, perguntas_descricao, perguntas_del)VALUES (2, 'Qual a letra grega correspondente ao momento dipolar?', 'N');
+
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (11,'Polônio', 'S','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (11,'Fósforo', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (11,'Paládio', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (11,'Criptônio', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (11,'Neônio', 'N','N');
+
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (12,'Ácido etanoico (ácido acético) e água.', 'S','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (12,'Ácido etanoico e etanal.', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (12,'Etanol e água.', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (12,'Etanol e cloreto de sódio.', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (12,'Propanona (acetona) e água.', 'N','N');
+
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (13,'79.', 'S','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (13,'59.', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (13,'69.', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (13,'49.', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (13,'89.', 'N','N');
+
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (14,'Sal de cozinha, água e dióxido de enxofre.', 'S','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (14,'Sal marinho, água e dióxido de enxofre.', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (14,'Sal marinho, água e dióxido de cloro.', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (14,'Sal de cozinha, água e dióxido de cloro.', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (14,'Sal de cozinha, água e dióxido de alumínio.', 'N','N');
+
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (15,'Diácido, oxiácido e moderado', 'S','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (15,'Monoácido, hidrácido e fraco', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (15,'Monoácido, oxiácido e forte', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (15,'Diácido, hidrácido e fraco', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (15,'Monoácido, hidrácido e moderado', 'N','N');
+
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (16,'3H+ + BO3 3-', 'S','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (16,'H+ + BO3 -', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (16,'H2O + H3BO3', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (16,'H- + BO3+', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (16,'3H- + BO3 3+', 'N','N');
+
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (17,'Ácido nítrico e ácido nitroso', 'S','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (17,'Ácido nitroso e ácido nitrogenoso', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (17,'Ácido nítrico e ácido nitrogenoso', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (17,'Ácido nitrogenoso e ácido nítrico', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (17,'Ácido nitrogenoso e ácido nitroso', 'N','N');
+
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (18,'Pt(OH)4', 'S','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (18,'HPL', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (18,'HPt', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (18,'PL(OH)4', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (18,'(Pt)4OH', 'N','N');
+
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (19,'Hidróxido pumblico', 'S','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (19,'Hidróxido de Pumblos', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (19,'Hidróxido chumbico', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (19,'Hidróxido de chumbo', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (19,'Hidróxido chumboso', 'N','N');
+
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (20,'Possuem ação antibacteriana e fungicida;', 'S','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (20,'Compostos totalmente solúveis em água;', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (20,'Apresentam caráter básico;', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (20,'Apresentam-se no estado líquido e em diversas cores;', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (20,'Não foi o primeiro antisséptico a ser comercializado.', 'N','N');
+
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (21,'Metais alcalinoterrosos', 'S','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (21,'Família do Boro', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (21,'Família dos Halogênios', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (21,'Metais Alcalinos', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (21,'Família do Amerício', 'N','N');
+
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (22,'Elétrons', 'S','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (22,'Nêutrons', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (22,'Íons', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (22,'Prótons', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (22,'Cátions', 'N','N');
+
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (23,'Ácido', 'S','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (23,'Base', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (23,'Óxido', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (23,'Sal', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (23,'Hidróxido', 'N','N');
+
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (24,'Nenhuma das alternativas anteriores.', 'S','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (24,'Óxido', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (24,'Ácido', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (24,'Sal', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (24,'Hidróxido', 'N','N');
+
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (25,'Sal', 'S','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (25,'Óxido', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (25,'Base', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (25,'Ácido', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (25,'Hidróxido', 'N','N');
+
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (26,'Hidróxido de Sódio, Óxido Nítrico e Calcário.', 'S','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (26,'Óxido de sódio, Óxido Nítrico e Carbonato de Cálcio.', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (26,'Hidróxido de sódio, Ácido nítrico e Óxido de cálcio.', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (26,'Óxido de sódio, Ácido Nítrico e Calcário.', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (26,'Hidróxido de sódio, Tetróxido de Hidrogênio e Ácido de cálcio.', 'N','N');
+
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (27,'Sais', 'S','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (27,'Hidróxidos', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (27,'Óxidos', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (27,'Bases', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (27,'Ácidos', 'N','N');
+
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (28,'Dimitri I. Mendeleev.', 'S','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (28,'Louis Pasteur', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (28,'Robert Boyle', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (28,'Albert Einsten', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (28,'Nicolau Copérnico', 'N','N');
+
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (29,'Ligação covalente tetraétrica', 'S','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (29,'Ligação covalente dativa', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (29,'Ligação covalente tripla', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (29,'Par de elétron não ligante', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (29,'Ligação covalente dupla', 'N','N');
+
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (30,'Alpha', 'S','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (30,'Gama', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (30,'Delta', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (30,'Beta', 'N','N');
+INSERT INTO respostas(perguntas_id, respostas_desc, respostas_correta,respostas_del) VALUES (30,'Mi', 'N','N');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

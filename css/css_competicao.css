@@ -1,0 +1,136 @@
+.boasVindas{
+	width: 100%;
+	height: 200px;
+	background-color: white;
+	text-align: center;
+}
+
+.titulo{
+	width: 100%;
+	height: 120px;
+	background-color: white;
+	float: left;
+	line-height: 120px;
+	font-size: 80px;
+}
+
+.desc{
+	width: 100%;
+	height: 80px;	
+	background-color: white;
+	float: left;
+	font-size: 40px;
+}
+
+.pergunta{
+	background-color: white;
+	width: 100%;
+	height: 90%;
+	line-height: 90px;
+	text-align: center;
+	font-size: 100%;
+	color: black;
+}
+
+#time{
+	background-color: white;
+	width: 50%;
+	height: 30px;
+	float: left;
+	line-height: 50px;
+	font-size: 30px;
+	color: black;
+}
+
+.alternativa {
+	background-color: #4FFFBC;
+	width: 100%;
+	height: 100%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	line-height: 70px;
+	text-align: center;
+	color: black;
+	font-size: 100%;
+	cursor: pointer;
+	text-decoration:none; 
+}
+a:hover{
+	text-decoration:none;
+}
+.alternativa.fill-div {
+	text-align: center;
+	line-height: 50px;
+	display: block;
+	height: 100%;
+	width: 100%;
+	text-decoration: none;
+}
+
+.alternativa:hover{
+	text-decoration: none;
+	background-color: rgb(11, 168, 103);
+}
+
+.flip-container {
+	perspective: 1000px;
+	text-align: center;
+	line-height: 400px;
+	display: block;
+	height: 100%;
+	width: 100%;
+	font-weight: bold;
+}
+
+.dificuldade.fill-div{
+	text-align: center;
+	line-height: 100px;
+	display: block;
+	height: 100%;
+	width: 100%;
+	text-decoration: none;
+}
+
+.flip-container:hover .flipper, .flip-container.hover .flipper {
+	transform: rotateY(180deg);
+}
+
+.flip-container, .front, .back {
+	width: 100%;
+	height: 400px;
+}
+
+.flipper {
+	transition: 0.6s;
+	transform-style: preserve-3d;
+	position: relative;
+}
+
+.front{
+	backface-visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: #4FFFBC;
+	font-size: 75px;
+	color: white;
+}
+
+.back {
+	backface-visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: #F6F6F6;
+	color: #AAAAAA;
+	font-size: large;
+}
+
+.front {
+	z-index: 2;
+	transform: rotateY(0deg);
+}
+
+.back {
+	transform: rotateY(180deg);
+}
