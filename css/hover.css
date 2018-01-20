@@ -2858,7 +2858,7 @@
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px transparent;
   position: relative;
-  padding-left: 2.2em;
+  padding-left: 3em;
   -webkit-transition-duration: 0.1s;
   transition-duration: 0.1s;
 }
@@ -2890,7 +2890,7 @@
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px transparent;
   position: relative;
-  padding-right: 2.2em;
+  padding-right: 3em;
   -webkit-transition-duration: 0.1s;
   transition-duration: 0.1s;
 }
@@ -2949,7 +2949,7 @@
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px transparent;
   position: relative;
-  padding-right: 2.2em;
+  padding-right: 3em;
 }
 .hvr-icon-down:before {
   content: "\f01a";
@@ -3004,7 +3004,7 @@
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px transparent;
   position: relative;
-  padding-right: 2.2em;
+  padding-right: 3em;
 }
 .hvr-icon-up:before {
   content: "\f01b";
@@ -3032,7 +3032,7 @@
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px transparent;
   position: relative;
-  padding-right: 2.2em;
+  padding-right: 3em;
 }
 .hvr-icon-spin:before {
   content: "\f021";
@@ -3089,7 +3089,7 @@
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px transparent;
   position: relative;
-  padding-right: 2.2em;
+  padding-right: 3em;
 }
 .hvr-icon-drop:before {
   content: "\f041";
@@ -3127,7 +3127,7 @@
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px transparent;
   position: relative;
-  padding-right: 2.2em;
+  padding-right: 3em;
 }
 .hvr-icon-fade:before {
   content: "\f00c";
@@ -3175,7 +3175,7 @@
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px transparent;
   position: relative;
-  padding-right: 2.2em;
+  padding-right: 3em;
 }
 .hvr-icon-float-away:before, .hvr-icon-float-away:after {
   content: "\f055";
@@ -3227,7 +3227,7 @@
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px transparent;
   position: relative;
-  padding-right: 2.2em;
+  padding-right: 3em;
 }
 .hvr-icon-sink-away:before, .hvr-icon-sink-away:after {
   content: "\f056";
@@ -3260,7 +3260,7 @@
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px transparent;
   position: relative;
-  padding-right: 2.2em;
+  padding-right: 3em;
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
@@ -3292,7 +3292,7 @@
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px transparent;
   position: relative;
-  padding-right: 2.2em;
+  padding-right: 3em;
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
@@ -3344,7 +3344,7 @@
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px transparent;
   position: relative;
-  padding-right: 2.2em;
+  padding-right: 3em;
 }
 .hvr-icon-pulse:before {
   content: "\f015";
@@ -3388,7 +3388,7 @@
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px transparent;
   position: relative;
-  padding-right: 2.2em;
+  padding-right: 3em;
 }
 .hvr-icon-pulse-grow:before {
   content: "\f015";
@@ -3434,7 +3434,7 @@
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px transparent;
   position: relative;
-  padding-right: 2.2em;
+  padding-right: 3em;
 }
 .hvr-icon-pulse-shrink:before {
   content: "\f015";
@@ -3480,7 +3480,7 @@
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px transparent;
   position: relative;
-  padding-right: 2.2em;
+  padding-right: 3em;
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
@@ -3530,7 +3530,7 @@
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px transparent;
   position: relative;
-  padding-right: 2.2em;
+  padding-right: 3em;
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
@@ -3568,7 +3568,7 @@
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px transparent;
   position: relative;
-  padding-right: 2.2em;
+  padding-right: 3em;
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
@@ -3602,7 +3602,7 @@
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px transparent;
   position: relative;
-  padding-right: 2.2em;
+  padding-right: 3em;
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
@@ -3634,7 +3634,7 @@
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px transparent;
   position: relative;
-  padding-right: 2.2em;
+  padding-right: 3em;
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
@@ -3666,7 +3666,7 @@
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px transparent;
   position: relative;
-  padding-right: 2.2em;
+  padding-right: 3em;
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
@@ -3698,7 +3698,7 @@
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px transparent;
   position: relative;
-  padding-right: 2.2em;
+  padding-right: 3em;
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
@@ -3770,7 +3770,7 @@
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px transparent;
   position: relative;
-  padding-right: 2.2em;
+  padding-right: 3em;
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
@@ -3848,7 +3848,7 @@
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px transparent;
   position: relative;
-  padding-right: 2.2em;
+  padding-right: 3em;
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
@@ -3938,7 +3938,7 @@
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px transparent;
   position: relative;
-  padding-right: 2.2em;
+  padding-right: 3em;
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
@@ -4022,7 +4022,7 @@
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px transparent;
   position: relative;
-  padding-right: 2.2em;
+  padding-right: 3em;
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
@@ -4074,7 +4074,7 @@
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px transparent;
   position: relative;
-  padding-right: 2.2em;
+  padding-right: 3em;
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
@@ -4190,7 +4190,7 @@
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px transparent;
   position: relative;
-  padding-right: 2.2em;
+  padding-right: 3em;
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }

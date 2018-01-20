@@ -4,6 +4,8 @@
     include_once('../models/entidades.php');
     include_once('../models/model_cadastro.php');
 
+    $fotopadrao = "http://200.145.153.172/quarkz/Quimicamente/imagens/default_profile_pic.png";
+
     if(strlen($_POST["nome"]) < 4)
         die("Insira um nome válido!");
                 
@@ -33,7 +35,7 @@
                     "usuarios_senha" => $_POST["senha"],
                     "usuarios_nivel" => 3,
                     "usuarios_datanasc" => $_POST["datanasc"],
-                    "usuarios_foto" => NULL,
+                    "usuarios_foto" => $fotopadrao,
                     "usuarios_del" => "N"
                     )
         );

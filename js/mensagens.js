@@ -45,6 +45,48 @@ function msg(alerta, msg){
 			confirmButtonText: 'OK'
 		});
 	 }
+	 else if(alerta ==='turma'){
+		 swal({
+			title: 'Calma lá fera!',
+			text: msg,
+			type: 'info',
+			confirmButtonText: 'OK'
+		});
+	 }else if(alerta ==='carregando'){
+		 swal({
+			title: 'Carregando...',
+			type: 'success',
+			showConfirmButton: false,
+			allowOutsideClick: false
+	 	});
+	}else if(alerta === 'enviando'){
+		swal({
+			title: 'Enviando...',
+			showConfirmButton: false,
+			allowOutsideClick: false
+		});
+	}else if(alerta ==='sairturma'){
+		 swal({
+			title: 'Calma lá fera!',
+			text: msg,
+			type: 'info',
+			confirmButtonText: 'Fazer oq né?',
+			showCancelButton: true,
+		}).then(function () {
+  			var i = 1;
+  			if(i == 1){
+  				swal({
+			    	type: 'success',
+			    	title: 'Ajax request finished!',
+				})
+  			}else{
+  				swal({
+		    		type: 'error',
+		    		title: ':(',
+				})
+  			}
+  		});
+	 }
      else{
         swal({
 			title: 'Mensagem!',

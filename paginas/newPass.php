@@ -1,3 +1,13 @@
+<?php
+    include_once('../models/model_recuperacao.php');
+
+    // Verifica se a hash está ativada, caso ela esteja o usuario pode recuperar senha
+    $hash = Model_recuperacao::verificaHash($_GET['hash']);
+
+    if($hash != "hashActive"){
+        header("location: index.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang ="pt-br">
 <head>
@@ -27,19 +37,9 @@
 	<link rel="shortcut icon" href="../imagens/logo.ico">
 	<title> Recuperar senha | Quimicamente </title>
 </head>
-<body>
-    <header>
-        <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    </button>
-                    <a href="index.php"><img id="img" src="../imagens/logoQuim.png"/></a>
-                </div>
-                <div id="navbar" class="navbar-collapse collapse navbar-right">
-                </div><!--/.nav-collapse -->
-            </div>
-        </nav>
-    </header>
+<body style="overflow-x: hidden;">
+    <?php include 'templates/navabr.php'; ?>
+
     <main>
         <section id="banner">
             <div class="senha">
@@ -47,9 +47,11 @@
                     <h2 class="pad">Esqueci minha senha</h2>
                     <p> Insira sua nova senha para voltar a se divertir </p>
                     <div class="password">
-                        <input type="text" class="form-control animated fadeInLeft" placeholder="Nova Senha"><br>
-                        <input type="text" class="form-control animated fadeInRight" placeholder="Confirme a nova senha"><br><br>
-                        <input type="submit" class="special big total animated fadeInUp" Value="Redefinir"/>
+                        <form method="POST" onsubmit="return alteraSenha('<?php echo $_GET['hash'] ?>');">
+                            <input type="password" class="form-control animated fadeInLeft" id="newPass" placeholder="Nova Senha"><br>
+                            <input type="password" class="form-control animated fadeInRight" id="confirm_newPass" placeholder="Confirme a nova senha"><br><br>
+                            <input type="submit" class="special big total animated fadeInUp" Value="Redefinir"/>
+                        </form>
                     </div>
                 </div>
             </div>

@@ -90,32 +90,48 @@
 											<center>
 												<p>teste1</p>
 											</center>
-										<!--<div class="panel-footer">-->
+										<div class="panel-footer">
 											<center>
 												<a href="http://200.145.153.172/quarkz/Quimicamente/paginas/aluno/aluno.html">
 													<input type="button" value="Aula" class="special"/> </a>
 											</center>	
-										<!--</div>-->
+										</div>
 										</div>
 										
 										<div class="box person">
 											<center>
 												<p>teste2</p>
 											</center>
+											<div class="panel-footer">
+											<center>
+												<a href="http://200.145.153.172/quarkz/Quimicamente/paginas/aluno/aluno.html">
+													<input type="button" value="Aula" class="special"/> </a>
+											</center>	
+										</div>
 										</div>
 										
 										<div class="box person">
 											<center>
 												<p>teste3</p>
 											</center>
-											
+											<div class="panel-footer">
+											<center>
+												<a href="http://200.145.153.172/quarkz/Quimicamente/paginas/aluno/aluno.html">
+													<input type="button" value="Aula" class="special"/> </a>
+											</center>	
+										</div>
 										</div>
 										
 										<div class="box person">
 											<center>
 												<p>teste4</p>
 											</center>
-											
+											<div class="panel-footer">
+											<center>
+												<a href="http://200.145.153.172/quarkz/Quimicamente/paginas/aluno/aluno.html">
+													<input type="button" value="Aula" class="special"/> </a>
+											</center>	
+										</div>
 										</div>									
 									</div>
 								</div> <!-- /.col-lg-12 -->

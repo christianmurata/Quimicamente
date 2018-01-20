@@ -1,7 +1,7 @@
 <?php
     
     //-----------------------------------------------------------------------------------------------------------
-    //--------------------------- CLASSE PARA CONEXÃƒO COM O BANCO DE DADOS Database -----------------------------
+    //--------------------------- CLASSE PARA CONEXÃO COM O BANCO DE DADOS Database -----------------------------
     //------------------------ PARA USO DA QUARKZ TECHNOLOGY, PROGRAMADO POR PEDRO LUIZ -------------------------
     //-----------------------------------------------------------------------------------------------------------
 
@@ -15,96 +15,96 @@
 //    }
 
 	class Database{
-        //AGORA TODAS OS MÃ‰TODOS E VARIÃVEIS SÃƒO ESTÃTICOS, NÃƒO PRECISAM SER INSTANCIADOS.
+        //AGORA TODAS OS MÉTODOS E VARIÁVEIS SÃO ESTÁTICOS, NÃO PRECISAM SER INSTANCIADOS.
         static $pdo;
         static function conecta(){
-            //O CONTEUDO DESSA FUNÃ‡ÃƒO FICAVA FORA DA CLASSE, 
-            //E AQUI HAVIA UM CONSTRUTOR PARA RECEBER A CONEXÃƒO
+            //O CONTEUDO DESSA FUNÇÃO FICAVA FORA DA CLASSE, 
+            //E AQUI HAVIA UM CONSTRUTOR PARA RECEBER A CONEXÃO
             
-            //----------------- DEFININDO DADOS DA CONEXÃƒO 
+            //----------------- DEFININDO DADOS DA CONEXÃO
             $drive = "pgsql";
             $host = "localhost";
             $porta = "5432";
             $banco = "quimicamente";
-            $usuario = "postgres";
-            $senha = "murata97";
-
+            $usuario = "quarkz";
+            $senha = "4cess4_qu4rkz";
             //--------------------------------------------
 
-            //STRING DE CONEXÃƒO
+            //STRING DE CONEXÃO
             $con = "$drive:host=$host;port=$porta;dbname=$banco;user=$usuario;password=$senha";
 
-            //CRIAÃ‡ÃƒO DA CONEXÃƒO COM A BASE DE DADOS 
-            //O OBJETO $pdo Ã‰ QUEM MANDA AS QUERYs PRO BANCO E AS EXECUTA, ATRAVÃ‰S DAS FUNÃ‡Ã•ES DO PDO
+            //CRIAÇÃO DA CONEXÃO COM A BASE DE DADOS 
+            //O OBJETO $pdo É QUEM MANDA AS QUERYs PRO BANCO E AS EXECUTA, ATRAVÉS DAS FUNÇÕES DO PDO
             try{
                 Database::$pdo = new PDO($con);
-                Database::$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);      //HABILITAR EXCEÃ‡Ã•ES
+                Database::$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);      //HABILITAR EXCEÇÕES
             }
             catch(PDOExeption $e){
-                echo "NÃ£o foi possÃ­vel conectar a base de dados. Erro: <br>".$e->getMessage();        
+                return "Não foi possível conectar a base de dados. Erro: <br>".$e->getMessage();
             }
             
         }
 		
 		static function executar($sql){		//QUERY SEM RETORNO
-            Database::conecta();        //FAZ A CONEXÃƒO
+            Database::conecta();        //FAZ A CONEXÃO
 			try{
-                //CHAMA O OBJETO $pdo, QUE EXECUTA O sql PASSADO POR PARÃ‚METRO DENTRO DA FUNÃ‡ÃƒO
+                //CHAMA O OBJETO $pdo, QUE EXECUTA O sql PASSADO POR PARÂMETRO DENTRO DA FUNÇÃO
 				$query = Database::$pdo->query($sql);
 			}
             
             //TRATAMENTO DE ERROS
-			catch(PDOException $e){      
-				echo "Erro ao processar consulta. Erro: <br>".$e->getMessage()."<br>";
+			catch(PDOException $e){
+                return "Erro ao processar consulta. Erro: <br>".$e->getMessage()."<br>";
 			}
 		}
 		
-		static function executarParam($sql, $param){		//EXECUTA QUERYs COM PARÃ‚METROS, SEM RETORNO
-            Database::conecta();        //FAZ A CONEXÃƒO
-            $i = 1;         //INDÃCE PARA INDICAR OS PARÃ‚METROS
+		static function executarParam($sql, $param){		//EXECUTA QUERYs COM PARÂMETROS, SEM RETORNO
+            Database::conecta();        //FAZ A CONEXÃO
+            $i = 1;         //INDÍCE PARA INDICAR OS PARÂMETROS
             try{
-                //PREPARA O BANCO COM A QUERY, ASSIM NÃƒO PRECISANDO CONCATENAR A SQL BRUTA,
+                //PREPARA O BANCO COM A QUERY, ASSIM NÃO PRECISANDO CONCATENAR A SQL BRUTA,
                 //EVITANDO SQL INJECTION
                 $stmt = Database::$pdo->prepare($sql);
                 
-                //PERCORRE O ARRAY COM OS PARÃ‚METROS. CADA "?" NA SQL CORRESPONDE A UM DELES
-                //O bindValue() FIXA O PARÃ‚METRO. QUANDO SE USA "?" NA QUERY Ã‰ 
-                //PRECISO USAR UM NÃšMERO INTEIRO PARA REPRESENTAR CADA PARÃ‚METRO NO bindValue()
+                //PERCORRE O ARRAY COM OS PARÂMETROS. CADA "?" NA SQL CORRESPONDE A UM DELES
+                //O bindValue() FIXA O PARÂMETRO. QUANDO SE USA "?" NA QUERY É 
+                //PRECISO USAR UM NÚMERO INTEIRO PARA REPRESENTAR CADA PARÂMETRO NO bindValue()
                 //POR ISSO O CONTADOR  $i++
                 
                 foreach($param as $value){
                     $stmt->bindValue($i++, $value);
                 }
-                //COM A SQL E OS PARÃ‚METROS PASSADO, A QUERY Ã‰ EXECUTADA.
-                $stmt->Execute();
+                //COM A SQL E OS PARÂMETROS PASSADO, A QUERY É EXECUTADA.
+                return $stmt->Execute();
+
             }
             //TRATAMENTO DE ERROS
             catch(PDOException $e){
-                die("Erro ao processar consulta. Erro: <br>".$e->getMessage().".<br>");
+                return "Erro ao processar consulta. Erro: <br>".$e->getMessage().".<br>";
             }
 		}
 		
 		static function selecionarParam($sql, $param){		//SELECIONAR REGISTROS, RETORNA ARRAY
-            Database::conecta();        //FAZ A CONEXÃƒO
-			$i = 1;         //INDÃCE PARA INDICAR OS PARÃ‚METROS
+            Database::conecta();        //FAZ A CONEXÃO
+			$i = 1;         //INDÍCE PARA INDICAR OS PARÂMETROS
             try{
-                //PREPARA O BANCO COM A QUERY, ASSIM NÃƒO PRECISANDO CONCATENAR A SQL BRUTA,
+                //PREPARA O BANCO COM A QUERY, ASSIM NÃO PRECISANDO CONCATENAR A SQL BRUTA,
                 //EVITANDO SQL INJECTION
                 $stmt = Database::$pdo->prepare($sql);
                 
-                //PERCORRE O ARRAY COM OS PARÃ‚METROS. CADA "?" NA SQL CORRESPONDE A UM DELES
-                //O bindValue() FIXA O PARÃ‚METRO. QUANDO SE USA "?" NA QUERY Ã‰ 
-                //PRECISO USAR UM NÃšMERO INTEIRO PARA REPRESENTAR CADA PARÃ‚METRO NO bindValue()
+                //PERCORRE O ARRAY COM OS PARÂMETROS. CADA "?" NA SQL CORRESPONDE A UM DELES
+                //O bindValue() FIXA O PARÂMETRO. QUANDO SE USA "?" NA QUERY É 
+                //PRECISO USAR UM NÚMERO INTEIRO PARA REPRESENTAR CADA PARÂMETRO NO bindValue()
                 //POR ISSO O CONTADOR  $i++
                 
                 foreach($param as $value){
                     $stmt->bindValue($i++, $value);
                 }
-                //COM A SQL E OS PARÃ‚METROS PASSADO, A QUERY Ã‰ EXECUTADA.
+                //COM A SQL E OS PARÂMETROS PASSADO, A QUERY É EXECUTADA.
                 $query = $stmt->Execute();
             }
             catch(PDOException $e){
-                die("Erro ao processar consulta. Erro: <br>".$e->getMessage().".<br>");
+                return "Erro ao processar consulta. Erro: <br>".$e->getMessage().".<br>";
             }
             //SE A QUERY FOI EXECUTADA COM SUCESSO, MONTA UM ARRAY COM OS RESULTADOS
             //E O RETORNA
@@ -115,13 +115,13 @@
 		}
 		
 		static function selecionar($sql){		//SELECIONAR REGISTROS, RETORNA ARRAY
-            Database::conecta();        //FAZ A CONEXÃƒO
+            Database::conecta();        //FAZ A CONEXÃO
             try{
                 //EXECUTA A QUERY DIRETAMENTE
 				$query = Database::$pdo->query($sql);
 			}
 			catch(PDOException $e){
-				echo "Erro ao processar consulta. Erro: <br>".$e->getMessage()."<br>";
+                return "Erro ao processar consulta. Erro: <br>".$e->getMessage()."<br>";
 			}
             
             //SE A QUERY FOI EXECUTADA COM SUCESSO, MONTA UM ARRAY COM OS RESULTADOS
@@ -132,23 +132,23 @@
 		}
 
         static function selecionaObjeto($sql, $param){      //SELECIONAR REGISTROS, RETORNA ARRAY
-            Database::conecta();        //FAZ A CONEXÃƒO
+            Database::conecta();        //FAZ A CONEXÃO
             try{
-                //PREPARA O BANCO COM A QUERY, ASSIM NÃƒO PRECISANDO CONCATENAR A SQL BRUTA,
+                //PREPARA O BANCO COM A QUERY, ASSIM NÃO PRECISANDO CONCATENAR A SQL BRUTA,
                 //EVITANDO SQL INJECTION
                 $stmt = Database::$pdo->prepare($sql);
                 
-                //PERCORRE O ARRAY COM OS PARÃ‚METROS. CADA "?" NA SQL CORRESPONDE A UM DELES
-                //O bindValue() FIXA O PARÃ‚METRO. QUANDO SE USA "?" NA QUERY Ã‰ 
-                //PRECISO USAR UM NÃšMERO INTEIRO PARA REPRESENTAR CADA PARÃ‚METRO NO bindValue()
+                //PERCORRE O ARRAY COM OS PARÂMETROS. CADA "?" NA SQL CORRESPONDE A UM DELES
+                //O bindValue() FIXA O PARÂMETRO. QUANDO SE USA "?" NA QUERY É 
+                //PRECISO USAR UM NÚMERO INTEIRO PARA REPRESENTAR CADA PARÂMETRO NO bindValue()
                 //POR ISSO O CONTADOR  $i++
                 
-                $stmt->bindValue(1, $param);
-                //COM A SQL E OS PARÃ‚METROS PASSADO, A QUERY Ã‰ EXECUTADA.
+                $stmt->bindValue(1, $param, PDO::PARAM_STR);
+                //COM A SQL E OS PARÂMETROS PASSADO, A QUERY É EXECUTADA.
                 $query = $stmt->Execute();
             }
             catch(PDOException $e){
-                die("Erro ao processar consulta. Erro: <br>".$e->getMessage().".<br>");
+                return "Erro ao processar consulta. Erro: <br>".$e->getMessage().".<br>";
             }
             //SE A QUERY FOI EXECUTADA COM SUCESSO, MONTA UM ARRAY COM OS RESULTADOS
             //E O RETORNA
@@ -156,6 +156,6 @@
                 return $stmt->fetchAll(PDO::FETCH_ASSOC);
             }
             
-        }  
+        }
+
 	}
-    ?>

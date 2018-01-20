@@ -23,8 +23,18 @@
                 <center><a href="#"><img src="../imagens/logo.png"/></a> </center>
                 <span class="inner-status">Oops!</span><br>
                 <span class="inner-detail" style="color:#f6f6f6;">
-                    <p class="white-color">A página não foi encontrada<p>
-                </span>
+<?php
+                	if(isset($mensagem)){
+?>
+                    	<p class="white-color"><?php echo $mensagem ?><p>
+<?php 				
+					}else{
+?>
+						<p class="white-color">A página não foi encontrada<p>
+<?php
+					}
+
+?>                </span>
             </div>
         </div>
     </div>

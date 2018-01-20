@@ -1,8 +1,44 @@
 .banner1 {
 	max-width: 100%;
 	width: 100%;
-	height: 300px;
-  background-image: url("http://200.145.153.172/quarkz/Quimicamente/imagens/bannertelasala.png");
+	height: 100%;
+  	background-image: url("../../imagens/bannerSala.png");
+
+  	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.img-aluno{
+	width: 20px;
+	height: 20px;
+}
+
+.banner2 {
+	max-width: 100%;
+	height:auto;
+  	background-image: url("../../imagens/banner2.jpg");
+  	background-size:100% 100%;
+  	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.nome-aluno{
+	padding: 10px !important;
+}
+
+a.link{
+	font-size: 20px;
+	font-family: 'Open Sans';
+	color: black;
+}
+
+a.link:hover {
+	text-decoration: none;
+	color: #4FFFBC;
 }
 
 .quarkz{
@@ -10,217 +46,247 @@
 }
 
 
+/*
+* Efeito Flip para os conteúdos
+*/
+.flip-container {
+	perspective: 1000px;
+}
+/* flip the pane when hovered */
+.flip-container:hover .flipper, .flip-container.hover .flipper {
+	transform: rotateY(180deg);
+}
+
+.flip-container, .front, .back {
+	width: 100%;
+	height: 350px;
+}
+
+/* flip speed goes here */
+.flipper {
+	transition: 0.6s;
+	transform-style: preserve-3d;
+
+	position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+	backface-visibility: hidden;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+	z-index: 2;
+	/* for firefox 31 */
+	transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back {
+	transform: rotateY(180deg);
+}
+
 .box {
-	border: solid 1px #aaa;
-	margin-bottom: 2em;
-	padding: 1.5em;
-}
+		border: solid 1px #aaa;
+		margin: 0 !important;
+		padding: 0 !important;
+	}
 
-.box > :last-child,
-.box > :last-child > :last-child,
-.box > :last-child > :last-child > :last-child {
-	margin-bottom: 0;
-}
+		.box > :last-child,
+		.box > :last-child > :last-child,
+		.box > :last-child > :last-child > :last-child {
+			margin-bottom: 0;
+		}
 
-.box.alt {
-	border: 0;
-	border-radius: 0;
-	padding: 0;
-}
+		.box.alt {
+			border: 0;
+			border-radius: 0;
+			padding: 0;
+		}
 
-.box.person {
-	border: solid 2px #4FFFBC;
-	padding: 3em 1.5em;
-}
+		.box.person {
+			border: solid 2px transparent;
+			padding: 3em 1.5em;
+		}
 
-.box.person h3 {
-	margin: 0;
-}
+			.box.person h3 {
+				margin: 0;
+			}
 
-.box.person .image {
-	margin-bottom: 1em;
-}
+			.box.person .image {
+				margin-bottom: 1em;
+			}
 
-.box.person .image img {
-	max-width: 100%;
-}
+				.box.person .image img {
+					max-width: 100%;
+				}
 
 
 /* Flex */
 
-.flex {
-	display: -ms-flexbox;
-	-ms-flex-wrap: wrap;
-	-ms-flex-pack: justify;
-	display: -moz-flex;
-	display: -webkit-flex;
-	display: -ms-flex;
-	display: flex;
-	-moz-flex-wrap: wrap;
-	-webkit-flex-wrap: wrap;
-	-ms-flex-wrap: wrap;
-	flex-wrap: wrap;
-	-moz-justify-content: space-between;
-	-webkit-justify-content: space-between;
-	-ms-justify-content: space-between;
-	justify-content: space-between;
-}
-
-.flex.flex-2 article {
-	width: 47%;
-}
-
-.flex.flex-3 article {
-	position: relative;
-	width: 28%;
-}
-
-.flex.flex-3 article:before {
-	content: '';
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	right: -2em;
-	top: 0;
-	border-right: 1px solid #dbdbdb;
-	pointer-events: none;
-}
-
-.flex.flex-3 article:last-child:before {
-	border: none;
-}
-
-.flex.flex-4 .box {
-	width: 21%;
-}
-
-@media screen and (max-width: 980px) {
-
-	.flex.flex-2 article {
-		width: 100%;
-		margin-bottom: 3em;
+	.flex {
+		display: -ms-flexbox;
+		-ms-flex-wrap: wrap;
+		-ms-flex-pack: justify;
+		display: -moz-flex;
+		display: -webkit-flex;
+		display: -ms-flex;
+		display: flex;
+		-moz-flex-wrap: wrap;
+		-webkit-flex-wrap: wrap;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+		-moz-justify-content: space-between;
+		-webkit-justify-content: space-between;
+		-ms-justify-content: space-between;
+        justify-content: space-between;
+		padding-top: 10px;
 	}
 
-	.flex.flex-2 article:last-child {
-		margin-bottom: 0;
-	}
+		.flex.flex-2 article {
+			width: 47%;
+		}
 
-	.flex.flex-3 {
-		-moz-flex-direction: column;
-		-webkit-flex-direction: column;
-		-ms-flex-direction: column;
-		flex-direction: column;
-	}
+		.flex.flex-3 article {
+			position: relative;
+			width: 28%;
+		}
 
-	.flex.flex-3 article {
-		width: 100%;
-		border-bottom: 1px solid #dbdbdb;
-		padding-bottom: 2.5em;
-		margin-bottom: 3em;
-	}
+			.flex.flex-3 article:before {
+				content: '';
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				right: -2em;
+				top: 0;
+				border-right: 1px solid #dbdbdb;
+				pointer-events: none;
+			}
 
-	.flex.flex-3 article:last-child {
-		border: none;
-		padding-bottom: 0;
-		margin: 0 0 1em 0;
-	}
+			.flex.flex-3 article:last-child:before {
+				border: none;
+			}
 
-	.flex.flex-3 article:before {
-		display: none;
-	}
+		.flex.flex-4 .box {
+			width: 21%;
+		}
 
-	.flex.flex-4 .box {
-		width: 47%;
-	}
-}
+		@media screen and (max-width: 980px) {
 
-@media screen and (max-width: 480px) {
-	.flex.flex-4 .box {
-		width: 100%;
-	}
-}
+			.flex.flex-2 article {
+				width: 100%;
+				margin-bottom: 3em;
+			}
 
-.side{
+				.flex.flex-2 article:last-child {
+					margin-bottom: 0;
+				}
+
+			.flex.flex-3 {
+				-moz-flex-direction: column;
+				-webkit-flex-direction: column;
+				-ms-flex-direction: column;
+				flex-direction: column;
+			}
+
+				.flex.flex-3 article {
+					width: 100%;
+					border-bottom: 1px solid #dbdbdb;
+					padding-bottom: 2.5em;
+					margin-bottom: 3em;
+				}
+
+					.flex.flex-3 article:last-child {
+						border: none;
+						padding-bottom: 0;
+						margin: 0 0 1em 0;
+					}
+
+					.flex.flex-3 article:before {
+						display: none;
+					}
+
+			.flex.flex-4 .box {
+				width: 47%;
+			}
+
+		}
+
+		@media screen and (max-width: 480px) {
+
+			.flex.flex-4 .box {
+				width: 100%;
+			}
+
+		}
+
+		.side{
     width: 80%;
 }
 
-.box {
-	margin-bottom: 2em;
-	padding: 1.5em;
+.conteudo{
+	width: 100%;
 }
 
-.box > :last-child,
-.box > :last-child > :last-child,
-.box > :last-child > :last-child > :last-child {
-	margin-bottom: 0;
+.conteudo p{
+	padding-top: 12%;
+	color: inherit;
+	font-size: 20px;
 }
 
-.box.alt {
+.conteudoButton{
+	padding: 11.5em 1.5em 0 1.5em;
+}
+
+.conteudoDesc{
+	padding: 2em 1.5em 0 1.5em;
+}
+
+.conteudoActive{
+	color: #4fffbc;
+}
+
+.conteudoBlock{
+	color: #aaa;
+}
+
+.conteudo .fa{
+	font-size: 200px !important;
+}
+
+.header-tab {
+	color: #00415d;
+	background-color: #fff;
+	border-color: #fff;
+	text-align:center;
+	text-decoration: none;
+	color: #666;
+	font-weight: bold;
+	font-size: 15px;
+	-webkit-transition: all 0.1s linear;
+	-moz-transition: all 0.1s linear;
+	transition: all 0.1s linear;
+}
+
+.header-tab a.active{
+	color: #029f5b;
+	font-size: 18px;
+	text-decoration: none;
+}
+
+hr{
+	margin-top: 10px;
+	margin-bottom: 0px;
+	clear: both;
 	border: 0;
-	border-radius: 0;
-	padding: 0;
-}
-
-.box.person {
-	padding: 3em 1.5em;
-}
-
-.box.person .image {
-	margin-bottom: 1em;
-}
-
-
-.image {
-	border-radius: 0;
-	border: 0;
-	display: inline-block;
-	position: relative;
-}
-.image img {
-	border-radius: 0;
-	display: block;
-}
-
-.image.left, .image.right {
-	max-width: 40%;
-}
-
-.image.left img, .image.right img {
-	width: 100%;
-}
-
-.image.round img {
-	border-radius: 100%;
-}
-
-.image.left {
-	float: left;
-	padding: 0 1em 1em 0;
-	top: 0.25em;
-}
-
-.image.right {
-	float: right;
-	padding: 0 0 1em 1.5em;
-	top: 0.25em;
-}
-
-.image.fit {
-	display: block;
-	margin: 0 0 2em 0;
-	width: 100%;
-}
-
-.image.fit img {
-	width: 100%;
-}
-
-.image.main {
-	display: block;
-	margin: 0 0 3em 0;
-	width: 100%;
-}
-
-.image.main img {
-	width: 100%;
+	height: 1px;
+	background-image: -webkit-linear-gradient(left,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.15),rgba(0, 0, 0, 0));
+	background-image: -moz-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+	background-image: -ms-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+	background-image: -o-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
 }

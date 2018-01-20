@@ -3,20 +3,12 @@
     include_once("../models/entidades.php");
     include_once("../models/model_professor.php");
 
-    //ambiente de teste
-
     session_start();
 
     $usuario = $_SESSION["login"];
     $param = $usuario->getProfessores()->getProfessores_id();
 
-    $turmas = Model_professor::turmas($param);
-    $tot_paginas = Model_professor::paginacao($param);
-    $conteudos = Model_professor::conteudos();
-    $conteudos_comun = Model_professor::conteudos_comunidade($param);
-
-    if (isset($_POST["action"]))
-    {
+    if (isset($_POST["action"])){
         if($_POST["action"] == "inserir"){
             $arrayTurma = array(
                 array("turmas_id" => 0,

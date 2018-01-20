@@ -1,18 +1,51 @@
+body{
+	overflow-x: hidden;
+}
+
+.panel-default .panel-heading{
+	color: #aaa !important;
+}
+
+.panel-body {
+	color: #aaa;
+}
+
+.modal-title{
+	color: #aaa;
+}
+
 @media(min-width: 700px){
     #inicio{
-        padding-top: 60px;
-        height: auto;
-        width: 100%;
-        padding-right: 2%;
-		padding-left: 2%;
-    }
+		padding-top: 60px; height: auto; width: 100%; padding-right: 2%; padding-left: 2%;
+	}
+	
+	.panel-body{
+		min-height: 300px;
+	}
+
+	.turmas .panel-body{
+		height: 288px;
+	}
+	.tabela{
+		min-height: 235px;
+	}
+
+	.desc{
+		width: 550px;
+	}
 }
 @media(max-width: 700px){
      #inicio{
-        padding-top: 50px;
+		padding-top: 50px;
+		padding-left: 10px;
+		padding-right: 10px;
         height: auto;
         width: 100%;
-    }
+	}
+	
+	.turmas .panel-body{
+		min-height: 310px;
+	}
 }
 #box{
 	height: 550px;
@@ -21,8 +54,8 @@
 
 	.box {
 		border: solid 1px #aaa;
-		margin-bottom: 2em;
-		padding: 1.5em;
+		margin: 0 !important;
+		padding: 0 !important;
 	}
 
 		.box > :last-child,
@@ -38,7 +71,7 @@
 		}
 
 		.box.person {
-			border: solid 2px #4FFFBC;
+			border: solid 2px transparent;
 			padding: 3em 1.5em;
 		}
 
@@ -154,4 +187,34 @@
 
 .side{
     width: 80%;
+}
+
+.conteudo{
+	width: 100%;
+}
+
+.conteudo p{
+	padding-top: 15%;
+	color: inherit;
+	font-size: 20px;
+}
+
+.conteudoButton{
+	padding: 10em 1.5em 0 1.5em;
+}
+
+.conteudoDesc{
+	padding: 2em 1.5em 0 1.5em;
+}
+
+.conteudoActive{
+	color: #4fffbc;
+}
+
+.conteudoBlock{
+	color: #aaa;
+}
+
+.conteudo .fa{
+	font-size: 200px !important;
 }

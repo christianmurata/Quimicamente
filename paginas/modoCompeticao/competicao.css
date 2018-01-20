@@ -1,55 +1,96 @@
-.dificuldade{
+.boasVindas{
 	width: 100%;
-	height: 300px;
-	font-family:Arial;
-	text-align:center;
-    line-height:300px;
-	transition: all .2s ease-in-out;
-	
+	height: 500px;
+	background-color: white;
+	text-align: center;
 }
 
-.dificuldade:hover{
-	background-color: #f8f8f8;
-	-webkit-transform: scale(1.3);
-    -ms-transform: scale(1.3);
-    transform: scale(1.3);
+.titulo{
+	width: 100%;
+	height: 80px;
+	background-color: white;
+	float: left;
+	line-height: 20%;
+	font-family: Raleway;
+	font-size: 100%;
+	font-weight: semi bold;
+}
+
+.desc{
+	width: 100%;
+	height: 100px;
+	background-color: white;
+	float: left;
+	font-family: Raleway;
+	font-size: 400px;
 }
 
 .pergunta{
 	background-color: white;
 	width: 100%;
-	height: 600px;
-	line-height: 600px;
-	font-size: 35px;
-	color: black;
+	height: 90%;
 	
+	text-align: center;
+	font-size: 100%;
+	color: black;
+	font-family: Raleway;
+	word-wrap: break-word;
+	white-space: normal;
+	word-break: break-word;
 }
 
 #time{
 	background-color: white;
-	width: 100%;
-	height: 50px;
+	/*width: 50%;*/
+	height: 30px;
 	float: left;
 	line-height: 50px;
-	font-size: 40px;
+	font-size: 30px;
 	color: black;
 }
 
 .alternativa {
 	background-color: #4FFFBC;
 	width: 100%;
-	height: 100px;
+	height: 100%;
 	margin-top: 10px;
 	margin-bottom: 10px;
-	border: none;
-	border-color: black;
-	border-radius: 10px;
-	font-size: 25px;
-	font-family: Arial;
-	text-decoration-color: black;
+	line-height: 70px;
+	text-align: center;
+	color: black;
+	font-size: 100%;
+	cursor: pointer;
+	text-decoration:none; 
+}
+a:hover{
+	text-decoration:none;
+}
+.alternativa.fill-div {
+	text-align: center;
+	line-height: 50px;
+	display: block;
+	height: 100%;
+	width: 100%;
+	text-decoration: none;
 }
 
-a.fill-div {
+.alternativa:hover{
+	text-decoration: none;
+	background-color: rgb(11, 168, 103);
+}
+
+.flip-container {
+	perspective: 1000px;
+	text-align: center;
+	line-height: 400px;
+	display: block;
+	height: 100%;
+	width: 100%;
+	font-family: Raleway;
+	font-weight: bold;
+}
+
+.dificuldade.fill-div{
 	text-align: center;
 	line-height: 100px;
 	display: block;
@@ -58,12 +99,45 @@ a.fill-div {
 	text-decoration: none;
 }
 
-a:hover{
-	text-decoration: none;
-	background-color: #7FFFBC;
-	border-radius: 10px;
+.flip-container:hover .flipper, .flip-container.hover .flipper {
+	transform: rotateY(180deg);
 }
 
-a:visited{
-	text-decoration: none;
+.flip-container, .front, .back {
+	width: 100%;
+	height: 400px;
+}
+
+.flipper {
+	transition: 0.6s;
+	transform-style: preserve-3d;
+	position: relative;
+}
+
+.front{
+	backface-visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: #4FFFBC;
+	font-size: 75px;
+	color: white;
+}
+
+.back {
+	backface-visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: #F6F6F6;
+	color: #AAAAAA;
+}
+
+.front {
+	z-index: 2;
+	transform: rotateY(0deg);
+}
+
+.back {
+	transform: rotateY(180deg);
 }

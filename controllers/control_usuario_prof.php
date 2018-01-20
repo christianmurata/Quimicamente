@@ -3,20 +3,20 @@
     include_once('../models/servico.php');
     include_once('../models/entidades.php');
     include_once('../models/model_cadastro.php');
+
+    $fotopadrao = "http://200.145.153.172/quarkz/Quimicamente/imagens/default_profile_pic.png";
+
+    // Verifica se o CPF já está cadastrado
+    $sql_cpf = "SELECT professores_cpf FROM professores WHERE professores_cpf = ?";
+    $cpf = array($_POST["cpf"]);
+    try{
+        $testeCpf = Database::selecionarParam($sql_cpf, $cpf);
+    }catch(Exception $e){
+        die("Erro: ". $e->getMessage);
+    }        
     
-    if(strlen($_POST["nome"]) < 4)
-        die("Insira um nome válido!");
-
-    if(validaCPF($_POST["cpf"]) != true){
-         die("CPF Inválido");
-    }
-    if(strlen($_POST["email"]) < 7)
-        die("Insira um email válido!");
-                
-    if(strlen($_POST["senha"]) < 6)
-        die("Senha muito curta!");
-
-    $sql = "SELECT * FROM usuarios WHERE usuarios_email = ?";
+    // Verifica se o email já está cadastrado
+    $sql = "SELECT usuarios_email FROM usuarios WHERE usuarios_email = ?";
     $param = array($_POST["email"]);
         try{
             $testeEmail = Database::selecionarParam($sql, $param);
@@ -24,8 +24,24 @@
         catch(Exception $e){
             die("Erro: ". $e->getMessage);
         }
+
     if($testeEmail)
         die("Email já cadastrado!");
+
+    else if($testeCpf)
+        die("CPF já cadastrado");
+    
+    else if(strlen($_POST["nome"]) < 4)
+        die("Insira um nome válido!");
+
+    else if(validaCPF($_POST["cpf"]) != true)
+         die("CPF Inválido");
+         
+    else if(strlen($_POST["email"]) < 7)
+        die("Insira um email válido!");
+                
+    else if(strlen($_POST["senha"]) < 6)
+        die("Senha muito curta!");
         
     else{
         $array = array(
@@ -36,7 +52,7 @@
                 "usuarios_senha" => $_POST["senha"],
                 "usuarios_nivel" => 2,
                 "usuarios_datanasc" => $_POST["datanasc"],
-                "usuarios_foto" => NULL,
+                "usuarios_foto" => $fotopadrao,
                 "usuarios_del" => "N"
                 ),
                 array(

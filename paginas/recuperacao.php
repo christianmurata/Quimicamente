@@ -15,8 +15,9 @@
     <script src="../sweet_alert/sweetalert2.js"></script>
 	<script src="../js/mensagens.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
-	<script type="text/javascript" src="../js/ajax.js"></script>
 	<script type="text/javascript" src="../js/jquery.js"></script>
+	<script type="text/javascript" src="../js/java.js"></script>
+	<script type="text/javascript" src="../js/ajax.js"></script>
 	<style>
 		.navbar {
 			background-color: transparent;
@@ -27,19 +28,9 @@
 	<link rel="shortcut icon" href="../imagens/logo.ico">
 	<title> Recuperar senha | Quimicamente </title>
 </head>
-<body>
-    <header>
-        <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    </button>
-                    <a href="index.php"><img id="img" src="../imagens/logoQuim.png"/></a>
-                </div>
-                <div id="navbar" class="navbar-collapse collapse navbar-right">
-                </div><!--/.nav-collapse -->
-            </div>
-        </nav>
-    </header>
+<body style="overflow-x: hidden;">
+    <?php include 'templates/nav.php'; ?>
+    
     <main>
         <section id="banner">
             <div class="email">
@@ -49,17 +40,19 @@
                 </div>
                 <div class="text-center">
                     <div class="text">
-                        <input type="text" class="form-control animated fadeInRight" placeholder="Email cadastrado">
-                        <div class="row animated fadeInLeft">
-                            <div class="col-md-12">
-                                <input type="submit" class="special big total" Value="Enviar"/>
+                        <form method="POST" onsubmit="return gerarHash();">
+                            <input type="text" class="form-control animated fadeInRight" id="txtEmail" placeholder="Email cadastrado">
+                            <div class="row animated fadeInLeft">
+                                <div class="col-md-12">
+                                    <input type="submit" class="special big total" Value="Enviar"/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <p class="animated fadeInUp">*Será enviado um email para redefinição de senha</p>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p class="animated fadeInUp">*Será enviado um email para redefinição de senha</p>
+                                </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>

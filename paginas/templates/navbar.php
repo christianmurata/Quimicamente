@@ -1,56 +1,62 @@
-﻿<script src="../js/ajax.js"></script>
-<style>
-    .nav{
-        background: f6f6f6;
+﻿<?php
+	ini_set('display_errors',1);
+    ini_set('display_startup_erros',1);
+    error_reporting(E_ALL);
+    if(session_id() == '') {
+        include_once("../models/servico.php");
+        session_start();
     }
-</style>
-<nav class="navbar navbar-default navbar-fixed-top" style="background-color: #fff">        
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#"><img src="../imagens/logoQuim.png" width="200px"></a>
-        </div>
-		
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right" style="padding-right:10px;">
-                <li class="active trap"><a href="#">Curso</a></li>
-				<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Menu<span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="sala.php"><span class="glyphicon glyphicon-blackboard"></span>     Sala</a></li>
-						<li><a href="alteradados2.php"><span class="glyphicon glyphicon-user"></span>     Perfil</a></li>
-						<!--<li><a href="#"><span class="glyphicon glyphicon-edit"></span>     Curso</a></li> -->
-						<li><a href="modoCompeticao.php"><span class="glyphicon glyphicon-time"></span>     Competir</a></li>
-						<!--<li><a href="#"><span class="glyphicon glyphicon-cog"></span>     Mapa do site</a></li> -->
-						<li onclick="return logout();"><a href=""><span class="glyphicon glyphicon-log-out"></span>     Sair</a></li>
-					</ul>
-				</li>
-				<!-- <li class="trap"><a href="#">Sobre</a></li> -->
-				<li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span><span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="alteradados2.php"><span class="glyphicon glyphicon-wrench"></span>     Editar perfil</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li onclick="return logout();"><a href="#"><span class="glyphicon glyphicon-log-out"></span>     Sair</a></li>
+    register_shutdown_function('session_write_close');
+?>
+
+<link href="../sweet_alert/sweetalert2.css" rel="stylesheet" media="screen">
+<link href="../css/navbar.css" rel="stylesheet" media="screen">
+<div class="navbar-wrapper">
+    <div class="container-fluid">
+        <nav class="navbar navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../index.php"><img src="../imagens/logoQuim.png" width="200px"></a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav pull left">
+                        <li><a href="index.php" class="">Página Inicial</a></li>
+                        <li class=" dropdown">
+                            <a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Curso <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li class=" dropdown" id="dropdown-redirs">
+                                <li id="liSala"><a id="redirSala" href="sala.php" class="">Sala</a></li>
+                                <li><a href="rank.php" class="">Ranking</a></li>
+                                <li><a href="todosconteudos.php" class="">Conteúdos</a></li>
+                                <li id="liCompeticao"><a href="difficulty.php" class="">Modo Competição</a></li>
+                                <li id="liUsuarios"><a href="controle_usuario.php" class="">Usuários</a></li>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
-                </li>
-            </ul>
-        </div>
-</nav>
+                    <ul class="nav navbar-nav pull-right">
+                        <li class="active"><a href="alteradados.php"><img src="<?php echo $_SESSION['login']->getUsuarios_foto(); ?>" class="img-responsive img-navbar center-block" alt="Logo" width="30px" heigth="100%">Conta</a></li>
+                        <li class="active"><a href="#" onclick="logout()">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+
 <script>
-    $(document).ready(function() {
-        $('li.trap').click(function (e) {
-            e.preventDefault();
-            $('li.trap').removeClass('active');
-            $(this).addClass('active');
-        });
-        /* javascript para navegação assíncrona */
-        function carregar(pagina, t){
-            $("#container").load(pagina);
-            document.title = t;
-        }
-    });
+    jQuery(document).ready(function () {
+        redirecionamentos();
+    })
 </script>
+
+<script src="../js/navbar.js"></script>
+<script src="../js/ajax.js"></script>
+<script src="../sweet_alert/sweetalert2.js"></script>
+<script src="../js/mensagens.js"></script>

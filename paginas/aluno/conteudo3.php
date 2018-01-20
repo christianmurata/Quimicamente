@@ -85,7 +85,7 @@
 									
 									<div class="panel-body">
 										<div class="flex flex-4">
-											<div class="box persona">
+											<div class="box person">
 												<center>
 													<p>teste1</p>
 												</center>
@@ -95,7 +95,7 @@
 												</div>
 											</div>
 											
-											<div class="box persona">
+											<div class="box person">
 												<center>
 													<p>teste2</p>
 												</center>
@@ -105,7 +105,7 @@
 												</div>
 											</div>
 											
-											<div class="box persona">
+											<div class="box person">
 												<center>
 													<p>teste3</p>
 												</center>
@@ -117,7 +117,7 @@
 												</div>
 											</div>
 											
-											<div class="box persona">
+											<div class="box person">
 												<center>
 													<p>teste4</p>
 												</center>

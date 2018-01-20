@@ -1,7 +1,7 @@
 <?php
-	/*ini_set('display_errors',1);
+	ini_set('display_errors',1);
 	ini_set('display_startup_erros',1);
-	error_reporting(E_ALL);*/
+	error_reporting(E_ALL);
 	
 	include_once('../models/servico.php');
 	
@@ -25,7 +25,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">    
 	<meta name="description" content="Site do curso de química baseado em EaD">
 	<meta name="keywords" content="química, quimicamente, quarkz, cti, tcc, 3º ano">
-	<meta name="author" content="">
+	<meta name="author" content="GABRIELLA">
 	<!--CHAMADA DOS SCRIPTS-->
     <script src="../assets/bootstrap/js/jquery-3.2.1.js"></script>
     <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
@@ -60,7 +60,43 @@
 </head>
 <body>
     <div class="container-fluid">
-        <?php include "templates/navbar.php";?>		
+        <nav class="navbar navbar-default navbar-fixed-top" style="background-color: #ccc">        
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><img src="../imagens/logoQuim.png" width="200px"></a>
+            </div>
+			
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right" style="padding-right:10px;">
+                    <li class="active"><a href="#">Curso</a></li>
+					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Menu<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#"><span class="glyphicon glyphicon-blackboard"></span>     Sala</a></li>
+							<li><a href="#"><span class="glyphicon glyphicon-user"></span>     Perfil</a></li>
+							<li><a href="#"><span class="glyphicon glyphicon-edit"></span>     Curso</a></li>
+							<li><a href="#"><span class="glyphicon glyphicon-time"></span>     Competir</a></li>
+							<li><a href="#"><span class="glyphicon glyphicon-cog"></span>     Sobre</a></li>
+							<li onclick="logout();"><a href="#"><span class="glyphicon glyphicon-log-out"></span>     Sair</a></li>
+						</ul>
+					</li>
+					<li><a href="#">Sobre</a></li>
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span><span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#"><span class="glyphicon glyphicon-wrench"></span>     Editar perfil</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li onclick="logout();"><a href="#"><span class="glyphicon glyphicon-log-out"></span>     Sair</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+			<!--FINAL DA BARRA DE NAVEGAÇÃO SUPERIOR-->						
+        </nav>		
 	</div>		  
 		  
 	<!--CONTEÚDO DA PÁGINA-->
@@ -101,7 +137,7 @@
 								<br>
 								<h3>EMAIL</h3><input type="email" class="f1-first-name form-control" id="email" name="email" size="30" value="<?php echo $email?>" readonly><br>
 								<h3>NOME</h3><input type="text" class="f1-first-name form-control" name="nome" id="nome" value="<?php echo $nome?>" size="30" onkeypress="return teste(event);" data-toggle="tooltip" data-placement="bottom"><br>
-								<h3>DATA DE NASCIMENTO</h3><input class="f1-last-name form-control" type="date" id="data" name="data" onkeypress="return numeros();" maxlength="10" value="<? echo $data?>" size="12" data-toggle="tooltip" data-placement="bottom"><br>
+								<h3>DATA DE NASCIMENTO</h3><input class="f1-last-name form-control" type="date" id="data" name="data" onkeypress="mascaraData(this,event);return numeros();" maxlength="10" value="<? echo $data?>" size="12" data-toggle="tooltip" data-placement="bottom"><br>
 								<input type="button" value="ALTERAR DADOS" onclick="alteraDados(1);">  <input type="button" value="VOLTAR"><br><br>
 					</form>
 								<input type="button" value="Alterar Senha" class="special" data-toggle="modal" data-target="#em"/>		

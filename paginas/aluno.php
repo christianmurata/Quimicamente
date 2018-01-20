@@ -1,34 +1,38 @@
-<?php
-	include "../controllers/control_aluno.php";
-	session_start();
-    if(!isset($_SESSION['login'])){
-			header('location: index.php');
-	}
-		
-		$user = $_SESSION['login'];
-		$nivel = $user->getUsuarios_nivel();
+<?php 
+    include_once("../models/homemd.php");
+    include("checkLogin.php");
+    session_start();
 
-		if($nivel < 2){
-			header('location: index.php');
-		}
+    $usuario = $_SESSION['login'];
+    $nivel = $usuario->getUsuarios_nivel();
+    $aluno = $_SESSION['login']->getAlunos();
+    if($nivel == 3){
+        $ultimoconteudo=$aluno->getConteudos_ordem();
+        $result=count(Homemd::buscaConteudos());
+        $nomeusuario=$usuario->getUsuarios_nome();
+        $alunoid=$aluno->getAlunos_id();
+        $foto=$usuario->getUsuarios_foto();
+        $nf=Homemd::notaFacil($alunoid);
+        $notafacil=$nf[0];
+        $nm=Homemd::notaMedia($alunoid);
+        $notamedia=$nm[0];
+        $nd=Homemd::notaDificil($alunoid);
+        $notadificil=$nd[0];
 
-    include "templates/header.php";
-?>
-<!--adicionando o bootstrap-->
-		<link href="aluno/bst/css/bootstrap.min.css" rel="stylesheet" media="screen">
-		<!--css personalizado-->
-		<link href="aluno/bst/css/estilo.css" rel="stylesheet" media="screen">
-		<link rel="stylesheet" href="aluno/bst/css/style.css"/>
-		<link rel="stylesheet" href="aluno/bst/css/css_menu.css"/>
-		<link rel="stylesheet" href="aluno/bst/css/css_aluno.css"/>
-		<link rel="stylesheet" href="aluno/bst/css/elements.css"/>
-		<link rel="stylesheet" href="aluno/bst/css/metisMenu.min.css"/>
-<body>
-<?php
-	include "templates/navbar.php";
-	include "aluno/aluno.php";
-?>
+        $numCont = $ultimoconteudo;
 
-<?php include "templates/footer.php"; ?>
-</body>
-	<?php //include "templates/footer.php"; ?>
+        if(count(Homemd::buscaAlunoTurma()) > 0)    $temTurma = true;
+        else $temTurma = false;
+
+        if($ultimoconteudo  == 1)       $numCont--;
+        if($ultimoconteudo == $result)  $numCont++;
+
+        $porcentagem=number_format(($numCont * 100)/$result);
+
+        include ("templates/header.php");
+        include ("templates/navbar.php");
+        include ("home/homeview.php");
+        include ("templates/footer.php");
+    } 
+
+ ?>

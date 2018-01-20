@@ -24,7 +24,7 @@ $variavel = $variavel + 1;
 	<link href="../../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <!--css personalizado-->
     <link href="../../assets/bootstrap/css/estilo.css" rel="stylesheet" media="screen">
-    <link rel="stylesheet" type="text/css" href="../../assets/sweetalert/dist/sweetalert.css">
+    <<link rel="stylesheet" type="text/css" href="../../assets/sweetalert/dist/sweetalert.css">
 	
     <!-- HTML5 shim e Respond.js para suporte no IE8 de elementos HTML5 e media queries -->
     <!-- [if lt IE 9]>
@@ -215,7 +215,7 @@ $variavel = $variavel + 1;
 		$('#fazerprova').click(function(){
 			$('#perguntas').show();
 		});               
-	   
+	   alert($("#idconteudo").val());
         
 		var contador = 5;
 		//pergunta1
@@ -276,35 +276,24 @@ $variavel = $variavel + 1;
 					},
 					'success': function(retorno){
 						if(retorno == "1"){
-							swal({
-                              title: 'Ahhh miseravi!',
-                              text: "Ir para o próximo conteúdo?",
-                              type: 'warning',
-                              showCancelButton: false,
-                              confirmButtonColor: '#3085d6',
-                              cancelButtonColor: '#d33',
-                              confirmButtonText: 'Sim'
-                            },function(){                  
-                               window.location.reload();                  
-                            });
+							swal(
+							  'Ahhh miseravi!',
+							  'você passou!',
+							  'success'							
+							);
+							window.location.reload();
 						}
 					}
 				});
 			}else{
-				swal({
-                  title: 'Que pena, você foi reprovado.',
-                  text: "você terá que responder o questionário novamente, tente ler o conteúdo primeiro",
-                  type: 'warning',
-                  showCancelButton: false,
-                  confirmButtonColor: '#3085d6',
-                  cancelButtonColor: '#d33',
-                  confirmButtonText: 'Sim'
-                },function(){                  
-                   window.location.reload();                  
-                });
+				swal(
+					'Que pena, você foi reprovado.',
+					'você terá que responder o questionário novamente, tente ler o conteúdo primeiro',
+					'error'
+				);
+				window.location.reload();
 			}
 		});
 	</script>
 </body>
 </html>
-

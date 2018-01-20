@@ -1,10 +1,4 @@
 <!DOCTYPE html>
-<?php	
-	//ini_set('display_errors',1);
-	//ini_set('display_startup_erros',1);
-	//error_reporting(E_ALL); 
-
-	include("controllers/control_aluno.php")?>
 <html lang="pt-br">
 	<head>
 		<meta charset="utf-8">
@@ -35,7 +29,45 @@
 		<![endif]-->    
 	</head>
 	<body>
-			  
+		<div class="container-fluid">
+			<nav class="navbar navbar-default navbar-fixed-top" style="background-color: #ccc">        
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#"><img src="../imagens/logoQuim.png" width="200px"></a>
+				</div>
+				
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav navbar-right" style="padding-right:10px;">
+						<li class="active"><a href="#">Curso</a></li>
+						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Menu<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#"><span class="glyphicon glyphicon-blackboard"></span>     Sala</a></li>
+								<li><a href="#"><span class="glyphicon glyphicon-user"></span>     Perfil</a></li>
+								<li><a href="#"><span class="glyphicon glyphicon-edit"></span>     Curso</a></li>
+								<li><a href="#"><span class="glyphicon glyphicon-time"></span>     Competir</a></li>
+								<li><a href="#"><span class="glyphicon glyphicon-cog"></span>     Sobre</a></li>
+								<li><a href="#"><span class="glyphicon glyphicon-log-out"></span>     Sair</a></li>
+							</ul>
+						</li>
+						<li><a href="#">Sobre</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span><span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#"><span class="glyphicon glyphicon-wrench"></span>     Editar perfil</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="#"><span class="glyphicon glyphicon-log-out"></span>     Sair</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<!--FINAL DA BARRA DE NAVEGAÇÃO SUPERIOR-->						
+			</nav>		
+		</div>		  
 			  
 		<!--CONTEÚDO DA PÁGINA-->
 		
@@ -51,28 +83,55 @@
 									Conteúdo do curso
 								</div>
 									
-							<div class="panel-body">
-									
 									<div class="panel-body">
-								<div class="flex flex-4">
-								<?php if($conteudos != false){
-										foreach($conteudos as $conteudo){
-								?>		<div class="box person">
-											<div class="image round">
-												<img src="../imagens/hist.jpg"/>
+										<div class="flex flex-4">
+											<div class="box person">
 												<center>
-													<p><a href="paginaCurso/paginacurso.php?conteudos_id=<?php echo $conteudo->getConteudos_id(); ?>" class="link"><?php echo $conteudo->getConteudos_nome() ?></a></p>
-												</center>	
-											</div>	
+													<p>teste1</p>
+												</center>
+												<div class="panel-footer">
+												<a href="http://200.145.153.172/quarkz/Quimicamente/paginas/aluno/aluno.html">
+													<input type="button" value="Ver aula" class="special"/> </a>
+												</div>
+											</div>
+											
+											<div class="box person">
+												<center>
+													<p>teste2</p>
+												</center>
+												<div class="panel-footer">
+												<a href="http://200.145.153.172/quarkz/Quimicamente/paginas/aluno/aluno.html">
+													<input type="button" value="Ver aula" class="special"/> </a>
+												</div>
+											</div>
+											
+											<div class="box person">
+												<center>
+													<p>teste3</p>
+												</center>
+												<div class="panel-footer">
+												<center>
+													<a href="http://200.145.153.172/quarkz/Quimicamente/paginas/aluno/aluno.html">
+													<input type="button" value="Ver aula" class="special"/> </a>
+												</center>
+												</div>
+											</div>
+											
+											<div class="box person">
+												<center>
+													<p>teste4</p>
+												</center>
+												<div class="panel-footer">
+													<a href="http://200.145.153.172/quarkz/Quimicamente/paginas/aluno/aluno.html">
+													<input type="button" value="Ver mais" class="special"/></a>
+												</div>
+											</div>									
 										</div>
-								<?php 	}
-									  }else{echo "Não há conteudos conteúdos disponíveis :(";} ?>
-								</div>
-							</div>
-								<div class="panel-footer">
-									<a href="http://200.145.153.172/quarkz/Quimicamente/paginas/aluno.php">
-									<input type="button" value="Voltar ao perfil" class="special"/> </a>
-								</div>
+									</div> <!-- /.col-lg-12 -->
+									<div class="panel-footer">
+										<a href="http://200.145.153.172/quarkz/Quimicamente/paginas/aluno.php">
+										<input type="button" value="Voltar ao perfil" class="special"/> </a>
+									</div>
 							</div> <!-- CURSO - CONTEUDO -->
 						</div>
 					</div> <!-- /col-md-9 --> <!--ROW-->
@@ -81,6 +140,31 @@
 		</div>	
 	</section>
 		<!--/Corpo da Página-->
+		
+		
+		<footer id="footer" class="hidden-xs">
+			<ul class="icons">
+				<li><a href="https://www.facebook.com/cti.unesp.bauru/?fref=ts" target="_blank">Facebook</a><br></li>
+				<li><a href="http://quarkztech.blogspot.com.br" target="_blank">Blog dos Desenvolvedores</a></li>
+				<li><a href="http://www.cti.feb.unesp.br/" target="_blank">Site do CTI</a></li>
+				<br><br>
+				<li><a href="https://www.facebook.com/quarkzQuimicamente" target="_blank"><img src="../imagens//ico_face.png" width="50" /></a></li>
+				<li><img src="../imagens//ico_twitter.png" width="50" /></li>
+				<li><img src="../imagens//ico_blog.png" width="50"/></li>
+				<li><img src="../imagens//ico_link.png" width="50" /></li>
+			</ul>
+			<div class="container">
+				<ul class="copyright">
+					<li>&copy; 2017 Quimicamente </li>
+					<li>Desenvolvido por: Quarkz Technology </li> 
+				</ul>
+			</div>
+		</footer>
+		<footer id="footer" class="visible-xs">
+			<ul class="copyright">
+				<li>Desenvolvido por: Quarkz Technology </li> 
+			</ul>
+		</footer>
 		
 		<!--CHAMADA DOS SCRIPTS-->
 		<script src="../bootstrap/js/jquery-3.2.1.js"></script>

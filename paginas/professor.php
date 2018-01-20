@@ -1,6 +1,22 @@
-<!DOCTYPE html>
+<?php 
+    include_once("../models/servico.php");
+    include_once("../models/entidades.php");
+    include_once("../models/model_professor.php");
 
-<?php include "../controllers/control_professor.php"; ?>
+    session_start();
+
+    // verifica se o usuario não é professor
+    if($_SESSION["login"]->getUsuarios_nivel() > 2){
+        header('location: index.php');
+    }
+
+    $usuario = $_SESSION["login"];
+    $param = $usuario->getProfessores()->getProfessores_id();
+    $turmas = Model_professor::turmas($param);
+    $tot_paginas = Model_professor::paginacao($param);
+    $conteudos_comun = Model_professor::conteudos_comunidade($param);
+?>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
 	<meta charset="utf-8"/>
@@ -12,13 +28,13 @@
     <link rel="stylesheet" href="../css/css_professor.css"/>
 	<link rel="stylesheet" href="../css/elements.css"/>
 	<link rel="stylesheet" href="../css/metisMenu.min.css"/>
-    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../assets/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../sweet_alert/sweetalert2.css">
     <script src="../sweet_alert/sweetalert2.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
-	<script type="text/javascript" src="http://code.jquery.com/jquery-2.0.0.min.js" /></script>
+    <script src="../js/jquery.js"></script>
+	<script src="../js/jquery.paginate.min.js"></script>
 	<script src="../js/java.js"></script>
 	<script src="../js/ajax.js"></script>
 	<script src="../js/mensagens.js"></script>
@@ -52,241 +68,18 @@
             float: right;
         }
     </style>
-	
-	<script src="js/jquery-1.8.3.min.js"></script>
 	<link rel="shortcut icon" href="../imagens/logo.ico">
 	<title> Tela Inicial | Quimicamente </title>
 </head>
-<body>      
-            <nav class="navbar navbar-default navbar-fixed-top" style="background-color: #ccc">        
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#"><img  src="../imagens/logoQuim.png" width="200px"></a>
-            </div>
-			
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right" style="padding-right:10px;">
-                    <li class="active"><a href="#">Curso</a></li>
-					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Menu<span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="#"><span class="glyphicon glyphicon-blackboard"></span>     Sala</a></li>
-							<li><a href="#"><span class="glyphicon glyphicon-user"></span>     Perfil</a></li>
-							<li><a href="#"><span class="glyphicon glyphicon-edit"></span>     Curso</a></li>
-							<li><a href="#"><span class="glyphicon glyphicon-time"></span>     Competir</a></li>
-							<li><a href="#"><span class="glyphicon glyphicon-cog"></span>     Sobre</a></li>
-							<li><a href="#" onclick = "logout();"><span class="glyphicon glyphicon-log-out"></span>     Sair</a></li>
-						</ul>
-					</li>
-					<li><a href="#">Sobre</a></li>
-					<li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span><span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#"><span class="glyphicon glyphicon-wrench"></span>     Editar perfil</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li onclick = "logout();"><a href="#"><span class="glyphicon glyphicon-log-out"></span>     Sair</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-			<!--FINAL DA BARRA DE NAVEGAÇÃO SUPERIOR-->
-		</nav>
-    <!--Corpo da Página-->
-    <section id="inicio">
-            <div id="wrapper">
-			<!--Corpo da Página-->
-				<div class="row">
-					<div class="col-lg-8">
-						<div class="panel panel-quimicamente">
-							<div class="panel-heading">
-								Turmas
-							</div>
-							<div class="panel-body">
-								<h1> lista de Turmas </h1>
-							<table class="table">
-								<?php if($turmas != false) {?>
-									<!-- Tabela -->
-									<thead>
-										<tr>
-											<!--<th>Número</th>-->
-											<th>Turma</th>
-											<th>Detalhes</th>
-											<th> &nbsp; </th>
-										</tr>
-									</thead>
-									<tbody>
-										<?php foreach($turmas as $turma){ $id=$turma->getTurmas_id();?>
-											<tr>
-												<td>
-													<p><?php echo $turma->getTurmas_nome(); ?></p>
-												</td>
-												<td>
-													<a href="gerenciar_turma.php?id=<?php echo $id; ?>" class="b">Exibir</a></div>
-												</td>
-												<td>
-													<a href="#" class="b" data-toggle="modal" data-target="#<?php echo $turma->getTurmas_id(); ?>">Excluir</a>
-													<!-- Modal -->
-													<div class="modal fade" id="<?php echo $turma->getTurmas_id(); ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-														<div class="modal-dialog">
-															<div class="modal-content">
-																<div class="modal-header">
-																	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-																	<h4 class="modal-title" id="myModalLabel">Exclusão</h4>
-																</div>
-																<div class="modal-body">
-																	<center>
-																		<p> Deseja realmente excluir essa turma? </p>
-																		<button type="button" class="btn btn-success" onclick="excluir_turmas(<?php echo $id; ?>)">Confirmar</button>
-																		<button type="button" class="btn btn-danger" class="close" data-dismiss="modal">Cancelar</button>
-																	</center>
-																</div>
-																<!--<div class="modal-footer">
-																	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-																	<button type="button" class="btn btn-primary">Save changes</button>
-																</div>-->
-															</div>
-															<!-- /.modal-content -->
-														</div>
-														<!-- /.modal-dialog -->
-													</div><!-- /.modal -->
-												</td>
-											</tr>
-									<?php } }else{ echo "Esse professor não possui nenhuma turma!"; } ?>
-								</tbody>
-							</table>
-								<?php
-									echo"Páginas:";
-										for($i = 1; $i < $tot_paginas + 1; $i++) {
-										echo "<a href='professor.php?pagina=$i'> ".$i."</a> ";
-									}
-								?>
-							</div>
-							<div class="panel-footer">
-								<!--<a href="inserir_turma.php"><input type="button" value="Criar Turmas" class="special"/></a>-->
-									<input type="submit" value="Nova Turma" class="special animated fadeInRight" data-toggle="modal" data-target="#inserir"/>
-										<div class="modal fade" id="inserir" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-												<div class="modal-dialog">
-													<div class="modal-content">
-														<div class="modal-header">
-															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-															<h4 class="modal-title" id="myModalLabel">Nova Turma</h4>
-														</div>
-														<div class="modal-body">
-															<p>Nome da turma</p><input type="text" class="form-control" id="turmas_nome" name="turmas_nome" placeholder="Insira o nome da Turma">
-														</div>
-														<div class="modal-footer">
-																<button type="button" class="btn btn-success" onclick="inserir_turmas()">Salvar</button>
-																<button type="button" class="btn btn-danger" class="close" data-dismiss="modal">Cancelar</button>
-														</div>
-													</div><!-- /.modal-content -->
-												</div><!-- /.modal-dialog -->
-										</div> <!-- /.modal -->
-							</div>
-						</div><!--panel panel-quimicamente-->
-					</div> <!-- /.col-lg-8 -->
-					<div class="col-lg-4">
-						<div class="panel panel-quimicamente">
-							<div class="panel-heading">
-								Ranking
-							</div>
-							<div class="panel-body">
-								<p> Ranking indisponível no momento </p>
-								<br><br><br><br><br>
-							</div>
-							<div class="panel-footer">
-								<input type="button" value="Ranking completo" class="special" onclick="window.location='rank.php'"/>
-							</div>
-						</div>
-					</div><!-- /.col-lg-4 -->
-				</div>
-				<div class="row"> 
-					<div class="col-lg-12">
-						<div class="panel panel-quimicamente">
-							<div class="panel-heading">
-								Conteúdos personalizados
-							</div>
-							<div class="panel-body">
-								<div class="flex flex-4">
-									<?php if($conteudos_comun != false) { foreach($conteudos_comun as $conteudo_comun){ ?>
-											<div class="box person">
-												<div class="image round">
-													<img src="../imagens/hist.jpg"/>
-												</div>
-												<center>
-													<p><?php echo $conteudo_comun->getConteudos_comunidade_nome(); ?></p>
-												</center>
-											</div>
-										<?php } } else{ echo "Não há nenhum conteúdo personalizado cadastrado!"; } ?>
-								</div>
-							</div>
-							<div class="panel-footer">
-								<input type="button" value="Adicionar conteúdo" class="special" onclick="window.location='adicionar_conteudos.php'"/>
-							</div>
-						</div>
-					</div> <!-- /.col-lg-12 -->
-				</div><!--row-->
-				<div class="row"> 
-					<div class="col-lg-12">
-						<div class="panel panel-quimicamente">
-							<div class="panel-heading">
-								Conteúdo do curso
-							</div>
-							<div class="panel-body">
-								<div class="flex flex-4">
-									<?php if($conteudos != false) { foreach($conteudos as $conteudo){ ?>
-											<div class="box person">
-												<div class="image round">
-													<img src="../imagens/hist.jpg"/>
-												</div>
-												<center>
-													<p><?php echo $conteudo->getConteudos_nome(); ?></p>
-												</center>
-											</div>
-										<?php } } else{ echo "Não há nenhum conteúdo cadastrado!"; } ?>
-								</div>
-							</div>
-							<div class="panel-footer">
-								<input type="button" value="Todos os conteúdos" class="special"/>
-							</div>
-						</div>
-					</div><!-- /.col-lg-12 -->
-				</div><!--row-->
-				<script src="../assets/js/jquery-1.11.1.min.js"></script>
-                <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
-                <script src="../assets/js/jquery.backstretch.min.js"></script>
-                <script src="../assets/js/retina-1.1.0.min.js"></script>
-                <script src="../assets/js/scripts.js"></script>
-                <script src="../js/metisMenu.min.js"></script>
-                <script src="../js/elements.js"></script>
-		</div><!--wrapper-->
-	</section><!--/Corpo da Página-->
-	<footer id="footer" class="hidden-xs">
-		<ul class="icons">
-			<li><a href="https://www.facebook.com/cti.unesp.bauru/?fref=ts" target="_blank">Facebook</a><br></li>
-			<li><a href="http://quarkztech.blogspot.com.br" target="_blank">Blog dos Desenvolvedores</a></li>
-			<li><a href="http://www.cti.feb.unesp.br/" target="_blank">Site do CTI</a></li>
-			<br><br>
-			<li><a href="https://www.facebook.com/quarkzQuimicamente" target="_blank"><img src="../imagens/ico_face.png" width="50" /></a></li>
-			<li><img src="../imagens/ico_twitter.png" width="50" /></li>
-			<li><img src="../imagens/ico_blog.png" width="50"/></li>
-			<li><img src="../imagens/ico_link.png" width="50" /></li>
-		</ul>
-		<div class="container">
-			<ul class="copyright">
-				<li>&copy; 2017 Quimicamente </li>
-				<li>Desenvolvido por: Quarkz Technology </li> 
-			</ul>
-		</div>
-	</footer>
-	<footer id="footer" class="visible-xs">
-		<ul class="copyright">
-			<li>Desenvolvido por: Quarkz Technology </li> 
-		</ul>
-	</footer>
-	
+<body style="overflow-x: hidden;">
+    <header>
+	    <?php include 'templates/navbar.php'; ?>
+    </header>
+    <main>
+        <?php include 'professor/professor.php'; ?>
+    </main>
+    <footer>
+        <?php include 'templates/footer.php'; ?>
+    </footer>
 </body>
 </html>

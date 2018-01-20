@@ -57,15 +57,20 @@ input[type="text"],
 			box-shadow: 0 0 0 1px #4FFFBC;
 		}
 
+		#footer{
+			background-color: #f6f6f6 !important;
+			color:#aaa !important;
+		}
+		
 		.f1-icon{
-			color: #f6f6f6;
-			background-color: #aaa;
+			color: #f6f6f6 !important;
+			background-color: #aaa !important;
 		}
 		
 		.f1-icon:active, .f1-icon:hover {
-			background-color: #4fffbc;
+			background-color: #4fffbc !important;
 		}
 		
 		#footer a:active, #footer a:hover {
-			color: #4fffbc;
+			color: #4fffbc !important;
 		}

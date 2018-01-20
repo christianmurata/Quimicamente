@@ -15,7 +15,7 @@
     <title>Conteudos | Quimicamente</title>
 	<link rel="shortcut icon" href="../imagens/logo.ico">
 </head>
-<body>
+<body style="overflow-x: hidden;">
     <header>
         <div class="container-fluid">
             <div class="row">
@@ -26,14 +26,12 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4">
-                    <div class="categoria"><p>Quimica Geral</p></div>
-                </div>
-                <div class="col-md-4">
-                    <div class="categoria"><p>Fisíco Quimica</p></div>
-                </div>
-                <div class="col-md-4">
-                    <div class="categoria"><p>Quimica Geral</p></div>
+                <div class="col-md-12">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped active" role="progressbar"aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+                            40% Concluído
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -42,76 +40,78 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="flex flex-4">
-                        <div class="box person">
-                            <div class="flip-container" ontouchstart="this.classList.toggle('hover');">  	
-                                <div class="flipper">
-                                    <div class="front" style="background-image: url(../imagens/shadow.png), url(../imagens/hist.jpg); background-position: center top; background-size: cover;">
-                                        <div class="conteudo conteudoDesc conteudoActive text-center">
-                                            <i class="fa fa-flask" aria-hidden="true"></i>
-                                            <p>Separação de misturas</p>
-                                        </div>
-                                    </div>  		
-                                    <div class="back" style="background-image:url(../imagens/shadow.png), url(../imagens/hist.jpg); background-position: center top; background-size: cover;">
-                                        <div class="conteudo conteudoButton text-center">
-                                            <input type="button" value="Ver conteudo" class="special total"/>
-                                        </div>
-                                    </div>  	
-                                </div>  
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="box person col-md-3">
+                                <div class="flip-container" ontouchstart="this.classList.toggle('hover');">  	
+                                    <div class="flipper">
+                                        <div class="front" style="background-image: url(../imagens/shadow.png), url(../imagens/hist.jpg); background-position: center top; background-size: cover;">
+                                            <div class="conteudo conteudoDesc conteudoBlock text-center">
+                                                <i class="fa fa-flask" aria-hidden="true"></i>
+                                                <p>Separação de misturas</p>
+                                            </div>
+                                        </div>  		
+                                        <div class="back" style="background-image:url(../imagens/shadow.png), url(../imagens/hist.jpg); background-position: center top; background-size: cover;">
+                                            <div class="conteudo conteudoButton conteudoActive text-center">
+                                                <input type="button" value="Bloqueado" class="total" disabled/>
+                                            </div>
+                                        </div>  	
+                                    </div>  
+                                </div>
                             </div>
-                        </div>
-                        <div class="box person">
-                            <div class="flip-container" ontouchstart="this.classList.toggle('hover');">  	
-                                <div class="flipper">
-                                    <div class="front" style="background-image: url(../imagens/shadow.png), url(../imagens/hist.jpg); background-position: center top; background-size: cover;">
-                                        <div class="conteudo conteudoDesc conteudoBlock text-center">
-                                            <i class="fa fa-flask" aria-hidden="true"></i>
-                                            <p>Separação de misturas</p>
-                                        </div>
-                                    </div>  		
-                                    <div class="back" style="background-image:url(../imagens/shadow.png), url(../imagens/hist.jpg); background-position: center top; background-size: cover;">
-                                        <div class="conteudo conteudoButton text-center">
-                                            <input type="button" value="Bloqueado" class="total" disabled/>
-                                        </div>
-                                    </div>  	
-                                </div>  
+                            <div class="box person col-md-3">
+                                <div class="flip-container" ontouchstart="this.classList.toggle('hover');">  	
+                                    <div class="flipper">
+                                        <div class="front" style="background-image: url(../imagens/shadow.png), url(../imagens/hist.jpg); background-position: center top; background-size: cover;">
+                                            <div class="conteudo conteudoDesc conteudoBlock text-center">
+                                                <i class="fa fa-flask" aria-hidden="true"></i>
+                                                <p>Separação de misturas</p>
+                                            </div>
+                                        </div>  		
+                                        <div class="back" style="background-image:url(../imagens/shadow.png), url(../imagens/hist.jpg); background-position: center top; background-size: cover;">
+                                            <div class="conteudo conteudoButton text-center">
+                                                <input type="button" value="Bloqueado" class="total" disabled/>
+                                            </div>
+                                        </div>  	
+                                    </div>  
+                                </div>
                             </div>
-                        </div>
-                        <div class="box person">
-                            <div class="flip-container" ontouchstart="this.classList.toggle('hover');">  	
-                                <div class="flipper">
-                                    <div class="front" style="background-image: url(../imagens/shadow.png), url(../imagens/hist.jpg); background-position: center top; background-size: cover;">
-                                        <div class="conteudo conteudoDesc conteudoBlock text-center">
-                                            <i class="fa fa-flask" aria-hidden="true"></i>
-                                            <p>Separação de misturas</p>
-                                        </div>
-                                    </div>  		
-                                    <div class="back" style="background-image:url(../imagens/shadow.png), url(../imagens/hist.jpg); background-position: center top; background-size: cover;">
-                                        <div class="conteudo conteudoButton conteudoActive text-center">
-                                            <input type="button" value="Bloqueado" class="total" disabled/>
-                                        </div>
-                                    </div>  	
-                                </div>  
+                            <div class="box person col-md-3">
+                                <div class="flip-container" ontouchstart="this.classList.toggle('hover');">  	
+                                    <div class="flipper">
+                                        <div class="front" style="background-image: url(../imagens/shadow.png), url(../imagens/hist.jpg); background-position: center top; background-size: cover;">
+                                            <div class="conteudo conteudoDesc conteudoBlock text-center">
+                                                <i class="fa fa-flask" aria-hidden="true"></i>
+                                                <p>Separação de misturas</p>
+                                            </div>
+                                        </div>  		
+                                        <div class="back" style="background-image:url(../imagens/shadow.png), url(../imagens/hist.jpg); background-position: center top; background-size: cover;">
+                                            <div class="conteudo conteudoButton text-center">
+                                                <input type="button" value="Bloqueado" class="total" disabled/>
+                                            </div>
+                                        </div>  	
+                                    </div>  
+                                </div>
                             </div>
-                        </div>
-                        <div class="box person">
-                            <div class="flip-container" ontouchstart="this.classList.toggle('hover');">  	
-                                <div class="flipper">
-                                    <div class="front" style="background-image: url(../imagens/shadow.png), url(../imagens/hist.jpg); background-position: center top; background-size: cover;">
-                                        <div class="conteudo conteudoDesc conteudoBlock text-center">
-                                            <i class="fa fa-flask" aria-hidden="true"></i>
-                                            <p>Separação de misturas</p>
-                                        </div>
-                                    </div>  		
-                                    <div class="back" style="background-image:url(../imagens/shadow.png), url(../imagens/hist.jpg); background-position: center top; background-size: cover;">
-                                        <div class="conteudo conteudoButton text-center">
-                                            <input type="button" value="Bloqueado" class="total" disabled/>
-                                        </div>
-                                    </div>  	
-                                </div>  
+                            <div class="box person col-md-3">
+                                <div class="flip-container" ontouchstart="this.classList.toggle('hover');">  	
+                                    <div class="flipper">
+                                        <div class="front" style="background-image: url(../imagens/shadow.png), url(../imagens/hist.jpg); background-position: center top; background-size: cover;">
+                                            <div class="conteudo conteudoDesc conteudoBlock text-center">
+                                                <i class="fa fa-flask" aria-hidden="true"></i>
+                                                <p>Separação de misturas</p>
+                                            </div>
+                                        </div>  		
+                                        <div class="back" style="background-image:url(../imagens/shadow.png), url(../imagens/hist.jpg); background-position: center top; background-size: cover;">
+                                            <div class="conteudo conteudoButton text-center">
+                                                <input type="button" value="Bloqueado" class="total" disabled/>
+                                            </div>
+                                        </div>  	
+                                    </div>  
+                                </div>
                             </div>
-                        </div>
-                    </div><!-- flex 4 -->
+                        </div>    
+                    </div>
                 </div><!-- col-md-12 -->
             </div><!-- row -->
         </div><!--container -->

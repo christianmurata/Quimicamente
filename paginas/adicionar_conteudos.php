@@ -15,11 +15,14 @@
 
     include "templates/header.php";
 ?>
+<!--    <link rel="stylesheet" href="../assets/font-awesome/css/font-awesome.css">-->
+<!--    <link rel="stylesheet" href="../css/style.css"/>-->
+<!--    <link rel="stylesheet" href="../css/css_form.css"/>-->
 
 <body style="overflow-x: hidden">
 <?php
 	include "templates/navbar.php";
-	include "adicionar_conteudo/adicionar_conteudo.html";
+	include "adicionar_conteudo/adicionar_conteudo.html";	
 ?>
 </body>
 	<?php include "templates/footer.php";

@@ -6,6 +6,7 @@
 	}
 }*/
 
+var step = 1;
 
 function bar_progress(progress_line_object, direction) {
 	var number_of_steps = progress_line_object.data('number-of-steps');
@@ -36,11 +37,25 @@ jQuery(document).ready(function() {
     	var current_active_step = $(this).parents('.f1').find('.f1-step.active');
     	var progress_line = $(this).parents('.f1').find('.f1-progress-line');
 
-		if( $("#label_nome").html() != ""  || $("#label_sobrenome").html() != "" || $("#label_dtnas").html() != "" || $("#label_cpf").html() != "" || $("#label_email").html() != "" || $("#label_senha").html() != "" || $("#label_conf_senha").html() != "")
-		{	
-			next_step = false;
-			msg('warning', 'Preencha todos os campos corretamente!')
-		}
+    	if(step == 1) {
+
+            if ($("#nome").html() != "" || $("#sobrenome").html() != "" || !confirma_data($("#dtnas"),$("#dtnas").val())) {
+                next_step = false;
+                msg('warning', 'Preencha todos os campos corretamente!');
+                return;
+            }
+
+            if($("#cad-type").val() == 2 && !confirma_cpf($("#cpf").val())){
+                next_step = false;
+                msg('warning', 'Preencha todos os campos corretamente!');
+			}
+        }
+
+		if(step == 2)
+			if(!confirma_email(document.getElementById("email")) || !confirma_senha()){
+                next_step = false;
+                msg('warning', 'Preencha todos os campos corretamente!');
+			}
     	// fields validation
     	parent_fieldset.find('input[type="text"], input[type="password"], input[type="date"], textarea').each(function() {
     		if( $(this).val() == "" ) {
@@ -53,8 +68,9 @@ jQuery(document).ready(function() {
     		}
     	});
     	// fields validation
-    	
+
     	if( next_step ) {
+            step++;
     		parent_fieldset.fadeOut(400, function() {
     			// change icons
     			current_active_step.removeClass('active').addClass('activated').next().addClass('active');
@@ -71,6 +87,7 @@ jQuery(document).ready(function() {
     
     // previous step
     $('.f1 .btn-previous').on('click', function() {
+    	step--;
     	// navigation steps / progress steps
     	var current_active_step = $(this).parents('.f1').find('.f1-step.active');
     	var progress_line = $(this).parents('.f1').find('.f1-progress-line');

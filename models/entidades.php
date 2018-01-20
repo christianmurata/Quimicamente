@@ -8,8 +8,8 @@
         private $usuarios_datanasc;
         private $usuarios_del;
         private $usuarios_foto;
-        private $alunos;
-        private $professores;
+        private $Alunos;
+        private $Professores;
         
         public function setUsuarios_id($value){
             $this->usuarios_id = $value;
@@ -140,8 +140,7 @@
     class Alunos{
         private $alunos_id;
         private $usuarios_id;
-        private $turmas_id;
-        private $conteudos_id;
+        private $conteudos_ordem;
         private $alunos_del;
         
         public function setUsuarios_id($value){
@@ -160,20 +159,12 @@
             return $this->alunos_id;
         }
         
-        public function getTurmas_id(){
-            return $this->turmas;
+        public function getConteudos_ordem(){
+            return $this->conteudos_ordem;
         }
         
-        public function setTurmas_id($value){
-            $this->turmas = $value;
-        }    
-        
-        public function getConteudos_id(){
-            return $this->conteudos_id;
-        }
-        
-        public function setConteudos_id($value){
-            $this->conteudos_id = $value;
+        public function setConteudos_ordem($value){
+            $this->conteudos_ordem = $value;
         }       
         
         public function getAlunos_del(){
@@ -182,10 +173,51 @@
         
         public function setAlunos_del($value){
             $this->alunos_del = $value;
-        }    
+        }
     }
-    
-    //-----------------------------------------------------------------------------------------------------
+
+//-----------------------------------------------------------------------------------------------------
+
+    class Alunos_turmas{
+        private $alunos_turma_id;
+        private $alunos_id;
+        private $turmas_id;
+        private $alunos_turma_del;
+
+        public function getAlunos_turma_id(){
+            return $this->alunos_turma_id;
+        }
+
+        public function setAlunos_turma_id($alunos_turma_id){
+            $this->alunos_turma_id = $alunos_turma_id;
+        }
+
+        public function getAlunos_id(){
+            return $this->alunos_id;
+        }
+
+        public function setAlunos_id($alunos_id){
+            $this->alunos_id = $alunos_id;
+        }
+
+        public function getTurmas_id(){
+            return $this->turmas_id;
+        }
+
+        public function setTurmas_id($turmas_id){
+            $this->turmas_id = $turmas_id;
+        }
+
+        public function getAlunos_turma_del(){
+            return $this->alunos_turma_del;
+        }
+
+        public function setAlunos_turma_del($alunos_turma_del){
+            $this->alunos_turma_del = $alunos_turma_del;
+        }
+    }
+
+//-----------------------------------------------------------------------------------------------------
     
     class Turmas{
         private $turmas_id;
@@ -234,6 +266,7 @@
         private $conteudos_descricao;
         private $conteudos_ordem;
         private $conteudos_tipo;
+        private $conteudos_imagem;
         private $conteudos_del;
         
         public function setConteudos_id($value){
@@ -266,7 +299,15 @@
         
         public function setConteudos_ordem($value){
             $this->conteudos_ordem = $value;
-        }    
+        }
+
+        public function getConteudos_imagem(){
+            return $this->conteudos_imagem;
+        }
+        
+        public function setConteudos_imagem($value){
+            $this->conteudos_imagem = $value;
+        } 
         
         public function getConteudos_tipo(){
             return $this->conteudos_tipo;
@@ -295,6 +336,7 @@
         private $conteudos_comunidade_ordem;
         private $conteudos_comunidade_tipo;
         private $conteudos_comunidade_del;
+        private $conteudos_comunidade_imagem;
        
         public function getConteudos_comunidade_id(){
             return $this->conteudos_comunidade_id;
@@ -350,6 +392,14 @@
 
         public function setConteudos_comunidade_del($conteudos_comunidade_del){
             $this->conteudos_comunidade_del = $conteudos_comunidade_del;
+        }
+
+        public function getConteudos_comunidade_imagem(){
+            return $this->conteudos_comunidade_imagem;
+        }
+    
+        public function setConteudos_comunidade_imagem($conteudos_comunidade_imagem){
+            $this->conteudos_comunidade_imagem = $conteudos_comunidade_imagem;
         }
     }
       
@@ -453,35 +503,35 @@
         private $respostas_correta;
         private $respostas_del;
         
-        public function setRespostas_id(){
+        public function getRespostas_id(){
             return $this->respostas_id;
         }
         
-        public function getRespostas_id($value){
+        public function setRespostas_id($value){
             $this->respostas_id = $value;
         }
         
-        public function setPerguntas_id(){
+        public function getPerguntas_id(){
             return $this->perguntas_id;
         }
         
-        public function getPerguntas_id($value){
+        public function setPerguntas_id($value){
             $this->perguntas_id = $value;
         }
         
-        public function setRespostas_desc(){
+        public function getRespostas_desc(){
             return $this->respostas_desc;
         }
         
-        public function getRespostas_desc($value){
+        public function setRespostas_desc($value){
             $this->respostas_desc = $value;
         }
         
-        public function setRespostas_correta(){
+        public function getRespostas_correta(){
             return $this->respostas_correta;
         }
         
-        public function getRespostas_correta($value){
+        public function setRespostas_correta($value){
             $this->respostas_correta = $value;
         }
         
@@ -503,35 +553,35 @@
         private $respostas_comunidade_correta;
         private $respostas_comunidade_del;
         
-        public function setRespostas_comunidade_id(){
+        public function getRespostas_comunidade_id(){
             return $this->respostas_comunidade_id;
         }
         
-        public function getRespostas_comunidade_id($value){
+        public function setRespostas_comunidade_id($value){
             $this->respostas_comunidade_id = $value;
         }
         
-        public function setPerguntas_comunidade_id(){
+        public function getPerguntas_comunidade_id(){
             return $this->perguntas_comunidade_id;
         }
         
-        public function getPerguntas_comunidade_id($value){
+        public function setPerguntas_comunidade_id($value){
             $this->perguntas_comunidade_id = $value;
         }
         
-        public function setRespostas_comunidade_desc(){
+        public function getRespostas_comunidade_desc(){
             return $this->respostas_comunidade_desc;
         }
         
-        public function getRespostas_comunidade_desc($value){
+        public function setRespostas_comunidade_desc($value){
             $this->respostas_comunidade_desc = $value;
         }
         
-        public function setRespostas_comunidade_correta(){
+        public function getRespostas_comunidade_correta(){
             return $this->respostas_comunidade_correta;
         }
         
-        public function getRespostas_comunidade_correta($value){
+        public function setRespostas_comunidade_correta($value){
             $this->respostas_comunidade_correta = $value;
         }
         
@@ -651,6 +701,7 @@
         private $professores_id;
         private $turmas_id;
         private $provas_data;
+        private $provas_desc;
         private $provas_del;
         
         public function getProvas_id(){
@@ -661,11 +712,11 @@
             $this->provas_id = $value;
         }
 
-        public function getProfessores(){
+        public function getProfessores_id(){
             return $this->professores_id;
         }
 
-        public function setProfessores($value){
+        public function setProfessores_id($value){
             $this->professores_id = $value;
         }
 
@@ -692,15 +743,23 @@
         public function setProvas_del($value){
             $this->provas_del = $value;
         }
+
+        public function getProvas_desc(){
+            return $this->provas_desc;
+        }
+
+        public function setProvas_desc($value){
+            $this->provas_desc = $value;
+        }
     }
       
     //-----------------------------------------------------------------------------------------------------
 
-    class Questoes_prova{
+    class Questoes_provas{
         private $questoes_provas_id;
         private $provas_id;
-        private $perguntas_id;
-        private $questoes_prova_del;
+        private $perguntas_comunidade_id;
+        private $questoes_provas_del;
         
         public function getQuestoes_provas_id(){
             return $this->questoes_provas_id;
@@ -718,20 +777,20 @@
             $this->provas_id = $value;
         }
 
-        public function getPerguntas(){
-            return $this->perguntas_id;
+        public function getPerguntas_comunidade_id(){
+            return $this->perguntas_comunidade_id;
         }
 
-        public function setPerguntas($value){
-            $this->perguntas_id = $value;
+        public function setPerguntas_comunidade_id($value){
+            $this->perguntas_comunidade_id = $value;
         }
 
-        public function getQuestoes_prova_del(){
-            return $this->questoes_prova_del;
+        public function getQuestoes_provas_del(){
+            return $this->questoes_provas_del;
         }
 
-        public function setQuestoes_prova_del($value){
-            $this->questoes_prova_del = $value;
+        public function setQuestoes_provas_del($value){
+            $this->questoes_provas_del = $value;
         }
     }
       
@@ -795,14 +854,14 @@
         private $desempenhos_tempo;
         private $desempenhos_del;      
         
-		public function getAlunos_id(){
-			return $this->alunos_id;
-		}
-
-		public function setAlunos_id($alunos_id){
-			$this->alunos_id = $alunos_id;
-		}
-		
+        public function getAlunos(){
+            return $this->alunos_id;
+        }
+        
+        public function setAlunos($value){
+            $this->alunos_id = $value;
+        }    
+        
         public function setDesempenhos_id($value){
             $this->desempenhos_id = $value;
         }
@@ -899,6 +958,7 @@
         private $conteudos_comunidade_liberados_id;
         private $conteudos_comunidade_id;
         private $turmas_id;
+        private $professores_id;
         private $conteudos_comunidade_liberados_del;  
         
         public function getConteudos_comunidade_liberados_id(){
@@ -925,6 +985,14 @@
             $this->turmas_id = $turmas_id;
         }
 
+        public function getProfessores_id(){
+            return $this->professores_id;
+        }
+
+        public function setProfessores_id($professores_id){
+            $this->professores_id = $professores_id;
+        }
+
         public function getConteudos_comunidade_liberados_del(){
             return $this->conteudos_comunidade_liberados_del;
         }
@@ -937,41 +1005,41 @@
     //-----------------------------------------------------------------------------------------------------
 
     class Recupera_senha{
-        private $Recupera_senha_id;
-        private $Usuarios_id;
-        private $Recupera_senha_hash;
-        private $Recupera_senha_del;
+        private $recupera_senha_id;
+        private $usuarios_id;
+        private $recupera_senha_hash;
+        private $recupera_senha_del;
         
         public function getRecupera_senha_id(){
-            return $this->Recupera_senha_id;
+            return $this->recupera_senha_id;
         }
 
-        public function setRecupera_senha_id($Recupera_senha_id){
-            $this->Recupera_senha_id = $Recupera_senha_id;
+        public function setRecupera_senha_id($recupera_senha_id){
+            $this->recupera_senha_id = $recupera_senha_id;
         }
 
         public function getUsuarios_id(){
-            return $this->Usuarios_id;
+            return $this->usuarios_id;
         }
 
-        public function setUsuarios_id($Usuarios_id){
-            $this->Usuarios_id = $Usuarios_id;
+        public function setUsuarios_id($usuarios_id){
+            $this->usuarios_id = $usuarios_id;
         }
 
         public function getRecupera_senha_hash(){
-            return $this->Recupera_senha_hash;
+            return $this->recupera_senha_hash;
         }
 
-        public function setRecupera_senha_hash($Recupera_senha_hash){
-            $this->Recupera_senha_hash = $Recupera_senha_hash;
+        public function setRecupera_senha_hash($recupera_senha_hash){
+            $this->recupera_senha_hash = $recupera_senha_hash;
         }
 
         public function getRecupera_senha_del(){
-            return $this->Recupera_senha_del;
+            return $this->recupera_senha_del;
         }
 
-        public function setRecupera_senha_del($Recupera_senha_del){
-            $this->Recupera_senha_del = $Recupera_senha_del;
+        public function setRecupera_senha_del($recupera_senha_del){
+            $this->recupera_senha_del = $recupera_senha_del;
         }
     }
 ?>

@@ -1,9 +1,11 @@
 function pagina(user){
 		if(user == 2){
+			$("#cad-type").val(2);
 			//location.reload();
 			$("#form").load("../paginas/usuario_prof.php");
 		}
 		else if(user == 3){
+			$("#cad-type").val(3);
 			//location.reload();
 			$("#form").load("../paginas/usuario.php");
 		}
@@ -11,31 +13,26 @@ function pagina(user){
 
 //Validar Login
 function ValidarLogin(strLogin,strSenha){
-//linha de debug
-//alert("Login " + strLogin + "\n" + "Senha: " + strSenha);
-     if (strLogin == "")
-      { 
+     if (strLogin == ""){ 
          response = "Preencha o campo Login.";
 		 Alert.error("Atenção: "+response);
 		 document.frmLogin.login.focus();
+
 		 return false;
-      }
-     else if (strSenha == "")
-      { 
+	}
+	if (strSenha == "") { 
          response = "Preencha o campo Senha.";
 		 Alert.error("Atenção: "+response);
 		 document.frmLogin.senha.focus();
+
 		 return false;
-      }
-     else 
-      { 
-        return true;
-      }
+    } 
+		
+	return true;
 }
 
 //Mascara para o campo data
-function mascaraData( campo, e )
-{	
+function mascaraData( campo, e ){	
 	var kC = (document.all) ? event.keyCode : e.keyCode;
 	var data = campo.value;
 	
@@ -79,6 +76,7 @@ function verifica_senha() {
 	senha = document.getElementById("senha").value;
 	barra_forca = document.getElementById("barra_forca");
 	forca = 0;
+
 	if(senha.length < 6){
 		forca += 0;
 	}else if((senha.length >= 6) && (senha.length < 8)){
@@ -125,48 +123,63 @@ function verifica_senha() {
 	var w = forca*0.99; //daquele jeito
 	if (w==0) w=3;
 	barra_forca.style.width = w+"%";
+
+	if(!conta_senha())	
+		return false;
+
 }
 
 //Corfirmação de nome
 function confirma_nome(str, campo){
-	console.log(str);
 	if(str.length < 3){
 		//document.getElementById(campo).removeClass('input-ok');
 		$('#'+campo+'').removeClass('input-ok');
 		$('#'+campo+'').addClass('input-error');
 		$('#label_'+campo+'').html("Nome inválido");
-	}else if(str[0] == " " || str[1] == " " || str[2] == " "){
+
+		return false;
+	}
+	if(str[0] == " " || str[1] == " " || str[2] == " "){
 		$('#'+campo+'').removeClass('input-ok');
 		$('#'+campo+'').addClass('input-error');
 		$('#label_'+campo+'').html("Nome inválido");
-		console.log('tem espaços em brancos');
-	}else{
-		//document.getElementById(campo).removeClass('input-error');
-		$('#'+campo+'').removeClass('input-error');
-		$('#'+campo+'').addClass('input-ok');
-		$('#label_'+campo+'').html("");
+
+		return false;
 	}
+
+	//document.getElementById(campo).removeClass('input-error');
+	$('#'+campo+'').removeClass('input-error');
+	$('#'+campo+'').addClass('input-ok');
+	$('#label_'+campo+'').html("");
+
+	return true;
 
 }
 
 //Confirmação de senha
 function conta_senha(){
-	//alert("");
 	senha = document.getElementById("senha").value;
+
 	if(senha.length < 6){
 		$('#senha').removeClass('input-ok');
 		$('#senha').addClass('input-error');
 		$('#label_senha').html("Senha muito curta");
+				
+		return false;
 	}
-	else{
-		$('#senha').removeClass('input-error');
-		$('#senha').addClass('input-ok');
-		$('#label_senha').html("");
-	}
+
+	$('#senha').removeClass('input-error');
+	$('#senha').addClass('input-ok');
+	$('#label_senha').html("");
+
+	return true;
 }
 function confirma_senha(){
 	senha = document.getElementById("senha").value;
 	conf_senha = document.getElementById("conf_senha").value;
+
+	if(!conta_senha())
+		return false;
 
 	if(senha != conf_senha){
 		$('#senha').removeClass('input-ok');
@@ -174,21 +187,26 @@ function confirma_senha(){
 		$('#senha').addClass('input-error');
 		$('#conf_senha').addClass('input-error');
 		$('#label_conf_senha').html("As senhas não conferem");
+
+		return false;
 	}
-	else{
-		$('#senha').removeClass('input-error');
-		$('#conf_sennha').removeClass('input-error');
-		$('#senha').addClass('input-ok');
-		$('#conf_senha').addClass('input-ok');
-		$('#label_conf_senha').html("");
-	}
-		
+
+
+	$('#senha').removeClass('input-error');
+	$('#conf_sennha').removeClass('input-error');
+	$('#senha').addClass('input-ok');
+	$('#conf_senha').addClass('input-ok');
+	$('#label_conf_senha').html("");
+
+
+	return true;
 }
 
 //Confirmação CPF
 function confirma_cpf(strCPF) {
     var Soma;
-    var Resto;
+	var Resto;
+	
     Soma = 0;
     
 	for (i=1; i<=9; i++) {
@@ -199,10 +217,13 @@ function confirma_cpf(strCPF) {
 	
     if ((Resto == 10) || (Resto == 11))  
 		Resto = 0;
+
     if (Resto != parseInt(strCPF.substring(9, 10)) ) {
 		$('#cpf').removeClass('input-ok');
 		$('#cpf').addClass('input-error');
 		$('#label_cpf').html("CPF inválido");
+
+		return false;
 	}
 	
 	Soma = 0;
@@ -216,16 +237,20 @@ function confirma_cpf(strCPF) {
 	
     if ((Resto == 10) || (Resto == 11))  
 		Resto = 0;
+
     if (Resto != parseInt(strCPF.substring(10, 11) ) ){
 		$('#cpf').removeClass('input-ok');
 		$('#cpf').addClass('input-error');
 		$('#label_cpf').html("CPF inválido");
+
+		return false;
 	}
-	else{
-		$('#cpf').removeClass('input-error');
-		$('#cpf').addClass('input-ok');
-		$('#label_cpf').html("");
-	}
+
+	$('#cpf').removeClass('input-error');
+	$('#cpf').addClass('input-ok');
+	$('#label_cpf').html("");
+
+	return true;
 }
 
 //Confirmação email
@@ -245,21 +270,26 @@ function confirma_email(field) {
 			$('#email').removeClass('input-error');
 			$('#email').addClass('input-ok');
 			$('#label_email').html("");
+
+			return true;
 	}
 	else{
 		$('#email').removeClass('input-ok');
 		$('#email').addClass('input-error');
 		$('#label_email').html("Email inválido");
+
+		return false;
 	}
 }
 
 //confirmação data
- function confirma_data(campo,valor) {
-	var date=valor;
-	var ardt=new Array;
-	var ExpReg=new RegExp("(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/[12][0-9]{3}");
-	ardt=date.split("/");
-	erro=false;
+ function confirma_data(campo, date) {
+	var ardt = new Array;
+	var erro = false;
+	var ExpReg = new RegExp("(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/[12][0-9]{3}");
+
+	ardt = date.split("/");
+
 	if ( date.search(ExpReg)==-1){
 		erro = true;
 		}
@@ -274,22 +304,24 @@ function confirma_email(field) {
 	else if(ardt[2] < 1910 || ardt[2] > 2017){
 		erro = true;
 	}
+
 	if (erro) {
 		$('#dtnas').removeClass('input-ok');
 		$('#dtnas').addClass('input-error');
 		$('#label_dtnas').html("Data inválida");
-	}
-	else{
+	}else{
 		$('#dtnas').removeClass('input-error');
 		$('#dtnas').addClass('input-ok');
 		$('#label_dtnas').html("");
 	}
+
+	return !erro;
 }
 
-$(document).ready(function(){
-	//Verifica a pagina atual e adiciona a class ativo
+function verificaUrl(){
 	var url_atual = window.location.href;
 	var navbar = $('body').find('#navbar');
+	
 	if(url_atual == 'http://200.145.153.172/quarkz/Quimicamente/paginas/index.php'  || url_atual == 'http://200.145.153.172/quarkz/Quimicamente/paginas/'){
 		navbar.find('a[href="index.php"]').addClass('ativo');
 	}else if(url_atual == 'http://200.145.153.172/quarkz/Quimicamente/paginas/sobre.php'){
@@ -301,16 +333,22 @@ $(document).ready(function(){
 	}else{
 		console.log('Algo de errado não está certo!');
 	}
+}
+
+$(document).ready(function(){
+	//Verifica a pagina atual e adiciona a class ativo
+	verificaUrl();
 
 	//Substitui os caracteres especiais do nome ou do sobrenome
 	$('body').on('keyup','input[id="nome"], input[id="sobrenome"]', function(){
 		var str = $(this).val();
-		str = str.replace(/[^a-zA-Z 0-9]+/g, '');
+		//str = str.replace(/[^a-zA-Z 0-9]+/g, '');
+		str= str.replace(/\^|~|\?|,|\*|\.|\-/g, '');
 		$(this).val(str);
 	})
 
 	//Botão que redireciona para index
-	$('body').on('click', 'input[href="/index"]', function(){
+	$('body').on('click', 'input[href="/index"], a[href="/index"]', function(){
 		window.location.href = "http://200.145.153.172/quarkz/Quimicamente/paginas/index.php";
 	})
 

@@ -1,9 +1,6 @@
 <?php 
     include_once("suporte.php");
     include_once("servico.php");
-    include_once("entidades.php");
-
-    $Model_cadastro = new Model_cadastro();
 
     class Model_cadastro{
         static function cadastro($arrayUser){
@@ -23,9 +20,7 @@
                                );
                 try{
                     Database::executarParam($sql, $param);
-                }
-
-                catch(Exception $e){
+                }catch(Exception $e){
                     die("Erro: ". $e->getMessage);
                 }
                 
@@ -57,15 +52,13 @@
                     die("Erro: ". $e->getMessage);
                 }
 
-                $sql = "INSERT INTO alunos(usuarios_id, turmas_id, conteudos_id, alunos_del) VALUES ((SELECT usuarios_id FROM usuarios ORDER BY usuarios_id DESC LIMIT 1), '1', '1', 'N');";
+                $sql = "INSERT INTO alunos(usuarios_id, conteudos_ordem, alunos_del) VALUES ((SELECT usuarios_id FROM usuarios ORDER BY usuarios_id DESC LIMIT 1), '1', 'N');";
                 
                 try{
                     Database::executar($sql);
-                }
-                catch(Exception $e){
+                }catch(Exception $e){
                     die($e);
                 }
             }
         }
-    }    
-?>
+    }

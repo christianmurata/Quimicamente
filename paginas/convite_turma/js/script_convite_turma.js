@@ -64,7 +64,8 @@ jQuery(document).ready(function(){
                       timer: 2900,
                       showConfirmButton: false
                   });
-                  setTimeout(function(){location.href = "aluno.php";},3000);
+                  
+                  setTimeout(function(){location.href = "sala.php";},3000);
               }
               else{
                   swal({

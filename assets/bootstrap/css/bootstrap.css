@@ -1171,7 +1171,6 @@ hr {
 [role="button"] {
   cursor: pointer;
 }
-/*
 h1,
 h2,
 h3,
@@ -1217,7 +1216,6 @@ h6 .small,
   line-height: 1;
   color: #777;
 }
-
 h1,
 .h1,
 h2,
@@ -1288,7 +1286,6 @@ h6,
 .h6 {
   font-size: 12px;
 }
-*/
 p {
   margin: 0 0 10px;
 }

@@ -45,7 +45,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 
 p {
 	margin: 0 0 2em 0;
-	color: #aaa;
+	color: #333;
 	font-weight: 700;
 }
 
@@ -98,7 +98,7 @@ p {
 }
 .menu, .lateral{
 	text-decoration: none;
-	color: #aaa;
+	color: #333;
 	font-weight: 700;
 	line-height: 1em;
 	margin: 0 0 1em 0;
@@ -350,6 +350,19 @@ input[type="button"], .button {
 	text-decoration: none;
 	text-transform: uppercase;
 	white-space: nowrap;
+}
+
+.termos-condicoes{
+	padding: 6px 12px;
+	width: 100%;
+	height:165px;
+	overflow-wrap: break-word;
+	overflow-y: scroll;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	color: #555;
+	background-color: #eee;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
 }
 
 .total{

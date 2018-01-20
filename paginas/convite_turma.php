@@ -10,7 +10,7 @@ $user = $_SESSION['login'];
 $nivel = $user->getUsuarios_nivel();
 
 if($nivel < 3){
-    //header('location: index.php');
+    header('location: index.php');
 }
 
 include "templates/header.php";

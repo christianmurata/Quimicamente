@@ -1,7 +1,7 @@
 <?php
  //   namespace Quimicamente\Model{
     require_once "suporte.php";
-    include_once("entidades.php");
+    include"entidades.php";
 
 
     $Servico = new Servico();
@@ -48,13 +48,7 @@
             $turma->setProfessores_id($tur["professores_id"]);
             $turma->setTurmas_nome($tur["turmas_nome"]);
             $turma->setTurmas_del($tur["turmas_del"]);
-            
-            /*$sql = "SELECT * FROM professores WHERE professores_id = ?";
-            $param = $tur["professores_id"];
-            
-            $query = Database::selecionaObjeto($sql, $param);
-            $turma->setProfessores(Servico::objProfessores($query[0]));*/
-            
+
             return $turma;
         }       
         static function objProfessores($prof){
@@ -71,17 +65,28 @@
             $aluno = new Alunos();
             $aluno->setAlunos_id($al["alunos_id"]);
             $aluno->setUsuarios_id($al["usuarios_id"]);
-            $aluno->setTurmas_id($al["turmas_id"]);
-            $aluno->setConteudos_id($al["conteudos_id"]);
+            $aluno->setConteudos_ordem($al["conteudos_ordem"]);
             $aluno->setAlunos_del($al["alunos_del"]);
             
             return $aluno;
         }
+
+        static function objAlunos_turma($at){
+            $at_ = new Alunos_turmas();
+            $at_->setAlunos_turma_id($at["alunos_turma_id"]);
+            $at_->setAlunos_id($at["alunos_id"]);
+            $at_->setTurmas_id($at["turmas_id"]);
+            $at_->setAlunos_turma_del($at["alunos_turma_del"]);
+
+            return $at_;
+        }
+
         static function objConteudos($cont){
             $conteudo = new Conteudos();
             $conteudo->setConteudos_id($cont["conteudos_id"]);
             $conteudo->setConteudos_nome($cont["conteudos_nome"]);
             $conteudo->setConteudos_descricao($cont["conteudos_descricao"]);
+            $conteudo->setConteudos_imagem($cont["conteudos_foto"]);
             $conteudo->setConteudos_ordem($cont["conteudos_ordem"]);
             $conteudo->setConteudos_del($cont["conteudos_del"]);
             
@@ -91,9 +96,11 @@
         static function objConteudos_comunidade($cont){
             $conteudo = new Conteudos_comunidade();
             $conteudo->setConteudos_comunidade_id($cont["conteudos_comunidade_id"]);
+            $conteudo->setProfessores_id($cont["professores_id"]);
             $conteudo->setConteudos_comunidade_nome($cont["conteudos_comunidade_nome"]);
             $conteudo->setConteudos_comunidade_descricao($cont["conteudos_comunidade_descricao"]);
             $conteudo->setConteudos_comunidade_ordem($cont["conteudos_comunidade_ordem"]);
+            $conteudo->setConteudos_comunidade_imagem($cont["conteudos_comunidade_imagem"]);
             $conteudo->setConteudos_comunidade_del($cont["conteudos_comunidade_del"]);
             
             return $conteudo;
@@ -103,9 +110,10 @@
             
             $prova = new Provas();
             $prova->setProvas_id($cont["provas_id"]);
-            $prova->setProfessores_id($cont["professores_nome"]);
-            $prova->setTurmas_id($cont["turmas_descricao"]);
+            $prova->setProfessores_id($cont["professores_id"]);
+            $prova->setTurmas_id($cont["turmas_id"]);
             $prova->setProvas_data($cont["provas_data"]);
+            $prova->setProvas_desc($cont["provas_desc"]);
             $prova->setProvas_del($cont["provas_del"]);
             
             return $prova;
@@ -116,7 +124,17 @@
             $pergunta->setPerguntas_id($perg["perguntas_id"]);
             $pergunta->setConteudos_id($perg["conteudos_id"]);
             $pergunta->setPerguntas_descricao($perg["perguntas_descricao"]);
-            $pergunta->setExcluido($perg["perguntas_del"]);
+            $pergunta->setPerguntas_del($perg["perguntas_del"]);
+            
+            return $pergunta;
+        }
+        
+        static function objPerguntas_comunidade($perg){
+            $pergunta = new Perguntas_comunidade();
+            $pergunta->setPerguntas_comunidade_id($perg["perguntas_comunidade_id"]);
+            $pergunta->setConteudos_comunidade_id($perg["conteudos_comunidade_id"]);
+            $pergunta->setPerguntas_comunidade_descricao($perg["perguntas_comunidade_descricao"]);
+            $pergunta->setPerguntas_comunidade_del($perg["perguntas_comunidade_del"]);
             
             return $pergunta;
         }
@@ -125,14 +143,25 @@
             $descont = new Respostas();
             $descont->setRespostas_id($desc["respostas_id"]);
             $descont->setPerguntas_id($desc["perguntas_id"]);
-            $descont->setRespostas_desc($desc["respotas_desc"]);
+            $descont->setRespostas_desc($desc["respostas_desc"]);
             $descont->setRespostas_correta($desc["respostas_correta"]);
             $descont->setRespostas_del($desc["respostas_del"]);
             
             return $descont;
         }
         
-        static function objSlides($slides){
+        static function objRespostas_comunidade($desc){
+            $descont = new Respostas_comunidade();
+            $descont->setRespostas_comunidade_id($desc["respostas_comunidade_id"]);
+            $descont->setPerguntas_comunidade_id($desc["perguntas_comunidade_id"]);
+            $descont->setRespostas_comunidade_desc($desc["respostas_comunidade_desc"]);
+            $descont->setRespostas_comunidade_correta($desc["respostas_comunidade_correta"]);
+            $descont->setRespostas_comunidade_del($desc["respostas_comunidade_del"]);
+            
+            return $descont;
+        }
+        
+        static function objSlides($nota){
             $slide = new Slides();
             $slide->setSlides_id($nota["slides_id"]);
             $slide->setConteudos_id($nota["conteudos_id"]);
@@ -143,22 +172,33 @@
             return $slide;
         }
         
+        static function objSlides_comunidade($nota){
+            $slide = new Slides_comunidade();
+            $slide->setSlides_comunidade_id($nota["slides_comunidade_id"]);
+            $slide->setConteudos_comunidade_id($nota["conteudos_comunidade_id"]);
+            $slide->setSlides_comunidade_ordem($nota["slides_comunidade_ordem"]);
+            $slide->setSlides_comunidade_conteudo($nota["slides_comunidade_conteudo"]);
+            $slide->setSlides_comunidade_del($nota["slides_comunidade_del"]);
+            
+            return $slide;
+        }
+        
         static function objQuestoes_prova($questoes){
             $questao = new Questoes_provas();
-            $questao->setQuestoes_prova_id($questoes['questoes_prova_id']);
-            $questao->setProvas_id($questoes['provas_id']);
-            $questao->setPerguntas_id($questoes['perguntas_id']);
-            $questao->setQuestoes_prova_del($questos['questoes_prova_del']);
+            $questao->setQuestoes_provas_id($questoes['questoes_provas_id']);
+            $questao->setProvas($questoes['provas_id']);
+            $questao->setPerguntas_comunidade_id($questoes['perguntas_comunidade_id']);
+            $questao->setQuestoes_provas_del($questoes['questoes_provas_del']);
             return $questao;
         }
 
 
         static function objRespostas_prova($resp){
             $respostas = new Respostas_prova();
-            $respotas->setRespostas_prova_id($resp['respostas_prova_id']);
-            $respotas->setAlunos_id($resp['alunos_id']);
-            $respotas->setRespostas_prova_media($resp['respostas_prova_media']);
-            $respotas->setRespostas_prova_del($resp['respostas_prova_del']);
+            $respostas->setRespostas_prova_id($resp['respostas_prova_id']);
+            $respostas->setAlunos($resp['alunos_id']);
+            $respostas->setRespostas_prova_media($resp['respostas_prova_media']);
+            $respostas->setRespostas_prova_del($resp['respostas_prova_del']);
 
             return $respostas;
         }
@@ -175,7 +215,6 @@
         	return $desempenho;
         }
 
-
         static function objConteudos_liberados($cont){
             $conteudo_liberado = new Conteudos_liberados();
             $conteudo_liberado->setConteudos_liberados_id($cont['conteudos_liberados_id']);
@@ -186,15 +225,15 @@
 
             return $conteudo_liberado;
         }
-        
-        static function objConteudos_professor($conteudos){
-            $conteudo = new Conteudos_professor();
-            $conteudo->setConteudos_professor_id($conteudos['conteudos_professor_id']);
-            $conteudo->setProfessores_id($conteudos['professores_id']);
-            $conteudo->setConteudos_id($conteudos['conteudos_id']);
-            $conteudo->setConteudos_Professor_del($conteudos['conteudos_professor_del']);
-            
-            return $conteudo;
+        static function objConteudos_comunidade_liberados($cont){
+            $conteudo_liberado = new Conteudos_comunidade_liberados();
+            $conteudo_liberado->setConteudos_comunidade_liberados_id($cont['conteudos_comunidade_liberados_id']);
+            $conteudo_liberado->setConteudos_comunidade_id($cont['conteudos_comunidade_id']);
+            $conteudo_liberado->setTurmas_id($cont['turmas_id']);
+            $conteudo_liberado->setProfessores_id($cont['professores_id']);
+            $conteudo_liberado->setConteudos_comunidade_liberados_del($cont['conteudos_comunidade_liberados_del']);
+
+            return $conteudo_liberado;
         }
         
         static function objRecupera_senha($recup){

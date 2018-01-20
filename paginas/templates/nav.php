@@ -7,9 +7,11 @@
 		$usuario = $_SESSION["login"];
 		if($usuario->getUsuarios_nivel() == 2){
 			header("location:professor.php");
-		}else{
+		}else if($usuario->getUsuarios_nivel() == 3){
 			header("location:aluno.php");
-		}
+		}else{
+            header("location:adicionar_conteudos.php");
+        }
 	}
 ?>
 	<header>
@@ -22,7 +24,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a href="index.html"><img id="img" src="../imagens/Quim.png"/></a>
+					<a href="index.php"><img id="img" src="../imagens/Quim.png"/></a>
 				</div>
 				<div id="navbar" class="navbar-collapse collapse navbar-right">
 					<ul class="nav navbar-nav navbar-text">

@@ -1,54 +1,41 @@
 <?php
-    include_once("suporte.php");
-    include_once("entidades.php");
-    include_once("servico.php");
-
-    $Model_rank = new Model_rank();
-
-    class Model_rank{
-        static function desempenhos($dificuldade){
-            $sql="SELECT * FROM desempenhos WHERE desempenhos_dificuldade = ? ORDER BY desempenhos_notafinal";
-            try{
-                $query = Database::selecionaObjeto($sql, $dificuldade);
-                if($query){
-                    for($i=0; $i<count($query); $i++){
-                        $sql_rank = "SELECT * FROM desempenhos WHERE desempenhos_id = ?";
-                        $param = $query[$i]['desempenhos_id'];
-                        $result = Database::selecionaObjeto($sql_rank, $param);
-                        if($result[0]){
-                            $desempenhos[$i] = Servico::objDesempenhos($result[0]);
+	include_once("suporte.php");
+	
+	$Model_rank = new Model_rank();
+	
+	class Model_rank
+	{
+		static function desempenhos($dificuldade)
+		{	
+			
+			$sql="SELECT desempenhos.desempenhos_notafinal, usuarios.usuarios_nome FROM desempenhos inner join alunos on desempenhos.alunos_id = alunos.alunos_id inner join usuarios on alunos.usuarios_id = usuarios.usuarios_id where desempenhos.desempenhos_dificuldade = ? and desempenhos.desempenhos_del = 'N' order by desempenhos.desempenhos_notafinal desc";
+			try{			
+					$query = Database::selecionaObjeto($sql,$dificuldade);										
+					$erro = array();
+					$t = array();
+					$tt = array();
+					if($query){
+					    if(count($query) > 20){
+					        $lin = 20;
                         }
 
-                    }
-                    
-                    return $desempenhos;
-                }
-            }	
-            catch(Exception $e){
-                die($e);
-            }
-        }
-        static function usuarios($dificuldade){
-            $sql="SELECT * FROM desempenhos WHERE desempenhos_dificuldade = ? ORDER BY desempenhos_notafinal";
-            try{
-                $query = Database::selecionaObjeto($sql, $dificuldade);
-                if($query){
-                    for($i = 0; $i<count($query); $i++){
-                        $sql_usuarios = "SELECT * FROM usuarios WHERE usuarios_id = ?";
-                        $param = $query[$i]['usuarios_id'];
-                        $result = Database::selecionaObjeto($sql_usuarios, $param);
-                        if($result[0]){
-                            $usuarios[$i] = Servico::objUsuarios($result[0]);
-                        } 
-                    }
+                        else{
+					        $lin = count($query);
+                        }
+						for($i = 0; $i<$lin; $i++){
+							$t[$i]  = $query[$i]['desempenhos_notafinal'];
+							$tt[$i] = $query[$i]['usuarios_nome'];
 
-                    return $usuarios;
-                }
-            }
-            catch(Exception $error){
-                die($error);
-            }
-        }
-    }
-	
-?>
+						}
+						return array($t, $tt);
+
+					}
+					else{
+						return;
+					}
+			}
+			catch(Exception $e){
+				die($e);
+			}
+		}
+	}

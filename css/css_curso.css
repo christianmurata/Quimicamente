@@ -1,16 +1,55 @@
 *{padding: 0; margin: 0; border: 0;}
-html{
-    background-color: #4FFFBC;
-}
 @media(max-width: 400px){    
     .jumbotron{
-        padding-top: 150px;
+      padding-top: 100px;
         background-color: transparent;
+    }
+
+    .titulo-perguntas{
+      font-size: 24px;
+    }
+}
+@media(max-height: 800px){    
+    section.curso{
+        height: 670px;
+    }
+
+    #text-carousel {
+      width: 100%;
+      min-height: 680px;
+      padding: 50px;
+      text-align: justify;
+      vertical-align: middle;
+      font-family: 'Open Sans';
+      font-size: 16px;
+    }
+
+    .item, .active {
+      height: 100%;
+    }
+
+}
+@media(min-height: 800px){    
+    section.curso{
+        height: 810px;
+    }
+
+    #text-carousel {
+      width: 100%;
+      min-height: 810px;
+      padding: 50px;
+      text-align: justify;
+      vertical-align: middle;
+      font-family: 'Open Sans';
+      font-size: 16px;
+    }
+    .item, .active {
+      height: 100%;
     }
 }
 @media(min-width: 400px){    
     .jumbotron{
-        padding-top: 250px;
+        padding-top: 50px;
         background-color: transparent;
     }
 }
@@ -26,11 +65,84 @@ html{
 
 .hvr-icon-hang:hover, .hvr-icon-hang:link, .hvr-icon-hang:visited, .hvr-icon-hang:active{
     color: #fff;
+    margin-top: -100px; 
+}
+.carousel-content {
+    color:black;
+    display:flex;
+    align-items:center;
 }
 
-#footer{
-    background-color: #4FFFBC;
-    color:#fff;
-	font-size: 15pt;
-	font-weight: 'bold';
+.perguntas{
+  padding: 5%;
+  width: 100%;
+  height: 100%;
+}
+
+.cont-p{
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.one, .two, .three{
+    position:absolute;
+  margin-top:-10px;
+  z-index:1;
+  height:40px;
+  width:40px;
+  border-radius:25px;
+  
+}
+.one{
+  left:25%;
+}
+.two{
+  left:50%;
+}
+.three{
+  left:75%;
+}
+.primary-color{
+  background-color:#4989bd;
+}
+.success-color{
+  background-color:#5cb85c;
+}
+.danger-color{
+  background-color:#d9534f;
+}
+.warning-color{
+  background-color:#f0ad4e;
+}
+.info-color{
+  background-color:#5bc0de;
+}
+.no-color{
+  background-color:inherit;
+}
+
+.p-div{
+  width: 96%;
+  height: 100%;
+  /*border: 1px solid black;*/
+  margin: 2%;
+  font-family: 'Open Sans';
+  margin-top: ;
+  overflow: auto;
+}
+
+.titulo-perguntas{
+  color: black !important;
+  font-family: 'Open Sans';
+  vertical-align: middle;
+  align-items: center;
+  text-align: center;
+}
+
+.btn{
+    white-space:normal !important;
+    word-wrap: break-word; 
 }

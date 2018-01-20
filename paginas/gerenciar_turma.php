@@ -9,18 +9,18 @@
 		$user = $_SESSION['login'];
 		$nivel = $user->getUsuarios_nivel();
 
-		if($nivel > 2){
+		if($nivel != 2){
 			header('location: index.php');
 		}
 
     include "templates/header.php";
 ?>
 
-<body>
+<body style="overflow-x: hidden;">
 <?php
 	include "templates/navbar.php";
 	include "gerenciar_turma/gerenciar_turma.html";
 ?>
 </body>
-	<?php //include "templates/footer.php";
+	<?php include "templates/footer.php";
 ?>

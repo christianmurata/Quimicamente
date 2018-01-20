@@ -7,7 +7,9 @@
         $loginParam = array($_POST["email"], $_POST["senha"]);
         Model_login::login($loginParam);
     }
-    else{
+    if($_POST["action"] == "logout"){
         Model_login::logout();
     }
-?>
+    if($_POST["action"] == "checkNivel"){
+        echo json_encode(array("nivel" => $_SESSION["login"]->getusuarios_nivel()));
+    }

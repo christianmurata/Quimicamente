@@ -11,6 +11,9 @@ var numQuestao = 0;
 var idQuestao = 1;
 var idSlide = 1;
 
+var modo = 0;       //modo: 0 = selecao, 1 = edicao
+var diff = false; //testa se o conteúdo não foi salvo
+
 function checkLogin(){
     $.ajax({
         url: '../models/checkLogin.php',
@@ -27,24 +30,44 @@ function selecModulo(id){
     "use strict";
     var sel = null;
     if(marcado != 0){
-        sel = document.getElementById("selModulo_"+marcado);
-        sel.style.background= "white";
-        if(marcado == id){
-            marcado = 0;
-            document.getElementById("avanca1").disabled = true;
-            return;
+        if(marcado != id){
+            sel = document.getElementById("selModulo_"+marcado);
+            sel.style.background= "white";
         }
+
+        else    return;
     }
     sel = document.getElementById("selModulo_"+id);
     sel.style.background = '#4FFFBC';
     marcado = id;
-    document.getElementById("avanca1").disabled = false;      
+    document.getElementById("avanca1").disabled = false;
+}
+
+//SELECIONAR MÓDULO NA LISTA
+
+function selecModuloForce(id){
+    "use strict";
+    var sel = null;
+    if(marcado != 0){
+        sel = document.getElementById("selModulo_"+marcado);
+        sel.style.background= "white";
+    }
+    sel = document.getElementById("selModulo_"+id);
+    sel.style.background = '#4FFFBC';
+    marcado = id;
+    document.getElementById("avanca1").disabled = false;
+    carregarSlides(marcado);
+    var parent_fieldset = $('fieldset');
+
+    parent_fieldset.fadeOut(400, function() {
+        $(this).next().fadeIn();
+    });
 }
 
 //EXCLUIR SLIDE
 
 function excluirSlide(id){
-    salvaTXT(selecionado);
+    //salvaTXT(selecionado);
     var aux = new Array();
     for(var j = 0;j < slides.length; j=j+2){
         if(slides[j] != id){
@@ -55,14 +78,6 @@ function excluirSlide(id){
     slides = aux;
     numSlide--;
     
-    $('.slide-restante').text(7-numSlide);
-    if(numSlide < 4){
-        $('.slide-restante').css('color','black');
-    }
-    if(numSlide < 7){
-        $('.btn-new-slide').removeAttr('disabled');
-    }
-    
     $('.novo-slide'+id).remove();
     $('.exclui-slide'+id).remove();
     
@@ -72,7 +87,13 @@ function excluirSlide(id){
     if(numSlide == 0){
         $('#summernote').summernote('code','');
         $('.note-editable').attr('contenteditable','false');
+        $('.note-editor').css('display','none');
+
+        $('#msgEditor').css('display', 'block');
+        document.getElementById("msgEditor").style.marginTop = "30px";
+
         $('.btn-salva-conteudo').attr('disabled', 'disabled');
+        selecionado = 0;
     }
     
     else{  
@@ -82,6 +103,7 @@ function excluirSlide(id){
     }
     
     console.log(slides);
+    diff = true;
 }
 
 function excluirQuestao(id){
@@ -99,51 +121,70 @@ function excluirQuestao(id){
     console.log(aux);
     $('.nova-questao'+id).remove();
     $('.exclui-questao'+id).remove();
+    diff = true;
+}
+
+function processar(id) {
+    if(selecionado == id)   return;
+    if(selecionado > 0)
+        if(salvaTXT(-1))
+            seleciona(id);
 }
 
 function novoSlide(){
-    $('.box-slides').append("<div class='novo-slide"+idSlide+"' onclick='console.log(seleciona("+idSlide+"))'>Slide "+idSlide+"</div><div class='exclui-slide"+idSlide+"' onclick='excluirSlide("+idSlide+")'>Excluir</div><div class='move-slide-up-"+idSlide+"' onclick='moveUP("+idSlide+")'>&#9650;</div><div class='move-slide-dn-"+idSlide+"' onclick='moveDN("+idSlide+")'>&#9660;</div>");
-        
-        salvaTXT(idSlide);
-        console.log(seleciona(idSlide));
-        $('.note-editable').attr('contenteditable','true');
-        
-        if(questoes.length > 0)
-            $('.btn-salva-conteudo').removeAttr('disabled');
-        
-        idSlide++;
-        numSlide++;
-        
-        $('.slide-restante').text(7-numSlide);
-        if(numSlide > 3){
-            $('.slide-restante').css('color','red');
-        }
-        if(numSlide > 6){
-            $('.btn-new-slide').attr('disabled','disabled');
-        }
-        $('#summernote').summernote('code', '');
-        console.log(slides);
+    $('.box-slides').append("<div class='novo-slide" + idSlide + "' onclick='processar("+idSlide+")'>Slide " + idSlide + "</div><div class='exclui-slide" + idSlide + "' onclick='excluirSlide(" + idSlide + ")'>Excluir</div><div class='move-slide-up-" + idSlide + "' onclick='moveUP(" + idSlide + ")'>&#9650;</div><div class='move-slide-dn-" + idSlide + "' onclick='moveDN(" + idSlide + ")'>&#9660;</div>");
+
+    slides.push(idSlide);
+    slides.push("");
+
+    seleciona(idSlide);
+
+    idSlide++;
+    numSlide++;
+
+    $('.note-editable').attr('contenteditable', 'true');
+    $('.note-editor').css('display','block');
+
+    $('#msgEditor').css('display', 'none');
+    document.getElementById("msgEditor").style.marginTop = "30px";
+    if (questoes.length > 0)
+        $('.btn-salva-conteudo').removeAttr('disabled');
+
+    $('#summernote').summernote('code', '');
+    console.log(slides);
 }
 
 //PEGA O TEXTO DO EDITOR E SALVA NO ÍNDICE DO SLIDE SELECIONADO
 
-function salvaTXT(id){
-    for(var i = 0; i <= slides.length; i=i+2){
-        if(slides[i] == id){
-                slides[i+1] = $('#summernote').summernote('code');
-                return;
-            }
-        }
+function salvaTXT(id) {
+    //if(id == selecionado)   return;
+    if(id == -1) id = selecionado;
 
-    for(var l = 0; l <=slides.length; l=l+2){
-        if(slides[l] == undefined){
-            slides[l] = id;
-            slides[l+1] = "";
-            return;
-        }
+    var valido = true;
+    diff = true;
+    if($('#summernote').summernote('code').replace(/&nbsp;/gi,'').replace(/<\/?[^>]+(>|$)/g, "").trim().length < 10){
+        swal({
+            title: "Oops...",
+            text: "Insira pelo menos 10 caracteres ou exclua o slide!",
+            type: "error"
+        });
+        valido = false;
+    }
+    if(valido == false){
+        return false;
+    }
+   else {
+        slides[slides.indexOf(id) + 1] = $('#summernote').summernote('code');
+        return true;
     }
 }
 
+function salvaTXTnoMSG(id) {
+    if(id == -1) id = selecionado;
+    slides[slides.indexOf(id)+1] = $('#summernote').summernote('code');
+    diff = true;
+    return;
+}
 //MOVE SLIDE PRA BAIXO
 
 function moveDN(id){
@@ -361,68 +402,66 @@ function moveUP(id){
 //SELECIONA O SLIDE E JOGA O CONTEÚDO DELE PRO EDITOR
 
 function seleciona(id){
+
     var idAnt = selecionado;
     selecionado = id;
-    for(var j = 0;j <= slides.length; j=j+2){
-        if(slides[j] == id){
-            $('#summernote').summernote('code',slides[j+1]);
-            $('#sumenote').summernote('focus');
-            
-            $('.novo-slide'+selecionado).css('background-color',"#BABABA");
-            $('.novo-slide'+idAnt).css('background-color',"#DADADA");
-            return "selecionado "+slides[j]+"\n"+slides[j+1];
-        }
-    }
-    return "nao selecionou";
+
+    $('#summernote').summernote('code', slides[slides.indexOf(id)+1]);
+
+    $('.novo-slide' + selecionado).css('background-color', "#BABABA");
+    $('.novo-slide' + idAnt).css('background-color', "#DADADA");
+    $('#summernote').summernote('focus');
 }
 
 //TESTAR TEXTO DAS QUESTÕES
 
-function testa_questao(){
+function testa_questao(modo){
+    if(modo == 1)   t = "editar-";
+    else t = "";
     var preenchido = true;
     
-    if(!$.trim($('.form-alt-enunciado').val())){
+    if(!$.trim($('.'+t+'form-alt-enunciado').val())){
         preenchido = false;
     }
     
-    if(!$.trim($('.form-alt-1').val())){
+    if(!$.trim($('.'+t+'form-alt-1').val())){
         preenchido = false;
     }
     
-    if(!$.trim($('.form-alt-2').val())){
+    if(!$.trim($('.'+t+'form-alt-2').val())){
         preenchido = false;
     }
     
-    if(!$.trim($('.form-alt-3').val())){
+    if(!$.trim($('.'+t+'form-alt-3').val())){
         preenchido = false;
     }
     
-    if(!$.trim($('.form-alt-4').val())){
+    if(!$.trim($('.'+t+'form-alt-4').val())){
         preenchido = false;
     }
     
-    if(!$.trim($('.form-alt-5').val())){
+    if(!$.trim($('.'+t+'form-alt-5').val())){
         preenchido = false;
     }
     
     if(preenchido == true){
-        $('.btn-nova-questao').removeAttr('disabled');
+        $('.btn-'+t+'nova-questao').removeAttr('disabled');
         return true;
     }
     
     else{
-        $('.btn-nova-questao').attr('disabled', 'disabled');
+        $('.btn-'+t+'nova-questao').attr('disabled', 'disabled');
         return false;
     }
 }
 
 function limpa_alt(){
     $('.form-alt-enunciado').val("");
-    $('.form-alt-1').val("");
-    $('.form-alt-2').val("");
-    $('.form-alt-3').val("");
-    $('.form-alt-4').val("");
-    $('.form-alt-5').val("");
+    $('.form-alt-1')        .val("");
+    $('.form-alt-2')        .val("");
+    $('.form-alt-3')        .val("");
+    $('.form-alt-4')        .val("");
+    $('.form-alt-5')        .val("");
 }
 
 function insere_questao(push){
@@ -430,11 +469,12 @@ function insere_questao(push){
     if(push)
         questoes.push($('.form-alt-enunciado').val(), $('.form-alt-1').val(), $('.form-alt-2').val(), $('.form-alt-3').val(), $('.form-alt-4').val(), $('.form-alt-5').val());
     
-    $('.box-questoes').append("<div class='nova-questao"+idQuestao+"' onclick='console.log(\"carregar questao\")'>Questão "+idQuestao+"</div><div class='exclui-questao"+idQuestao+"' onclick='excluirQuestao("+idQuestao+")'>Excluir</div>");
+    $('.box-questoes').append("<div class='nova-questao"+idQuestao+"' data-toggle='modal' data-target='#modalEditaQuestao' onclick='editaQuestao("+idQuestao+")'>Questão "+idQuestao+"</div><div class='exclui-questao"+idQuestao+"' onclick='excluirQuestao("+idQuestao+")'>Excluir</div>");
     
     if(slides.length > 0)   $('.btn-salva-conteudo').removeAttr('disabled');
     numQuestao++;
     idQuestao++;
+    diff = true;
 }
 
 function testa_novo_modulo(){
@@ -477,26 +517,53 @@ function insere_modulo(){
         },
         async: false,
         success: function(resposta){
+            modo = 1;
+            $("#modalNovoModulo").modal("hide");
             carregarConteudos();
-            //selecModulo(reposta);
+            selecModuloForce(JSON.parse(resposta));
+            $("#modalCapa").modal("show");
         }
     });
 }
 
 function excluir_modulo(id){
-    console.log("hey");
-    $.ajax({
-       url: "../controllers/control_adcCtd.php?action=excluiModulo",
-        type:'POST',
-        data: {
-            conteudos_id: id
+
+    swal({
+        title: 'Deseja mesmo excluir esse conteúdo?',
+        text: 'Essa ação não pode ser desfeita!',
+        showCancelButton: true,
+        type: 'warning',
+        cancelButtonText: 'Cancelar',
+        confirmButtonText: 'Excluir',
+        cancelButtonColor: '#cacaca',
+        confirmButtonColor: '#d33',
+        showLoaderOnConfirm: true,
+        preConfirm: function () {
+            return new Promise(function (resolve, reject) {
+                $.ajax({
+                    url: "../controllers/control_adcCtd.php?action=excluiModulo",
+                    type:'POST',
+                    data: {
+                        conteudos_id: id
+                    },
+                    async: false,
+                    success: function(resposta){
+                        marcado = 0;
+                        carregarConteudos();
+                        resolve();
+                    }
+                });
+            })
         },
-        async: false,
-        success: function(resposta){
-            marcado = 0;
-            carregarConteudos();
-        }
-    });
+        allowOutsideClick: false
+    }).then(function () {
+        swal({
+            type: 'success',
+            title: 'Conteúdo excluído.'
+        })
+    }, function (dismiss) {
+
+    })
 }
 
 function carregarConteudos(){
@@ -524,17 +591,17 @@ function carregarConteudos(){
                 var col = row.insertCell(0);
                 
                 col.style.height = "50px";
-                if(nvlUsuario == 1) linha["conteudos_comunidade_nome"] = "<b>[COMUNIDADE] </b>" + linha["conteudos_comunidade_nome"];
+                if(nvlUsuario == 1) linha["conteudos_comunidade_nome"] = "<b>[Prof. "+linha["usuarios_nome"]+"] </b>" + linha["conteudos_comunidade_nome"];
                 col.innerHTML = linha["conteudos_comunidade_nome"];
                 
                 
                 col.id = "selModulo_com-"+linha["conteudos_comunidade_id"];
+                col.setAttribute('ondblclick',"selecModuloForce('com-"+linha["conteudos_comunidade_id"]+"')");
                 col.setAttribute("onclick","selecModulo('com-"+linha["conteudos_comunidade_id"]+"')");
-                
-                var col2 = row.insertCell(1);
-                col2.style.width = "10%";
-                col2.innerHTML = "<button type='button' class='btn btn-qmt btn-sm'>Excluir</button>";
-                col2.setAttribute("onclick","excluir_modulo('com-"+linha['conteudos_comunidade_id']+"')");
+                var col3 = row.insertCell(1);
+                col3.style.width = "10%";
+                col3.innerHTML = "<button type='button' class='btn btn-qmt btn-sm'>Excluir</button>";
+                col3.setAttribute("onclick","excluir_modulo('com-"+linha['conteudos_comunidade_id']+"')");
                 
                 if(nvlUsuario == 2){
                     var opt = new Option(linha["conteudos_comunidade_nome"],'com-'+linha["conteudos_comunidade_ordem"]);
@@ -552,6 +619,7 @@ function carregarConteudos(){
                 col.innerHTML = linha["conteudos_nome"];
                 
                 col.id = "selModulo_ofc-"+linha["conteudos_id"];
+                col.setAttribute('ondblclick',"selecModuloForce('ofc-"+linha["conteudos_id"]+"')")
                 col.setAttribute("onclick","selecModulo('ofc-"+linha["conteudos_id"]+"')");
                 
                 var col2 = row.insertCell(1);
@@ -570,6 +638,7 @@ function carregarConteudos(){
 }
 
 function carregarSlides(){
+    modo = 1;
     $.ajax({
         url: '../controllers/control_adcCtd.php?action=carregarSlides',
         async: false,
@@ -583,43 +652,318 @@ function carregarSlides(){
             
             var slides_ = content_[0];
             var questoes_ = content_[1];
-            var respostas_ = content_[2];
+
             
             if(marcado.split("-")[0] == 'com'){ var tipo_ = "_comunidade";}
+
             else {var tipo_ = "";}
                 if(slides_.length > 0){
                     for(i = 0, j = 1; i < slides_.length; i++, j=j+2){
                         var linha = slides_[i];
-                        novoSlide(); 
+                        novoSlide();
                         slides[j] = linha["slides"+tipo_+"_conteudo"];
                     }
-                    seleciona(selecionado);
-                    for(i = 0, j = 1, k = 0; i < questoes_.length; i++,j=j+7, k=k+5){
+                    seleciona(1);
+                    questoes = [];
+                    for(i = 0; i < questoes_.length; i++){
                         var linha = questoes_[i];
                         insere_questao(false);
-                        questoes[j] = linha["perguntas"+tipo_+"_descricao"];
-                        for(l = k; l < k+5; l++){
-                            var linha2 = respostas_[l];
-                            questoes.push(linha2["respostas"+tipo_+"_desc"]);
+                        questoes.push(linha[0]["perguntas"+tipo_+"_descricao"]);
+                        for(j = 0;j < 5;j++){
+                            questoes.push(linha[j]["respostas"+tipo_+"_desc"]);
                         }
                     }
+                    diff = false;
+                }
+                else{
+                    swal({
+                        title: "Oops...",
+                        html: "Erro ao trazer os slides!<br> Tente novamente mais tarde ou contacte o suporte!",
+                        type: "error",
+                        allowOutsideClick: false
+                    }).then(function() {
+                        location.reload();
+                    });
                 }
         }
     });
 }
 
+
 function salvarSlides(){
-    
-    $.ajax({
-        url: '../controllers/control_adcCtd.php?action=salvarSlides',
-        async: false,
-        type: 'POST',
-        data:{
-            conteudos_id: marcado,
-            slides: slides,
-            perguntas: questoes
+    if(salvaTXT(selecionado)) {
+        diff = true;
+        swal({
+            showConfirmButton: false,
+            title: "Salvando...",
+            text: "Aguarde um instante ;)",
+            allowOutsideClick: false,
+            onOpen: function () {
+                swal.showLoading();
+                $.ajax({
+                    url: '../controllers/control_adcCtd.php?action=salvarSlides',
+                    async: false,
+                    type: 'POST',
+                    data: {
+                        conteudos_id: marcado,
+                        slides: slides,
+                        perguntas: questoes
+                    },
+                    success: function () {
+                        diff = false;
+                        swal.close();
+                        swal({
+                            type: "success",
+                            title: "Salvo!",
+                            text: "Salvo com sucesso!",
+                            timer: 2000,
+                            showConfirmButton: false,
+                            allowOutsideClick: false
+                        });
+                    }
+                });
+
+            }
+        });
+    }
+}
+
+function getCoords(){
+    var api;
+    $('#toCrop').Jcrop({
+        minSize: [160,160],
+        aspectRatio: 1,
+        bgOpacity: 0.4,
+        addClass: 'jcrop-light',
+        onSelect: updateCoords,
+        onChange: updateCoords,
+        setSelect: [0,0,160,160]
+    });
+}
+
+function updateCoords(c){
+    $('#x').val(c.x);
+    $('#y').val(c.y);
+    $('#w').val(c.w);
+    $('#h').val(c.h);
+};
+
+function _(element){
+    if(document.getElementById(element))
+        return document.getElementById(element);
+    else
+        return false;
+}
+
+function limpaImg() {
+    $('#x').val(0);
+    $('#y').val(0);
+    $('#w').val(0);
+    $('#h').val(0);
+
+    document.getElementById("resultCrop").innerHTML = "";
+}
+
+function capaPadrao() {
+    swal({
+        showConfirmButton: false,
+        title: "Definindo capa padrão...",
+        text: "Aguarde um instante ;)",
+        allowOutsideClick: false,
+        onOpen: function () {
+            swal.showLoading();
+            $.ajax({
+                url: '../controllers/control_adcCtd.php?action=capaPadrao',
+                async: false,
+                type: 'POST',
+                success: function () {
+                    swal.close();
+                    swal({
+                        type: "success",
+                        title: "Salvo!",
+                        text: "Capa padrão definida com sucesso!",
+                        timer: 2000,
+                        showConfirmButton: false,
+                        allowOutsideClick: false
+                    });
+                }
+            });
+
         }
     });
+}
+
+function removeCapaPadrao() {
+    document.getElementById('btn-box-capa').innerHTML = ' <button type="button" class="btn btn-qmt" id="btnSalvaCapa" onclick="enviarImagem()">Salvar</button><button type="button" class="btn" data-dismiss="modal" onclick="limpaImg();">Cancelar</button>';
+}
+
+function enviarImagem(){
+    if(_('arquivo').files[0]){//Se houver um arquivo, faremos alguns testes no mesmo
+        var arquivo = _('arquivo').files[0];
+         console.log(arquivo.type);
+        if(arquivo.type != 'image/png' && arquivo.type != 'image/jpeg')
+            swal({
+               title: "Erro!",
+               text: "Selecione uma imagem JPEG ou PNG!",
+               type: "error"
+            });
+        else if(arquivo.size > 1024 * 2048)//2MB
+            swal({
+                title: "Erro!",
+                text: "Selecione uma imagem com no máximo 2MB!",
+                type: "error"
+            });
+        else{
+            var x = _('x').value;
+            var y = _('y').value;
+            var w = _('w').value;
+            var h = _('h').value;
+            var formData = new FormData();
+            formData.append('arquivo', arquivo);
+            formData.append('x', x);
+            formData.append('y', y);
+            formData.append('w', w);
+            formData.append('h', h);
+            formData.append('id_conteudo', marcado);
+
+            if(_('imgType')){
+                var imgType = _('imgType').value;
+                formData.append('imgType', imgType);
+            }
+            if(_('imgName')){
+                var imgName = _('imgName').value;
+                formData.append('imgName', imgName);
+            }
+
+            if(_('toCrop')) {
+                var includeFile = '../controllers/control_adcCtd.php?action=salvarCapa';
+            }
+            else {
+                var includeFile = '../controllers/control_adcCtd.php?action=cortarCapa';
+            }
+            swal({
+                title: "Enviando...",
+                text: "Aguarde um instante!",
+                allowOutsideClick: false,
+                showConfirmButton: false,
+                onOpen: function () {
+                    swal.showLoading();
+                    $.ajax({
+                        url: includeFile,
+                        type: 'POST',
+                        contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)
+                        processData: false, // NEEDED, DON'T OMIT THIS
+                        async: false,
+                        data: formData,
+
+                        success: function (resposta) {
+                            swal.close();
+                            if(!_('toCrop')){
+                                var resp = JSON.parse(resposta);
+                                if(resp[0] === "success") {
+                                    $("#modalCapa").modal("hide");
+                                    document.getElementById("resultCrop").innerHTML = resp[1];
+                                    $("#modalCapa2").modal("show");
+                                }
+                                else{
+                                    swal({
+                                        title: "Erro!",
+                                        text: resp[1],
+                                        type: "error"
+                                    });
+                                    return;
+                                }
+                            }
+
+                            else{
+                                var resp = JSON.parse(resposta);
+                                if(resp[0] === "success"){
+                                    document.getElementById('btn-box-capa').innerHTML = '<button type="button" class="btn" id="btnSalvaCapa" onclick="novoCorte(); enviarImagem()">Cortar novamente</button><button type="button" class="btn btn-qmt" data-dismiss="modal" onclick="limpaImg();">Salvar</button>';
+                                    document.getElementById("resultCrop").innerHTML = resp[1];
+                                    swal({
+                                        title: "Sucesso!",
+                                        text: "Upload realizado com sucesso!",
+                                        type: "success"
+                                    });
+                                }
+                            }
+                        }
+                    });
+                }
+            });
+
+        }
+    }
+    else{
+        swal({
+            title: "Erro!",
+            text: "Selecione uma imagem!",
+            type: "error"
+        });
+    }
+}
+
+function novoCorte() {
+    document.getElementById('btn-box-capa').innerHTML = ' <button type="button" class="btn btn-qmt" id="btnSalvaCapa" onclick="enviarImagem()">Salvar</button><button type="button" class="btn" data-dismiss="modal" onclick="limpaImg(); capaPadrao();">Cancelar</button>';
+}
+
+$(window).bind('beforeunload', function(e){
+    if(modo == 1 && diff == true){
+        confirmationMessage = "Quer mesmo sair da página? O módulo NÃO será salvo.";
+
+
+        e.returnValue = confirmationMessage;     // Gecko and Trident
+        return confirmationMessage;              // Gecko and WebKit;
+    }
+
+    if(numSlide < 1 || numQuestao < 1){
+        confirmationMessage = "Quer mesmo sair da página? O módulo NÃO será salvo.";
+
+
+        e.returnValue = confirmationMessage;     // Gecko and Trident
+        return confirmationMessage;              // Gecko and WebKit;
+    }
+});
+
+$(window).bind('unload', function(e){
+    //LogTime();
+
+    if(numSlide < 1 || numQuestao < 1){
+        $.ajax({
+            url: '../controllers/control_adcCtd.php?action=excluiModuloVazio',
+            data: {id:marcado},
+            type: 'post',
+            async: 'false',
+        });
+    }
+
+  //  e.returnValue = confirmationMessage;     // Gecko and Trident
+  //  return confirmationMessage;              // Gecko and WebKit;
+});
+
+function editaQuestao(id) {
+    var i = questoes.indexOf(id);
+    $(".editar-form-alt-enunciado").val(questoes[i+1]);
+    $(".editar-form-alt-1").val(questoes[i+2]);
+    $(".editar-form-alt-2").val(questoes[i+3]);
+    $(".editar-form-alt-3").val(questoes[i+4]);
+    $(".editar-form-alt-4").val(questoes[i+5]);
+    $(".editar-form-alt-5").val(questoes[i+6]);
+
+    testa_questao(1);
+
+    $(".btn-editar-nova-questao").attr("onclick", "salva_edita_questao("+id+")");
+}
+
+function salva_edita_questao(id) {
+    var i = questoes.indexOf(id);
+
+    questoes[i+1] = $(".editar-form-alt-enunciado").val();
+    questoes[i+2] = $(".editar-form-alt-1").val();
+    questoes[i+3] = $(".editar-form-alt-2").val();
+    questoes[i+4] = $(".editar-form-alt-3").val();
+    questoes[i+5] = $(".editar-form-alt-4").val();
+    questoes[i+6] = $(".editar-form-alt-5").val();
 }
 
 //JQUERY EXECUTADO NO CARREGAMENTO
@@ -634,6 +978,7 @@ jQuery(document).ready(function() {
         placeholder: 'Insira o conteúdo do slide...',
         height: 300,
         minHeight: 300,
+        lang: 'pt-BR'
     });
     $('#summernote').summernote('code', '');
     
@@ -642,16 +987,32 @@ jQuery(document).ready(function() {
     
     //DESABILITA A EDIÇÃO, HABILITA QUANDO CRIAR O SLIDE
     $('.note-editable').attr('contenteditable','false');
-    
+    $('.note-editor').css('margin-top', '30px');
+    $('.note-editor').css('display','none');
+
+    $('#msgEditor').css('display', 'block');
+    document.getElementById("msgEditor").style.marginTop = "30px";
+
     //TODA VEZ QUE PRESSIONAR UMA TECLA NO EDITOR, SALVA O TEXTO
     
     $('.panel-body').on('keyup', function(){
-        salvaTXT(selecionado);
+        salvaTXTnoMSG(selecionado);
         console.log(slides);
     })
 
     carregarConteudos();
     
+    $('.btn-new-slide').on('click', function () {
+        if(selecionado > 0){
+            if(salvaTXT(-1))
+                novoSlide();
+        }
+
+        else{
+            novoSlide();
+        }
+    });
+
     // next step
     $('.cadModulo-form .btn-next').on('click', function() {
     	var parent_fieldset = $(this).parents('fieldset');

@@ -1,7 +1,8 @@
 <?php
 session_start();
-$_SESSION['NOME'];
-$_SESSION['ID'];
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -21,45 +22,7 @@ $_SESSION['ID'];
     
 </head>
 <body>
-    <div class="container-fluid">
-        <nav class="navbar navbar-default navbar-fixed-top" style="background-color: #ccc">        
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#"><img src="../imagens/logoQuim.png" width="200px"></a>
-            </div>
-			
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right" style="padding-right:10px;">
-                    <li class="active"><a href="#">Curso</a></li>
-					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Menu<span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="#"><span class="glyphicon glyphicon-blackboard"></span>     Sala</a></li>
-							<li><a href="#"><span class="glyphicon glyphicon-user"></span>     Perfil</a></li>
-							<li><a href="#"><span class="glyphicon glyphicon-edit"></span>     Curso</a></li>
-							<li><a href="#"><span class="glyphicon glyphicon-time"></span>     Competir</a></li>
-							<li><a href="#"><span class="glyphicon glyphicon-cog"></span>     Sobre</a></li>
-							<li><a href="#"><span class="glyphicon glyphicon-log-out"></span>     Sair</a></li>
-						</ul>
-					</li>
-					<li><a href="#">Sobre</a></li>
-					<li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span><span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#"><span class="glyphicon glyphicon-wrench"></span>     Editar perfil</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-log-out"></span>     Sair</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-			<!--FINAL DA BARRA DE NAVEGAÇÃO SUPERIOR-->						
-        </nav>		
-	</div>		  
+    
 		  
 	<!--CONTEÚDO DA PÁGINA-->
 	
@@ -67,7 +30,11 @@ $_SESSION['ID'];
 		<div class="panel panel-primary">
 			
 			<div class="panel-heading">
-						<center>Ranking</center>
+						<center>Ranking 
+						
+						
+						
+						</center>
 			</div>
 			
 			<div class="panel-body">
@@ -79,16 +46,12 @@ $_SESSION['ID'];
 								<span class="pull-right"> Facil</span><br>
 						</div>	
 						<div class="panel-footer">
-                            <span class="pull-left">usuario 1 </span>
-                            <span class="pull-right"> Pontos</span><br>
-							<span class="pull-left">usuario 1 </span>
-                            <span class="pull-right"> Pontos</span><br>
-							<span class="pull-left">usuario 1 </span>
-                            <span class="pull-right"> Pontos</span><br>
-							<span class="pull-left">usuario 1 </span>
-                            <span class="pull-right"> Pontos</span><br>
-							<span class="pull-left">usuario 1 </span>
-                            <span class="pull-right"> Pontos</span><br>
+                            <span class="pull-left">usuarios </span>                            <span class="pull-right"> Pontos</span><br>
+							<span class="pull-left"> </span>                            <span class="pull-right"> <?php include_once("../controllers/control_rank.php");?></span><br>
+							<span class="pull-left"> </span>                            <span class="pull-right"> </span><br>
+							<span class="pull-left"> </span>                            <span class="pull-right"> </span><br>
+							<span class="pull-left"> </span>                            <span class="pull-right"> </span><br>
+							<span class="pull-left"></span>                            <span class="pull-right"> </span><br>
                         </div>						
 					</div>
 				</div>
@@ -102,16 +65,12 @@ $_SESSION['ID'];
 								<span class="pull-right"> Medio</span><br>
 						</div>	
 						<div class="panel-footer">
-                            <span class="pull-left">usuario 1 </span>
-                            <span class="pull-right"> Pontos</span><br>
-							<span class="pull-left">usuario 1 </span>
-                            <span class="pull-right"> Pontos</span><br>
-							<span class="pull-left">usuario 1 </span>
-                            <span class="pull-right"> Pontos</span><br>
-							<span class="pull-left">usuario 1 </span>
-                            <span class="pull-right"> Pontos</span><br>
-							<span class="pull-left">usuario 1 </span>
-                            <span class="pull-right"> Pontos</span><br>
+                            <span class="pull-left">usuarios </span>                            <span class="pull-right"> Pontos</span><br>
+							<span class="pull-left"> </span>                            <span class="pull-right"> <?php include_once("rank/control_rank_medio.php");?></span><br>
+							<span class="pull-left"> </span>                            <span class="pull-right"> </span><br>
+							<span class="pull-left"> </span>                            <span class="pull-right"> </span><br>
+							<span class="pull-left"> </span>                            <span class="pull-right"> </span><br>
+							<span class="pull-left"></span>                            <span class="pull-right"> </span><br>
                         </div>						
 					</div>
 				</div>
@@ -125,16 +84,12 @@ $_SESSION['ID'];
 								<span class="pull-right"> Dificil</span><br>
 						</div>	
 						<div class="panel-footer">
-                            <span class="pull-left">usuario 1 </span>
-                            <span class="pull-right"> Pontos</span><br>
-							<span class="pull-left">usuario 1 </span>
-                            <span class="pull-right"> Pontos</span><br>
-							<span class="pull-left">usuario 1 </span>
-                            <span class="pull-right"> Pontos</span><br>
-							<span class="pull-left">usuario 1 </span>
-                            <span class="pull-right"> Pontos</span><br>
-							<span class="pull-left">usuario 1 </span>
-                            <span class="pull-right"> Pontos</span><br>
+                            <span class="pull-left">usuarios </span>                            <span class="pull-right"> Pontos</span><br>
+							<span class="pull-left"> </span>                            <span class="pull-right"> <?php include_once("rank/control_rank_dificil.php");?></span><br>
+							<span class="pull-left"> </span>                            <span class="pull-right"> </span><br>
+							<span class="pull-left"> </span>                            <span class="pull-right"> </span><br>
+							<span class="pull-left"> </span>                            <span class="pull-right"> </span><br>
+							<span class="pull-left"></span>                            <span class="pull-right"> </span><br>
                         </div>						
 					</div>
 				</div>

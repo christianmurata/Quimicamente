@@ -1,13 +1,9 @@
 <?php
-	include_once ".../Quimicamente/models/suporte.php";
-	include_once "../Quimicamente/models/entidades.php";
+	$pergunta[0] = "Essa é para ser a pergunta número 1!";
+	$pergunta[1] = "Essa é para ser a pergunta número 2!";
+	$pergunta[2] = "Essa é para ser a pergunta número 3!";
+	$pergunta[3] = "Essa é para ser a pergunta número 4!";
+	$pergunta[5] = "Essa é para ser a pergunta número 5!";
 	
-	$resultado = "SELECT perguntas_descricao FROM perguntas;";
-
-	while($fetch = pg_fetch_array($resultado)){
-		$perguntas[] = $fetch['mostraPergunta'];
-	} 
-	
-	print_r($perguntas);
-	
+	$contador[5];
 ?>

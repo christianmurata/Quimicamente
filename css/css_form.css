@@ -20,17 +20,19 @@
 .f1-icon:active, .f1-icon:hover {
 	background-color: #aaa;
 }
-#tipo{
-	height: 325px;
-	width: 100%;
-	border-right: 1px solid #aaa;
-	background-color: transparent;
-}
+
 @media(max-width: 992px){
+	#tipo{
+		height: 325px;
+		width: 100%;
+		padding-bottom: 50px;
+		background-color: transparent;
+	}
 	#form{
 		width: 100%;
 		height: auto;
 		float: center;
+		position: relative;
 	}
 	#fields{
 		width:100%;
@@ -41,9 +43,16 @@
 	}
 }
 @media(min-width: 992px){
+	#tipo{
+		height: 325px;
+		width: 100%;
+		border-right: 1px solid #aaa;
+		background-color: transparent;
+	}
 	#form{
 		width: 100%;
 		height: auto;
+		position: relative;
 	}
 	#fields{
 		width:85%;
@@ -52,9 +61,16 @@
 		background-color:transparent;
 		border-radius: 10px;
 	}
+
 }
 #centro{
 	float: center;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-align-items: center;
+	align-items: center;
+	-webkit-justify-content: center;
+	justify-content: center;
 }
 #big{
 	width:100%;
@@ -103,6 +119,10 @@
 	height: 1px; 
 	margin-top: 1px;
 	color: red;
+}
+
+.panel{
+	overflow: hidden;
 }
 /*Radio Button e Checkbox*/
 	input[type="checkbox"],

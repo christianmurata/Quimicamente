@@ -1,10 +1,11 @@
 <?php
+session_start();
 //conteudo
 include "modelpaginacurso.php";
 //perguntas
 include "modelbuscarperguntas.php";
 
-
+$idusuario = $_SESSION['login'];
 $idconteudo = $_GET['conteudos_id'];
 
 //perguntas

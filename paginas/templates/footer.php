@@ -1,3 +1,7 @@
+<!--<link href="../css/footer.css" rel="stylesheet">-->
+<!--<link rel="stylesheet" href="../css/style.css"/>-->
+<link rel="stylesheet" href="../assets/font-awesome/css/font-awesome.css">
+<link rel="stylesheet" href="../css/footer.css"/>
 <footer id="footer" class="hidden-xs">
 	<ul class="icons">
 		<li><a href="https://www.facebook.com/cti.unesp.bauru/?fref=ts" target="_blank">Facebook</a><br></li>
@@ -10,10 +14,10 @@
 		<li><a href="https://twitter.com/QuarkzTech" target="_blank"><div class="f1-icon"><i class="fa fa-twitter"></i></div></a></li>
 	</ul>
 		<div class="container">
-					<ul class="copyright">
-						<li>&copy; 2017 Quimicamente </li>
-						<li>Desenvolvido por: Quarkz Technology </li> 
-					</ul>
+			<ul class="copyright">
+				<li>&copy; 2017 Quimicamente </li>
+				<li>Desenvolvido por: Quarkz Technology </li> 
+			</ul>
 		</div>
 	</footer>
 	<footer id="footer" class="visible-xs">
