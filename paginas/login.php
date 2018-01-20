@@ -30,14 +30,14 @@
 <body>
 	<?php include 'templates/nav.php'; ?>
 	<section id="banner">
-			<center>
-				<h1 class="pad"> &nbsp; </h1><br>
-				<!--<p> Faça o login para ter acesso a todo contéudo do site </p>-->
+		<center>
+			<h1 class="pad"> &nbsp; </h1><br>
+			<!--<p> Faça o login para ter acesso a todo contéudo do site </p>-->
 			<div id="login">
 				<form name ="frmLogin" action="" method="POST" onsubmit="return login();">
 					<input type="text" name="email" id="txtEmail" placeholder="Email" class="form-control animated fadeInLeft" required/><br>
 					<input type="password" name="senha" id="txtSenha" placeholder="Senha" class="form-control animated fadeInRight" required/>
-					<div class="animated fadeInLeft"><a href="" class="b">Esqueci minha senha</a><br><br></div>
+					<div class="animated fadeInLeft"><a href="recuperacao.php" class="b">Esqueci minha senha</a><br><br></div>
 					<input type="submit" class="special big total animated fadeInUp" Value="Login"/>
 				</form>
 			</div>

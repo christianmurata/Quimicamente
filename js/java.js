@@ -309,6 +309,11 @@ $(document).ready(function(){
 		$(this).val(str);
 	})
 
+	//Botão que redireciona para index
+	$('body').on('click', 'input[href="/index"]', function(){
+		window.location.href = "http://200.145.153.172/quarkz/Quimicamente/paginas/index.php";
+	})
+
 	//função loading
 	if(document.getElementById("mae")){
 		// ESCONDE O CONTEUDO
